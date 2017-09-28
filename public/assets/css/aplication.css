@@ -1,0 +1,192 @@
+
+.page-header h1 {
+    padding: 0;
+    margin: 0 8px;
+    font-size: 24px;
+    font-weight: lighter;
+    color: #723098;
+}
+
+
+.dataTables_wrapper .row:last-child {
+    border-bottom: 1px solid #e0e0e0;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    /*background-color: #EFF3F8;*/
+}
+
+.dataTables_wrapper .row:first-child {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    /*background-color: #EFF3F8;*/
+}
+
+.navbar {
+    margin: 0;
+    padding-left: 0;
+    padding-right: 0;
+    border-width: 0;
+    border-radius: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    min-height: 45px;
+    background: #723098;
+}
+
+.breadcrumb>li>a {
+    color: #723098;
+}
+
+.green {
+    color: #01903e!important;
+}
+
+.purple {
+    color: #723098!important;
+}
+
+.ace-nav>li.purple>a {
+    background-color: #723098;
+}
+
+.ace-nav>li.open.purple>a, .ace-nav>li.purple>a:focus, .ace-nav>li.purple>a:hover {
+    background-color: #75528a;
+}
+
+.no-skin .nav-list>li.active>a {
+    font-weight: 700;
+    color: #723098;
+}
+
+.no-skin .nav-list li.active>a:after {
+    border-right-color: #723098;
+}
+
+.no-skin .nav-list>li.active:after {
+    display: block;
+    content: "";
+    position: absolute;
+    right: -2px;
+    top: -1px;
+    bottom: 0;
+    z-index: 1;
+    border: 2px solid #723098;
+    border-width: 0 2px 0 0;
+}
+
+.no-skin .nav-list>li:hover>a {
+    background-color: #FFF;
+    color: #9d6abe;
+}
+
+.table-header {
+    background-color: #723098;
+    color: #FFF;
+    font-size: 14px;
+    line-height: 38px;
+    padding-left: 12px;
+    margin-bottom: 1px;
+}
+
+.no-skin .nav-list>li .submenu>li.active>a {
+    color: #723098;
+}
+
+.no-skin .nav-list>li .submenu>li.active>a>.menu-icon {
+    color: #01903e;
+}
+
+.no-skin .nav-list>li .submenu>li>a:hover {
+    color: #723098;
+    background-color: #F1F5F9;
+}
+
+.nav-search .nav-search-input {
+    border: 1px solid #723098;
+    width: 152px;
+    height: 28px!important;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    border-radius: 4px!important;
+    font-size: 13px;
+    line-height: 1.3;
+    color: #666!important;
+    z-index: 11;
+    -webkit-transition: width ease .15s;
+    -o-transition: width ease .15s;
+    transition: width ease .15s;
+}
+
+.pagination>li.active>a, .pagination>li.active>a:focus, .pagination>li.active>a:hover {
+    background-color: #2e8965;
+    border-color: #6fd972;
+    color: #FFF;
+    text-shadow: 0 -1px 0 rgba(0,0,0,.25);
+    z-index: 2;
+}
+
+input[type=email]:focus, input[type=url]:focus, input[type=search]:focus, input[type=tel]:focus, input[type=color]:focus,
+input[type=text]:focus, input[type=password]:focus, input[type=datetime]:focus, input[type=datetime-local]:focus,
+input[type=date]:focus, input[type=month]:focus, input[type=time]:focus, input[type=week]:focus, input[type=number]:focus,
+textarea:focus {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    color: #696969;
+    /* border-color: #F59942; */
+    background-color: #FFF;
+    outline: 0;
+}
+
+.form-control:focus, select:focus {
+    color: #696969;
+    /* border-color: #F59942; */
+    background-color: #FFF;
+    outline: 0;
+}
+
+.page-content {
+    background-color: rgba(204, 204, 204, 0);
+    position: relative;
+    margin: 0;
+    padding: 8px 20px 24px;
+}
+
+.alert, .thumbnail {
+    margin: 2px 0 3px 0;
+
+}
+
+.login-box .toolbar {
+    background: #723098;
+    border-top: 2px solid #9585bf;
+}
+
+.light-login {
+    background: url(images/pattern.jpg) rgba(223, 224, 226, 0);
+}
+
+.light-login .widget-box {
+    padding: 1px 1px 0;
+    -webkit-box-shadow: 0 0 2px 1px rgba(0,0,0,.12);
+    box-shadow: 4px 5px 3px 2px rgba(0, 0, 0, 0.27);
+    border-bottom: 1px solid rgba(50, 50, 50, 0.69);
+}
+
+.footer-inner .behind_container {
+    position: relative;
+    top:-100px;
+    margin-bottom: -85px;
+    z-index: -1;
+}
+.footer-inner .behind {
+    display: block;
+    z-index: 1;
+}
+
+/*.ace-nav>li.light-blue>a {
+    background-color: #8753a5;
+}
+
+.ace-nav>li.light-blue>a:focus, .ace-nav>li.light-blue>a:hover, .ace-nav>li.open.light-blue>a {
+    background-color: #8753a5;
+}*/
