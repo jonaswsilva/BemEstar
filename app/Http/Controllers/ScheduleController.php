@@ -31,10 +31,12 @@ class ScheduleController extends Controller
     // ->join('person', 'professionals.person_id', '=', 'person.id')
     // ->pluck('person.name','professionals.id');
     // dd($professional);
-    $professional = Professional::all();
+    $professionals = DB::table('professionals')
+    ->join('person', 'professionals.person_id', '=', 'person.id')
+    ->pluck('person.name','professionals.id');
     //dd($professional);
     return View::make('schedules.create')
-                    ->with(compact('professional'))
+                    ->with(compact('professionals'))
                     ->with(['button'=>'Salvar']);
   }
 
@@ -97,7 +99,7 @@ class ScheduleController extends Controller
 
   }
 
-  
+
   public function destroy($id)
   {
     //

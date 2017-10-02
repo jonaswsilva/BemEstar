@@ -32,8 +32,11 @@
 <div class="form-group">
   {!!  Form::label('form-field-1', 'Hora: ', ['class' => 'col-sm-3 control-label no-padding-right'])  !!}
   <div class="col-sm-9">
-  {!! Form::time('hour', @$medicalappointment->hour, ['class' => 'col-xs-10 col-sm-5']) !!}
-</div>
+    {!! Form::text('hour', @$medicalappointment->hour, ['class' => 'col-xs-10 col-sm-5 hour', 'id'=>'timepicker1', 'placeholder' => 'Hora...'])	 !!}
+    @if($errors->any())
+    <div class="red darken-4">&nbsp &nbsp{!! $errors->first('hour') !!}</div>
+    @endif
+  </div>
 </div>
 
 <div class="form-group">
