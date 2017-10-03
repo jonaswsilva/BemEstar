@@ -6,25 +6,27 @@
 <div class="col-xs-12">
   <!-- PAGE CONTENT BEGINS -->
 
-  <div class="hr hr-18 hr-double dotted"></div>
-
   <div class="widget-box">
     <div class="widget-header widget-header-purple widget-header-flat">
       <h4 class="widget-title lighter">Avaliação Postural</h4>
 
     </div>
-
+<div class="hr hr-18 hr-double dotted"></div>
     <div class="row">
         <div class=" hr-18"></div>
-    {!! Form::open(['class' => 'form-horizontal']) !!}
-    <div class="form-group">
-      {!!  Form::label('form-field-1', 'Paciente: ', ['class' => 'col-sm-3 control-label no-padding-right'])  !!}
-      <div class="col-sm-9">
-        {!! Form::text('patient_name', $medicalappointment->patient->person->name, ['disabled'=>'disabled','class' => 'col-xs-10 col-sm-5']) !!}
+        <div class="col-6 col-sm-4">{!!  Form::label('form-field-1', 'Paciente: ', ['class' => 'col-sm-3 control-label no-padding-right'])  !!}{!! Form::text('patient_name', $medicalappointment->patient->person->name, ['disabled'=>'disabled','class' => 'col-xs-10 col-sm-5']) !!}</div>
+        <div class="col-6 col-sm-4">{!!  Form::label('form-field-1', 'Rg: ', ['class' => 'col-sm-3 control-label no-padding-right'])  !!}{!! Form::text('patient_cpf', $medicalappointment->patient->person->rg, ['disabled'=>'disabled','class' => 'col-xs-10 col-sm-5']) !!}</div>
+        <div class="col-6 col-sm-4">{!!  Form::label('form-field-1', 'Cpf: ', ['class' => 'col-sm-3 control-label no-padding-right'])  !!}{!! Form::text('patient_cpf', $medicalappointment->patient->person->cpf, ['disabled'=>'disabled','class' => 'col-xs-10 col-sm-5']) !!}</div>
       </div>
-    </div>
-    {!! Form::close() !!}
-    </div>
+
+      <div class="row">
+          <div class=" hr-18"></div>
+          <div class="col-6 col-sm-5">{!!  Form::label('form-field-1', 'Professional: ', ['class' => 'col-sm-3 control-label no-padding-right'])  !!}{!! Form::text('patient_name', $medicalappointment->professional->person->name, ['disabled'=>'disabled','class' => 'col-xs-10 col-sm-5']) !!}</div>
+          <div class="col-6 col-sm-4">{!!  Form::label('form-field-1', 'CRM: ', ['class' => 'col-sm-3 control-label no-padding-right'])  !!}{!! Form::text('patient_cpf', $medicalappointment->professional->crm, ['disabled'=>'disabled','class' => 'col-xs-10 col-sm-5']) !!}</div>
+        </div>
+
+<div class="hr hr-18 hr-double dotted"></div>
+
     <div class="widget-body">
       <div class="widget-main">
         <div id="fuelux-wizard-container">

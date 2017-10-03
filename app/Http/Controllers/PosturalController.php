@@ -32,11 +32,10 @@ class PosturalController extends Controller
         //dd($medicalappointment->patient_id);
         $avaliation = Postural::where('medicalappointment_id', '=' , $medicalappointment->id)->first();
         if ($avaliation === null){
-        return view('postural.create')
+          return view('postural.create')
                     ->with(compact('medicalappointment'));
         }else{
-          
-          return Redirect::to('postural/'.$postural->id);
+          return $this->show($avaliation->id);
         }
     }
 
@@ -94,6 +93,7 @@ class PosturalController extends Controller
     public function show($id)
     {
       $postural = Postural::find($id);
+      //dd($postural);
       return View::make('postural.show',compact('postural'));
     }
 

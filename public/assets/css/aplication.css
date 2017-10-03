@@ -183,6 +183,11 @@ textarea:focus {
     z-index: 1;
 }
 
+.no-skin .nav-list>li.open>a {
+    background-color: #FAFAFA;
+    color: #723098;
+}
+
 /*.ace-nav>li.light-blue>a {
     background-color: #8753a5;
 }
