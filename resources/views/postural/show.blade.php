@@ -47,7 +47,7 @@
         </div>
 
         <div class="grid2">
-          <a class="btn btn-primary" href="{{ URL::to('posturals/'. $postural->id .'/edit') }}"><i class="ace-icon fa fa-pencil bigger-110"></i>Editar</a>
+          <a class="btn btn-primary" href="{{ URL::to('postural/'. $postural->id .'/edit') }}"><i class="ace-icon fa fa-pencil bigger-110"></i>Editar</a>
         </div>
       </div>
 
@@ -290,7 +290,7 @@
           <div class="profile-info-name"> Cabeça: </div>
 
           <div class="profile-info-value">
-            <span class="editable" id="login">{{ $postural->heada }}</span>
+            <span class="editable" id="login">{{ $postural->headl }}</span>
           </div>
         </div>
 
@@ -298,7 +298,7 @@
           <div class="profile-info-name"> Cervical: </div>
 
           <div class="profile-info-value">
-            <span class="editable" id="login">{{ $postural->clava }}</span>
+            <span class="editable" id="login">{{ $postural->cervc }}</span>
           </div>
         </div>
 
@@ -306,7 +306,7 @@
           <div class="profile-info-name"> Ombros: </div>
 
           <div class="profile-info-value">
-            <span class="editable" id="login">{{ $postural->clava }}</span>
+            <span class="editable" id="login">{{ $postural->ombr }}</span>
           </div>
         </div>
 
@@ -314,7 +314,7 @@
           <div class="profile-info-name"> MS: </div>
 
           <div class="profile-info-value">
-            <span class="editable" id="login">{{ $postural->clava }}</span>
+            <span class="editable" id="login">{{ $postural->ms }}</span>
           </div>
         </div>
 
@@ -322,7 +322,7 @@
           <div class="profile-info-name"> Abdomem: </div>
 
           <div class="profile-info-value">
-            <span class="editable" id="login">{{ $postural->clava }}</span>
+            <span class="editable" id="login">{{ $postural->abdo }}</span>
           </div>
         </div>
 
@@ -330,7 +330,7 @@
           <div class="profile-info-name"> Dorsal: </div>
 
           <div class="profile-info-value">
-            <span class="editable" id="login">{{ $postural->clava }}</span>
+            <span class="editable" id="login">{{ $postural->dorsal }}</span>
           </div>
         </div>
 
@@ -338,7 +338,7 @@
           <div class="profile-info-name"> Lombar: </div>
 
           <div class="profile-info-value">
-            <span class="editable" id="login">{{ $postural->clava }}</span>
+            <span class="editable" id="login">{{ $postural->lombar }}</span>
           </div>
         </div>
 
@@ -346,7 +346,7 @@
           <div class="profile-info-name"> Pelve: </div>
 
           <div class="profile-info-value">
-            <span class="editable" id="login">{{ $postural->clava }}</span>
+            <span class="editable" id="login">{{ $postural->pelve }}</span>
           </div>
         </div>
 
@@ -354,7 +354,7 @@
           <div class="profile-info-name"> Joelho: </div>
 
           <div class="profile-info-value">
-            <span class="editable" id="login">{{ $postural->clava }}</span>
+            <span class="editable" id="login">{{ $postural->joelh }}</span>
           </div>
         </div>
 
@@ -362,7 +362,7 @@
           <div class="profile-info-name"> Médio-Pé: </div>
 
           <div class="profile-info-value">
-            <span class="editable" id="login">{{ $postural->clava }}</span>
+            <span class="editable" id="login">{{ $postural->medp }}</span>
           </div>
         </div>
 
