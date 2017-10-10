@@ -1,12 +1,12 @@
-<?php $menu_open = 'active open'; $nav_pat = 'active'; ?>
+<?php $nav_con = 'active'; $menuc_open = 'active open'; ?>
 @extends('layout/layout')
 
 @section('content')
 
 <div class="row">
   <div class="col-lg-12 margin-tb">
-    <div class="pull-left">
-      <h3 class="header smaller lighter blue">Dados da Consulta</h3>
+    <div>
+      <h3 class="header smaller lighter purple">Dados da Consulta</h3>
     </div>
 
 
@@ -14,6 +14,7 @@
 
       <div class="btn-toolbar inline middle no-margin">
         <div data-toggle="buttons" class="btn-group no-margin">
+          <a class="btn btn-info pull-right" href="{{ URL::to('medicalappointments/'. $medicalappointment->id .'/pdf') }}"><i class="ace-icon fa fa-file bigger-110"></i>PDF</a>
 
 
         </div>
@@ -51,8 +52,7 @@
           </div>
         </div>
 
-        <div class="hr hr12 dotted"></div>
-        <a class="btn btn-info" href="{{ URL::to('medicalappointments/'. $medicalappointment->id .'/pdf') }}"><i class="ace-icon fa fa-file bigger-110"></i>PDF</a>
+
 
 
       </div>
@@ -64,7 +64,7 @@
 
         <div class="profile-user-info profile-user-info-striped">
           <div class="profile-info-row">
-            <div class="profile-info-name"> Id </div>
+            <div class="profile-info-name"> Id Consulta</div>
 
             <div class="profile-info-value">
               <span class="editable" id="username">{{ $medicalappointment->id }}</span>
@@ -120,13 +120,13 @@
         <div class="space-12"></div>
 
         <div class="profile-user-info profile-user-info-striped">
-          <div class="profile-info-row">
-            <div class="profile-info-name"> Id </div>
+          <!-- <div class="profile-info-row">
+            <div class="profile-info-name"> Id Avaliação</div>
 
             <div class="profile-info-value">
               <span class="editable" id="username">{{ $postural->id }}</span>
             </div>
-          </div>
+          </div> -->
 
           <div class="profile-info-row">
             <div class="profile-info-name"> Anamnese: </div>

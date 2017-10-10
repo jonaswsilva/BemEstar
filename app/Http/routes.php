@@ -46,6 +46,9 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('postural/avaliation/{id}','PosturalController@avaliation');
     Route::resource('postural','PosturalController');
 
+    Route::get('neurological/avaliation/{id}','NeurologicalController@avaliation');
+    Route::resource('neurological','NeurologicalController');
+
     Route::resource('contract','ContractController');
 
     Route::resource('users','UsersController');

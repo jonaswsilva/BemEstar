@@ -1,16 +1,16 @@
-<?php $menu_open = 'active open'; $nav_pat = 'active'; ?>
+<?php $nav_con = 'active'; $menuc_open = 'active open'; ?>
 @extends('layout/layout')
 
 @section('content')
 
 <div class="row">
   <div class="col-lg-12 margin-tb">
-    <div class="pull-left">
-      <h3 class="header smaller lighter blue">Avaliação Postural {{ $postural->medicalappointment->patient->person->name }}</h3>
+    <div>
+      <h3 class="header smaller lighter purple">Avaliação Postural {{ $postural->medicalappointment->patient->person->name }}</h3>
     </div>
 
 
-    <div class="pull-right">
+    <!-- <div class="pull-right">
 
       <div class="btn-toolbar inline middle no-margin">
         <div data-toggle="buttons" class="btn-group no-margin">
@@ -18,10 +18,10 @@
 
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 </div>
-<div class="hr dotted"></div>
+
 <div>
   <div id="user-profile-1" class="user-profile row">
     <div class="col-xs-12 col-sm-3 center">
@@ -50,6 +50,7 @@
           <a class="btn btn-primary" href="{{ URL::to('postural/'. $postural->id .'/edit') }}"><i class="ace-icon fa fa-pencil bigger-110"></i>Editar</a>
         </div>
       </div>
+
 
 
     </div>

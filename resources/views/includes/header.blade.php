@@ -282,7 +282,7 @@
         @endif
         <li class="dropdown-modal purple">
           <a data-toggle="dropdown" href="#" class="dropdown-toggle">
-            <img class="nav-user-photo" src="assets/images/avatars/{{ Auth::user()->avatar }}" alt="{{ Auth::user()->name}} avatar" />
+            <img class="nav-user-photo" src="{{ asset('/assets/images/avatars/'.Auth::user()->avatar) }}" alt="{{ Auth::user()->name}} avatar" />
             <span class="user-info">
               <small>Olá,</small>
               {{ Auth::user()->name }}
