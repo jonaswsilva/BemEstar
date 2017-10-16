@@ -15,7 +15,7 @@ class CreateNeurologicalsTable extends Migration
         Schema::create('neurologicals', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('medicalappointment_id');
-            $table->string('histp');
+            $table->string('histp')->nullable();
             $table->string('hista');
             $table->string('histf');
             $table->string('focf');
@@ -30,6 +30,8 @@ class CreateNeurologicalsTable extends Migration
             $table->string('testc');
             $table->string('mobil');
             $table->string('estab');
+            $table->string('march');
+            $table->string('estabh');
             $table->string('caracd');
             $table->string('motf');
             $table->string('mao');
@@ -37,7 +39,7 @@ class CreateNeurologicalsTable extends Migration
             $table->string('abad');
             $table->string('rotie');
             $table->string('extfc');
-            $table->string('extp');
+            $table->string('extefp');
             $table->string('pros');
             $table->string('extfq');
             $table->string('abadq');

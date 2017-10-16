@@ -20,25 +20,32 @@ class PosturalController extends Controller
     }
 
 
-    public function create()
+    public function create($id)
     {
-
-        return view('postural.create');
+      $medicalappointment = MedicalAppointment::findOrFail($id);
+      //dd($medicalappointment->patient_id);
+      $avaliation = Postural::where('medicalappointment_id', '=' , $medicalappointment->id)->first();
+      if ($avaliation === null){
+        return view('postural.create')
+                  ->with(compact('medicalappointment'));
+      }else{
+        return $this->show($avaliation->id);
+      }
     }
 
-    public function avaliation($id)
-    {
-
-        $medicalappointment = MedicalAppointment::findOrFail($id);
-        //dd($medicalappointment->patient_id);
-        $avaliation = Postural::where('medicalappointment_id', '=' , $medicalappointment->id)->first();
-        if ($avaliation === null){
-          return view('postural.create')
-                    ->with(compact('medicalappointment'));
-        }else{
-          return $this->show($avaliation->id);
-        }
-    }
+    // public function avaliation($id)
+    // {
+    //
+    //     $medicalappointment = MedicalAppointment::findOrFail($id);
+    //     //dd($medicalappointment->patient_id);
+    //     $avaliation = Postural::where('medicalappointment_id', '=' , $medicalappointment->id)->first();
+    //     if ($avaliation === null){
+    //       return view('postural.create')
+    //                 ->with(compact('medicalappointment'));
+    //     }else{
+    //       return $this->show($avaliation->id);
+    //     }
+    // }
 
 
     public function store(Request $request)

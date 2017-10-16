@@ -4,9 +4,9 @@
 
       <div class="form-group">
         {!! Form::label('histp', 'História da moléstia pregresa: ', ['class' => 'col-sm-3 control-label no-padding-right']) !!}
-        <div class="col-xs-12 col-sm-9">
+        <div class="col-sm-9">
           <div class="clearfix">
-            {!! Form::textarea('histp', @$neurological->histp, ['class' => 'input-xlarge', 'size' => '30x3','id' => 'comment']) !!}
+            {!! Form::textarea('histp', @$neurological->histp, ['size' => '20x3','class' => 'col-xs-10 col-sm-8']) !!}
           </div>
         </div>
         @if($errors->any())
@@ -16,9 +16,9 @@
 
       <div class="form-group">
         {!! Form::label('hista', 'História da moléstia atual: ', ['class' => 'col-sm-3 control-label no-padding-right']) !!}
-        <div class="col-xs-12 col-sm-9">
+        <div class="col-sm-9">
           <div class="clearfix">
-            {!! Form::textarea('hista', @$neurological->hista, ['class' => 'input-xlarge', 'size' => '30x3','id' => 'comment']) !!}
+            {!! Form::textarea('hista', @$neurological->hista, ['size' => '20x3','class' => 'col-xs-10 col-sm-8']) !!}
           </div>
         </div>
         @if($errors->any())
@@ -28,9 +28,9 @@
 
       <div class="form-group">
         {!! Form::label('histf', 'História da moléstia familiar: ', ['class' => 'col-sm-3 control-label no-padding-right']) !!}
-        <div class="col-xs-12 col-sm-9">
+        <div class="col-sm-9">
           <div class="clearfix">
-            {!! Form::textarea('histf', @$neurological->histf, ['class' => 'input-xlarge', 'size' => '30x3','id' => 'comment']) !!}
+            {!! Form::textarea('histf', @$neurological->histf, ['size' => '20x3','class' => 'col-xs-10 col-sm-8']) !!}
           </div>
         </div>
         @if($errors->any())
@@ -40,9 +40,9 @@
 
       <div class="form-group">
         {!! Form::label('focf', 'Foco principal da conduta fisioterapêutica: ', ['class' => 'col-sm-3 control-label no-padding-right']) !!}
-        <div class="col-xs-12 col-sm-9">
+        <div class="col-sm-9">
           <div class="clearfix">
-            {!! Form::textarea('focf', @$neurological->focf, ['class' => 'input-xlarge', 'size' => '30x3','id' => 'comment']) !!}
+            {!! Form::textarea('focf', @$neurological->focf, ['size' => '20x3','class' => 'col-xs-10 col-sm-8']) !!}
           </div>
         </div>
         @if($errors->any())
@@ -58,9 +58,9 @@
 
       <div class="form-group">
         {!! Form::label('foml', 'Forma de locomoção (ao primeiro contato): ', ['class' => 'col-sm-3 control-label no-padding-right']) !!}
-        <div class="col-xs-12 col-sm-9">
+        <div class="col-sm-9">
           <div class="clearfix">
-            {!! Form::textarea('foml', @$neurological->foml, ['class' => 'input-xlarge', 'size' => '30x3','id' => 'comment']) !!}
+            {!! Form::textarea('foml', @$neurological->foml, ['size' => '20x3','class' => 'col-xs-10 col-sm-8']) !!}
           </div>
         </div>
         @if($errors->any())
@@ -104,9 +104,9 @@
 
       <div class="form-group">
         {!! Form::label('padrm', 'Padrão motor predominante: ', ['class' => 'col-sm-3 control-label no-padding-right']) !!}
-        <div class="col-xs-12 col-sm-9">
+        <div class="col-sm-9">
           <div class="clearfix">
-            {!! Form::textarea('padrm', @$neurological->padrm, ['class' => 'input-xlarge', 'size' => '30x3','id' => 'comment']) !!}
+            {!! Form::textarea('padrm', @$neurological->padrm, ['size' => '20x3','class' => 'col-xs-10 col-sm-8']) !!}
           </div>
         </div>
         @if($errors->any())
@@ -116,9 +116,9 @@
 
       <div class="form-group">
         {!! Form::label('condp', 'Condições da Pele: ', ['class' => 'col-sm-3 control-label no-padding-right']) !!}
-        <div class="col-xs-12 col-sm-9">
+        <div class="col-sm-9">
           <div class="clearfix">
-            {!! Form::textarea('condp', @$neurological->condp, ['class' => 'input-xlarge', 'size' => '30x3','id' => 'comment']) !!}
+            {!! Form::textarea('condp', @$neurological->condp, ['size' => '20x3','class' => 'col-xs-10 col-sm-8']) !!}
           </div>
         </div>
         @if($errors->any())
@@ -136,9 +136,9 @@
 
       <div class="form-group">
         {!! Form::label('tonb', 'Tônus de base: ', ['class' => 'col-sm-3 control-label no-padding-right']) !!}
-        <div class="col-xs-12 col-sm-9">
+        <div class="col-sm-9">
           <div class="clearfix">
-            {!! Form::textarea('tonb', @$neurological->tonb, ['class' => 'input-xlarge', 'size' => '30x3','id' => 'comment']) !!}
+            {!! Form::textarea('tonb', @$neurological->tonb, ['size' => '20x3','class' => 'col-xs-10 col-sm-8']) !!}
           </div>
         </div>
         @if($errors->any())
@@ -148,9 +148,9 @@
 
       <div class="form-group">
         {!! Form::label('distt', 'Distribuição topográfica: ', ['class' => 'col-sm-3 control-label no-padding-right']) !!}
-        <div class="col-xs-12 col-sm-9">
+        <div class="col-sm-9">
           <div class="clearfix">
-            {!! Form::textarea('distt', @$neurological->distt, ['class' => 'input-xlarge', 'size' => '30x3','id' => 'comment']) !!}
+            {!! Form::textarea('distt', @$neurological->distt, ['size' => '20x3','class' => 'col-xs-10 col-sm-8']) !!}
           </div>
         </div>
         @if($errors->any())
@@ -160,9 +160,9 @@
 
       <div class="form-group">
         {!! Form::label('grad', 'Graduação: ', ['class' => 'col-sm-3 control-label no-padding-right']) !!}
-        <div class="col-xs-12 col-sm-9">
+        <div class="col-sm-9">
           <div class="clearfix">
-            {!! Form::textarea('grad', @$neurological->grad, ['class' => 'input-xlarge', 'size' => '30x3','id' => 'comment']) !!}
+            {!! Form::textarea('grad', @$neurological->grad, ['size' => '20x3','class' => 'col-xs-10 col-sm-8']) !!}
           </div>
         </div>
         @if($errors->any())
@@ -172,9 +172,9 @@
 
       <div class="form-group">
         {!! Form::label('testc', 'Testes comprobatórios: ', ['class' => 'col-sm-3 control-label no-padding-right']) !!}
-        <div class="col-xs-12 col-sm-9">
+        <div class="col-sm-9">
           <div class="clearfix">
-            {!! Form::textarea('testc', @$neurological->testc, ['class' => 'input-xlarge', 'size' => '30x3','id' => 'comment']) !!}
+            {!! Form::textarea('testc', @$neurological->testc, ['size' => '20x3','class' => 'col-xs-10 col-sm-8']) !!}
           </div>
         </div>
         @if($errors->any())
@@ -192,9 +192,9 @@
 
       <div class="form-group">
         {!! Form::label('mobil', 'Mobilidade/ADM: ', ['class' => 'col-sm-3 control-label no-padding-right']) !!}
-        <div class="col-xs-12 col-sm-9">
+        <div class="col-sm-9">
           <div class="clearfix">
-            {!! Form::textarea('mobil', @$neurological->mobil, ['class' => 'input-xlarge', 'size' => '30x3','id' => 'comment']) !!}
+            {!! Form::textarea('mobil', @$neurological->mobil, ['size' => '20x3','class' => 'col-xs-10 col-sm-8']) !!}
           </div>
         </div>
         @if($errors->any())
@@ -205,9 +205,9 @@
 
       <div class="form-group">
         {!! Form::label('estab', 'Estabilidade: ', ['class' => 'col-sm-3 control-label no-padding-right']) !!}
-        <div class="col-xs-12 col-sm-9">
+        <div class="col-sm-9">
           <div class="clearfix">
-            {!! Form::textarea('estab', @$neurological->estab, ['class' => 'input-xlarge', 'size' => '30x3','id' => 'comment']) !!}
+            {!! Form::textarea('estab', @$neurological->estab, ['size' => '20x3','class' => 'col-xs-10 col-sm-8']) !!}
           </div>
         </div>
         @if($errors->any())
@@ -218,30 +218,34 @@
       <h4 class="widget-title lighter">Habilidade</h4>
 
       <div class="form-group">
-        <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="comment">Marcha:</label>
-        <div class="col-xs-12 col-sm-9">
+        {!! Form::label('march', 'Marcha: ', ['class' => 'col-sm-3 control-label no-padding-right']) !!}
+        <div class="col-sm-9">
           <div class="clearfix">
-            <textarea class="input-xlarge" name="comment" id="comment"></textarea>
-          </div>
-        </div>
-      </div>
-      <div class="form-group">
-        {!! Form::label('estab', 'Estabilidade: ', ['class' => 'col-sm-3 control-label no-padding-right']) !!}
-        <div class="col-xs-12 col-sm-9">
-          <div class="clearfix">
-            {!! Form::textarea('estab', @$neurological->estab, ['class' => 'input-xlarge', 'size' => '30x3','id' => 'comment']) !!}
+            {!! Form::textarea('march', @$neurological->march, ['size' => '20x3','class' => 'col-xs-10 col-sm-8']) !!}
           </div>
         </div>
         @if($errors->any())
-        <div class="red darken-4">&nbsp &nbsp{{ $errors->first('estab') }}</div>
+        <div class="red darken-4">&nbsp &nbsp{{ $errors->first('march') }}</div>
+        @endif
+      </div>
+
+      <div class="form-group">
+        {!! Form::label('estabh', 'Estabilidade: ', ['class' => 'col-sm-3 control-label no-padding-right']) !!}
+        <div class="col-sm-9">
+          <div class="clearfix">
+            {!! Form::textarea('estabh', @$neurological->estabh, ['size' => '20x3','class' => 'col-xs-10 col-sm-8']) !!}
+          </div>
+        </div>
+        @if($errors->any())
+        <div class="red darken-4">&nbsp &nbsp{{ $errors->first('estabh') }}</div>
         @endif
       </div>
 
       <div class="form-group">
         {!! Form::label('caracd', 'Caracterização da deambulação: ', ['class' => 'col-sm-3 control-label no-padding-right']) !!}
-        <div class="col-xs-12 col-sm-9">
+        <div class="col-sm-9">
           <div class="clearfix">
-            {!! Form::textarea('caracd', @$neurological->caracd, ['class' => 'input-xlarge', 'size' => '30x3','id' => 'comment']) !!}
+            {!! Form::textarea('caracd', @$neurological->caracd, ['size' => '20x3','class' => 'col-xs-10 col-sm-8']) !!}
           </div>
         </div>
         @if($errors->any())
@@ -251,9 +255,9 @@
 
       <div class="form-group">
         {!! Form::label('motf', 'Moticidade fina: ', ['class' => 'col-sm-3 control-label no-padding-right']) !!}
-        <div class="col-xs-12 col-sm-9">
+        <div class="col-sm-9">
           <div class="clearfix">
-            {!! Form::textarea('motf', @$neurological->motf, ['class' => 'input-xlarge', 'size' => '30x3','id' => 'comment']) !!}
+            {!! Form::textarea('motf', @$neurological->motf, ['size' => '20x3','class' => 'col-xs-10 col-sm-8']) !!}
           </div>
         </div>
         @if($errors->any())
@@ -297,17 +301,18 @@
       <div class="form-group">
         {!!  Form::label('form-field-1', 'Extensores e flexores do pescoço: ', ['class' => 'col-sm-3 control-label no-padding-right'])  !!}
         <div class="col-sm-9">
-          {!! Form::textarea('extfp', @$neurological->extfp, ['size' => '20x3','class' => 'col-xs-10 col-sm-8', 'placeholder' => 'Descrição...']) !!}
+          {!! Form::textarea('extfp', @$neurological->extfp, ['size' => '20x3','class' => 'col-xs-10 col-sm-8']) !!}
           @if($errors->any())
           <div class="red darken-4">&nbsp &nbsp{!! $errors->first('extfp') !!}</div>
           @endif
         </div>
       </div>
 
+
       <div class="form-group">
         {!!  Form::label('form-field-1', 'Abdutores e adutores do ombro: ', ['class' => 'col-sm-3 control-label no-padding-right'])  !!}
         <div class="col-sm-9">
-          {!! Form::textarea('abad', @$neurological->abad, ['size' => '20x3','class' => 'col-xs-10 col-sm-8', 'placeholder' => 'Descrição...']) !!}
+          {!! Form::textarea('abad', @$neurological->abad, ['size' => '20x3','class' => 'col-xs-10 col-sm-8']) !!}
           @if($errors->any())
           <div class="red darken-4">&nbsp &nbsp{!! $errors->first('abad') !!}</div>
           @endif
@@ -318,7 +323,7 @@
       <div class="form-group">
         {!!  Form::label('form-field-1', 'Rotadores internos e externos do ombro: ', ['class' => 'col-sm-3 control-label no-padding-right'])  !!}
         <div class="col-sm-9">
-          {!! Form::textarea('rotie', @$neurological->rotie, ['size' => '20x3','class' => 'col-xs-10 col-sm-8', 'placeholder' => 'Descrição...']) !!}
+          {!! Form::textarea('rotie', @$neurological->rotie, ['size' => '20x3','class' => 'col-xs-10 col-sm-8']) !!}
           @if($errors->any())
           <div class="red darken-4">&nbsp &nbsp{!! $errors->first('rotie') !!}</div>
           @endif
@@ -328,7 +333,7 @@
       <div class="form-group">
         {!!  Form::label('form-field-1', 'Extensores e flexores do cotovelo: ', ['class' => 'col-sm-3 control-label no-padding-right'])  !!}
         <div class="col-sm-9">
-          {!! Form::textarea('extfc', @$neurological->extfc, ['size' => '20x3','class' => 'col-xs-10 col-sm-8', 'placeholder' => 'Descrição...']) !!}
+          {!! Form::textarea('extfc', @$neurological->extfc, ['size' => '20x3','class' => 'col-xs-10 col-sm-8']) !!}
           @if($errors->any())
           <div class="red darken-4">&nbsp &nbsp{!! $errors->first('extfc') !!}</div>
           @endif
@@ -338,9 +343,9 @@
       <div class="form-group">
         {!!  Form::label('form-field-1', 'Extensores e flexores do punho: ', ['class' => 'col-sm-3 control-label no-padding-right'])  !!}
         <div class="col-sm-9">
-          {!! Form::textarea('extfp', @$neurological->extfp, ['size' => '20x3','class' => 'col-xs-10 col-sm-8', 'placeholder' => 'Descrição...']) !!}
+          {!! Form::textarea('extefp', @$neurological->extefp, ['size' => '20x3','class' => 'col-xs-10 col-sm-8']) !!}
           @if($errors->any())
-          <div class="red darken-4">&nbsp &nbsp{!! $errors->first('extfp') !!}</div>
+          <div class="red darken-4">&nbsp &nbsp{!! $errors->first('extefp') !!}</div>
           @endif
         </div>
       </div>
@@ -348,7 +353,7 @@
       <div class="form-group">
         {!!  Form::label('form-field-1', 'Pronadores e supinadores: ', ['class' => 'col-sm-3 control-label no-padding-right'])  !!}
         <div class="col-sm-9">
-          {!! Form::textarea('pros', @$neurological->pros, ['size' => '20x3','class' => 'col-xs-10 col-sm-8', 'placeholder' => 'Descrição...']) !!}
+          {!! Form::textarea('pros', @$neurological->pros, ['size' => '20x3','class' => 'col-xs-10 col-sm-8']) !!}
           @if($errors->any())
           <div class="red darken-4">&nbsp &nbsp{!! $errors->first('pros') !!}</div>
           @endif
@@ -358,7 +363,7 @@
       <div class="form-group">
         {!!  Form::label('form-field-1', 'Extensores e flexores do quadril: ', ['class' => 'col-sm-3 control-label no-padding-right'])  !!}
         <div class="col-sm-9">
-          {!! Form::textarea('extfq', @$neurological->extfq, ['size' => '20x3','class' => 'col-xs-10 col-sm-8', 'placeholder' => 'Descrição...']) !!}
+          {!! Form::textarea('extfq', @$neurological->extfq, ['size' => '20x3','class' => 'col-xs-10 col-sm-8']) !!}
           @if($errors->any())
           <div class="red darken-4">&nbsp &nbsp{!! $errors->first('extfq') !!}</div>
           @endif
@@ -368,7 +373,7 @@
       <div class="form-group">
         {!!  Form::label('form-field-1', 'Abdutores e adutores do quadril: ', ['class' => 'col-sm-3 control-label no-padding-right'])  !!}
         <div class="col-sm-9">
-          {!! Form::textarea('abadq', @$neurological->abadq, ['size' => '20x3','class' => 'col-xs-10 col-sm-8', 'placeholder' => 'Descrição...']) !!}
+          {!! Form::textarea('abadq', @$neurological->abadq, ['size' => '20x3','class' => 'col-xs-10 col-sm-8']) !!}
           @if($errors->any())
           <div class="red darken-4">&nbsp &nbsp{!! $errors->first('abadq') !!}</div>
           @endif
@@ -379,7 +384,7 @@
       <div class="form-group">
         {!!  Form::label('form-field-1', 'Rotadores internos e externos: ', ['class' => 'col-sm-3 control-label no-padding-right'])  !!}
         <div class="col-sm-9">
-          {!! Form::textarea('rotaie', @$neurological->rotaie, ['size' => '20x3','class' => 'col-xs-10 col-sm-8', 'placeholder' => 'Descrição...']) !!}
+          {!! Form::textarea('rotaie', @$neurological->rotaie, ['size' => '20x3','class' => 'col-xs-10 col-sm-8']) !!}
           @if($errors->any())
           <div class="red darken-4">&nbsp &nbsp{!! $errors->first('rotaie') !!}</div>
           @endif
@@ -389,7 +394,7 @@
       <div class="form-group">
         {!!  Form::label('form-field-1', 'Extensores e flexores do joelho: ', ['class' => 'col-sm-3 control-label no-padding-right'])  !!}
         <div class="col-sm-9">
-          {!! Form::textarea('extfj', @$neurological->extfj, ['size' => '20x3','class' => 'col-xs-10 col-sm-8', 'placeholder' => 'Descrição...']) !!}
+          {!! Form::textarea('extfj', @$neurological->extfj, ['size' => '20x3','class' => 'col-xs-10 col-sm-8']) !!}
           @if($errors->any())
           <div class="red darken-4">&nbsp &nbsp{!! $errors->first('extfj') !!}</div>
           @endif
@@ -399,7 +404,7 @@
       <div class="form-group">
         {!!  Form::label('form-field-1', 'inversores e eversores do tornozelo: ', ['class' => 'col-sm-3 control-label no-padding-right'])  !!}
         <div class="col-sm-9">
-          {!! Form::textarea('invt', @$neurological->invt, ['size' => '20x3','class' => 'col-xs-10 col-sm-8', 'placeholder' => 'Descrição...']) !!}
+          {!! Form::textarea('invt', @$neurological->invt, ['size' => '20x3','class' => 'col-xs-10 col-sm-8']) !!}
           @if($errors->any())
           <div class="red darken-4">&nbsp &nbsp{!! $errors->first('invt') !!}</div>
           @endif
@@ -409,7 +414,7 @@
       <div class="form-group">
         {!!  Form::label('form-field-1', 'Plantiflexorese dorsiflexores e do tornozelo: ', ['class' => 'col-sm-3 control-label no-padding-right'])  !!}
         <div class="col-sm-9">
-          {!! Form::textarea('pladt', @$neurological->pladt, ['size' => '20x3','class' => 'col-xs-10 col-sm-8', 'placeholder' => 'Descrição...']) !!}
+          {!! Form::textarea('pladt', @$neurological->pladt, ['size' => '20x3','class' => 'col-xs-10 col-sm-8']) !!}
           @if($errors->any())
           <div class="red darken-4">&nbsp &nbsp{!! $errors->first('pladt') !!}</div>
           @endif
@@ -426,7 +431,7 @@
       <div class="form-group">
         {!!  Form::label('form-field-1', 'Sensibilidade superficial: ', ['class' => 'col-sm-3 control-label no-padding-right'])  !!}
         <div class="col-sm-9">
-          {!! Form::textarea('senss', @$neurological->senss, ['size' => '20x3','class' => 'col-xs-10 col-sm-8', 'placeholder' => 'Descrição...']) !!}
+          {!! Form::textarea('senss', @$neurological->senss, ['size' => '20x3','class' => 'col-xs-10 col-sm-8']) !!}
           @if($errors->any())
           <div class="red darken-4">&nbsp &nbsp{!! $errors->first('senss') !!}</div>
           @endif
@@ -436,7 +441,7 @@
       <div class="form-group">
         {!!  Form::label('form-field-1', 'Sensibilidade profunda: ', ['class' => 'col-sm-3 control-label no-padding-right'])  !!}
         <div class="col-sm-9">
-          {!! Form::textarea('sensp', @$neurological->sensp, ['size' => '20x3','class' => 'col-xs-10 col-sm-8', 'placeholder' => 'Descrição...']) !!}
+          {!! Form::textarea('sensp', @$neurological->sensp, ['size' => '20x3','class' => 'col-xs-10 col-sm-8']) !!}
           @if($errors->any())
           <div class="red darken-4">&nbsp &nbsp{!! $errors->first('sensp') !!}</div>
           @endif
@@ -454,7 +459,7 @@
       <div class="form-group">
         {!!  Form::label('form-field-1', 'Corticais: ', ['class' => 'col-sm-3 control-label no-padding-right'])  !!}
         <div class="col-sm-9">
-          {!! Form::textarea('cortc', @$neurological->cortc, ['size' => '20x3','class' => 'col-xs-10 col-sm-8', 'placeholder' => 'Descrição...']) !!}
+          {!! Form::textarea('cortc', @$neurological->cortc, ['size' => '20x3','class' => 'col-xs-10 col-sm-8']) !!}
           @if($errors->any())
           <div class="red darken-4">&nbsp &nbsp{!! $errors->first('cortc') !!}</div>
           @endif
@@ -468,10 +473,10 @@
     <div class="center">
       <h3 class="green">Avaliação completa!</h3>
       Clique em finalizar para continuar!
+      <button class="btn btn-info" type="submit">
+        <i class="ace-icon fa fa-check"></i>
+        Concluir Avaliação
+      </button>
     </div>
-    <button class="btn btn-success" type="submit">
-      <i class="ace-icon fa fa-arrow-left"></i>
-      Salvar
-    </button>
   </div>
 <!-- </div> -->

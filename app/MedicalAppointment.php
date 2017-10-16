@@ -26,6 +26,10 @@ class MedicalAppointment extends Model
         return $this->hasOne('App\Postural');
     }
 
+    public function neurological(){
+          return $this->hasOne('App\Neurological');
+      }
+
   public function patient(){
     return $this->belongsTo('App\Patient', 'patient_id', 'id');
   }

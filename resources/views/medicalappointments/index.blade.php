@@ -52,11 +52,11 @@
             <td>{{ $medicalappointment->description }}</td>
 
             <td>
-              <a class="btn btn-xs btn-secundary" href="{{ URL::to('postural/avaliation/'. $medicalappointment->id ) }}">
+              <a class="btn btn-xs btn-secundary" href="{{ URL::to('postural/create/'. $medicalappointment->id ) }}">
                 Postural
               </a>
 
-              <a class="btn btn-xs btn-secundary" href="{{ URL::to('neurological/avaliation/'. $medicalappointment->id ) }}">
+              <a class="btn btn-xs btn-secundary" href="{{ URL::to('neurological/create/'. $medicalappointment->id ) }}">
                 Neurológica
               </a>
             </td>

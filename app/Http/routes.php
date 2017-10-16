@@ -43,10 +43,10 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('medicalappointments/formneurological','MedicalAppointmentController@formneurological');
     Route::resource('medicalappointments','MedicalAppointmentController');
 
-    Route::get('postural/avaliation/{id}','PosturalController@avaliation');
+    Route::get('postural/create/{id}','PosturalController@create');
     Route::resource('postural','PosturalController');
 
-    Route::get('neurological/avaliation/{id}','NeurologicalController@avaliation');
+    Route::get('neurological/create/{id}','NeurologicalController@create');
     Route::resource('neurological','NeurologicalController');
 
     Route::resource('contract','ContractController');
