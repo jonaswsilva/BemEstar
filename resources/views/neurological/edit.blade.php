@@ -14,15 +14,15 @@
     <div class="hr hr-18 hr-double dotted"></div>
     <div class="row">
       <div class=" hr-18"></div>
-      <div class="col-6 col-sm-4">{!!  Form::label('form-field-1', 'Paciente: ', ['class' => 'col-sm-3 control-label no-padding-right'])  !!}{!! Form::text('patient_name', $postural->medicalappointment->patient->person->name, ['disabled'=>'disabled','class' => 'col-xs-10 col-sm-5']) !!}</div>
-      <div class="col-6 col-sm-4">{!!  Form::label('form-field-1', 'Rg: ', ['class' => 'col-sm-3 control-label no-padding-right'])  !!}{!! Form::text('patient_cpf', $postural->medicalappointment->patient->person->rg, ['disabled'=>'disabled','class' => 'col-xs-10 col-sm-5']) !!}</div>
-      <div class="col-6 col-sm-4">{!!  Form::label('form-field-1', 'Cpf: ', ['class' => 'col-sm-3 control-label no-padding-right'])  !!}{!! Form::text('patient_cpf', $postural->medicalappointment->patient->person->cpf, ['disabled'=>'disabled','class' => 'col-xs-10 col-sm-5']) !!}</div>
+      <div class="col-6 col-sm-4">{!!  Form::label('form-field-1', 'Paciente: ', ['class' => 'col-sm-3 control-label no-padding-right'])  !!}{!! Form::text('patient_name', $neurological->medicalappointment->patient->person->name, ['disabled'=>'disabled','class' => 'col-xs-10 col-sm-5']) !!}</div>
+      <div class="col-6 col-sm-4">{!!  Form::label('form-field-1', 'Rg: ', ['class' => 'col-sm-3 control-label no-padding-right'])  !!}{!! Form::text('patient_cpf', $neurological->medicalappointment->patient->person->rg, ['disabled'=>'disabled','class' => 'col-xs-10 col-sm-5']) !!}</div>
+      <div class="col-6 col-sm-4">{!!  Form::label('form-field-1', 'Cpf: ', ['class' => 'col-sm-3 control-label no-padding-right'])  !!}{!! Form::text('patient_cpf', $neurological->medicalappointment->patient->person->cpf, ['disabled'=>'disabled','class' => 'col-xs-10 col-sm-5']) !!}</div>
     </div>
 
     <div class="row">
       <div class=" hr-18"></div>
-      <div class="col-6 col-sm-5">{!!  Form::label('form-field-1', 'Professional: ', ['class' => 'col-sm-3 control-label no-padding-right'])  !!}{!! Form::text('patient_name', $postural->medicalappointment->professional->person->name, ['disabled'=>'disabled','class' => 'col-xs-10 col-sm-5']) !!}</div>
-      <div class="col-6 col-sm-4">{!!  Form::label('form-field-1', 'CRM: ', ['class' => 'col-sm-3 control-label no-padding-right'])  !!}{!! Form::text('patient_cpf', $postural->medicalappointment->professional->crm, ['disabled'=>'disabled','class' => 'col-xs-10 col-sm-5']) !!}</div>
+      <div class="col-6 col-sm-5">{!!  Form::label('form-field-1', 'Professional: ', ['class' => 'col-sm-3 control-label no-padding-right'])  !!}{!! Form::text('patient_name', $neurological->medicalappointment->professional->person->name, ['disabled'=>'disabled','class' => 'col-xs-10 col-sm-5']) !!}</div>
+      <div class="col-6 col-sm-4">{!!  Form::label('form-field-1', 'CRM: ', ['class' => 'col-sm-3 control-label no-padding-right'])  !!}{!! Form::text('patient_cpf', $neurological->medicalappointment->professional->crm, ['disabled'=>'disabled','class' => 'col-xs-10 col-sm-5']) !!}</div>
     </div>
 
     <div class="hr hr-18 hr-double dotted"></div>
@@ -78,13 +78,12 @@
 
           <div class="step-content pos-rel">
 
-            {!! Form::open(['route' => ['postural.update', $postural->id], 'method' => 'PUT' ,'class' => 'form-horizontal']) !!}
+            {!! Form::open(['route' => ['neurological.update', $neurological->id], 'method' => 'PUT' ,'class' => 'form-horizontal']) !!}
 
-            @include('postural/_form')
+            @include('neurological/_form')
 
 
             {!! Form::close() !!}
-          </div>
         </div>
       </div>
 

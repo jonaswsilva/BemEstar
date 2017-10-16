@@ -36,7 +36,7 @@
             <th><i class="fa fa-wheelchair"></i> Paciente</th>
             <th><i class=""></i> Descrição</th>
 
-            <th><i class="ace-icon fa fa-file bigger-120"></i> Avaliações</th>
+            <th class="center" ><i class="ace-icon fa fa-file bigger-120"></i> Avaliações</th>
             <th></th>
           </tr>
         </thead>
@@ -51,7 +51,7 @@
             <td>{{ $medicalappointment->patient->person->name }}</td>
             <td>{{ $medicalappointment->description }}</td>
 
-            <td>
+            <td class="center" >
               <a class="btn btn-xs btn-secundary" href="{{ URL::to('postural/create/'. $medicalappointment->id ) }}">
                 Postural
               </a>

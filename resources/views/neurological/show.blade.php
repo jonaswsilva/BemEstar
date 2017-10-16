@@ -8,17 +8,6 @@
     <div>
       <h3 class="header smaller lighter purple">Avaliação Neurológica {{ $neurological->medicalappointment->patient->person->name }}</h3>
     </div>
-
-
-    <!-- <div class="pull-right">
-
-      <div class="btn-toolbar inline middle no-margin">
-        <div data-toggle="buttons" class="btn-group no-margin">
-
-
-        </div>
-      </div>
-    </div> -->
   </div>
 </div>
 
@@ -47,7 +36,7 @@
         </div>
 
         <div class="grid2">
-          <a class="btn btn-primary" href="{{ URL::to('postural/'. $neurological->id .'/edit') }}"><i class="ace-icon fa fa-pencil bigger-110"></i>Editar</a>
+          <a class="btn btn-primary" href="{{ URL::to('neurological/'. $neurological->id .'/edit') }}"><i class="ace-icon fa fa-pencil bigger-110"></i>Editar</a>
         </div>
       </div>
 

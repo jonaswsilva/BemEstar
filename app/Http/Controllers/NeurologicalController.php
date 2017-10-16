@@ -9,6 +9,7 @@ use App\MedicalAppointment;
 use App\Neurological;
 use Redirect;
 use View;
+use DB;
 
 class NeurologicalController extends Controller
 {
@@ -128,7 +129,16 @@ class NeurologicalController extends Controller
      */
     public function edit($id)
     {
-        //
+      $neurological = Neurological::findOrFail($id);
+      $professionals = DB::table('professionals')
+      ->join('person', 'professionals.person_id', '=', 'person.id')
+      ->pluck('person.name','professionals.id');
+      $patients = DB::table('patients')
+      ->join('person', 'patients.person_id', '=', 'person.id')
+      ->pluck('person.name','patients.id');
+      //dd($neurological);
+      return view('neurological.edit')
+      ->with(compact('neurological'));
     }
 
     /**
@@ -140,7 +150,47 @@ class NeurologicalController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      $neurological = Neurological::findOrFail($id);
+
+      $neurological->histp = $request->input('histp');
+      $neurological->hista = $request->input('hista');
+      $neurological->histf = $request->input('histf');
+      $neurological->focf = $request->input('focf');
+      $neurological->foml = $request->input('foml');
+      $neurological->prot = $request->input('prot');
+      $neurological->ort = $request->input('ort');
+      $neurological->padrm = $request->input('padrm');
+      $neurological->condp = $request->input('condp');
+      $neurological->tonb = $request->input('tonb');
+      $neurological->distt = $request->input('distt');
+      $neurological->grad = $request->input('grad');
+      $neurological->testc = $request->input('testc');
+      $neurological->mobil = $request->input('mobil');
+      $neurological->estab = $request->input('estab');
+      $neurological->march = $request->input('march');
+      $neurological->estabh = $request->input('estabh');
+      $neurological->caracd = $request->input('caracd');
+      $neurological->motf = $request->input('motf');
+      $neurological->mao = $request->input('mao');
+      $neurological->extfp = $request->input('extfp');
+      $neurological->abad = $request->input('abad');
+      $neurological->rotie = $request->input('rotie');
+      $neurological->extfc = $request->input('extfc');
+      $neurological->extefp = $request->input('extefp');
+      $neurological->pros = $request->input('pros');
+      $neurological->extfq = $request->input('extfq');
+      $neurological->abadq = $request->input('abadq');
+      $neurological->rotaie = $request->input('rotaie');
+      $neurological->extfj = $request->input('extfj');
+      $neurological->invt = $request->input('invt');
+      $neurological->pladt = $request->input('pladt');
+      $neurological->senss = $request->input('senss');
+      $neurological->sensp = $request->input('sensp');
+      $neurological->cortc = $request->input('cortc');
+
+      $neurological->push();
+
+      return $this->show($neurological->id);
     }
 
     /**
