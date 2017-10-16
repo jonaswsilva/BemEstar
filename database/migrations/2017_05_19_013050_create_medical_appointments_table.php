@@ -15,7 +15,7 @@ class CreateMedicalAppointmentsTable extends Migration
       Schema::create('medical_appointments', function (Blueprint $table) {
           $table->increments('id');
           $table->date('date');
-          $table->time('hour');
+          $table->time('hour')->unique();
           $table->text('description');
           $table->bigInteger('patient_id')->unsigned();
           $table->foreign('patient_id')->references('id')->on('patients')->onUpdate('cascade')->onDelete('cascade');

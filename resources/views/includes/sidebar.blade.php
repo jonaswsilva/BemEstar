@@ -143,7 +143,7 @@
           <li class="{{ $nav_con or '' }}">
             <a href="{{ URL::to('medicalappointments') }}">
               <i class="menu-icon fa fa-caret-right"></i>
-              Prescrição
+              Avaliações
             </a>
 
             <b class="arrow"></b>

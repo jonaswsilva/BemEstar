@@ -71,7 +71,6 @@
                 <span class="step">8</span>
                 <span class="title">Avaliação Completa</span>
               </li>
-
             </ul>
           </div>
 
@@ -82,8 +81,8 @@
 
             {!! Form::open(['route' => 'neurological.store', 'method' => 'post' ,'class' => 'form-horizontal']) !!}
             {!! Form::hidden('medicalappointment_id', @$medicalappointment->id, ['id'=>'idMedical']) !!}
-            @include('neurological/_form')
 
+            @include('neurological/_form')
 
             {!! Form::close() !!}
           </div>

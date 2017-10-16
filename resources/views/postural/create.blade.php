@@ -51,8 +51,6 @@
                 <span class="step">4</span>
                 <span class="title">Avaliação Completa</span>
               </li>
-
-
             </ul>
           </div>
 
@@ -62,8 +60,8 @@
 
             {!! Form::open(['route' => 'postural.store', 'method' => 'post' ,'class' => 'form-horizontal']) !!}
             {!! Form::hidden('medicalappointment_id', @$medicalappointment->id, ['id'=>'idMedical']) !!}
-            @include('postural/_form')
 
+            @include('postural/_form')
 
             {!! Form::close() !!}
           </div>
