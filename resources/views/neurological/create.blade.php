@@ -87,7 +87,6 @@
             {!! Form::close() !!}
           </div>
         </div>
-      </div>
 
       <hr />
       <div class="wizard-actions">

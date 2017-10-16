@@ -66,7 +66,7 @@
             {!! Form::close() !!}
           </div>
         </div>
-      </div>
+
 
       <hr />
       <div class="wizard-actions">
@@ -75,14 +75,14 @@
           Anterior
         </button>
 
-        <button class="btn btn-success btn-next" type="submit" data-last="Finalizar">
+        <button class="btn btn-success btn-next" data-last="Finish">
           Próximo
           <i class="ace-icon fa fa-arrow-right icon-on-right"></i>
         </button>
-
       </div>
     </div><!-- /.widget-main -->
   </div><!-- /.widget-body -->
+</div>
 </div>
 
 
