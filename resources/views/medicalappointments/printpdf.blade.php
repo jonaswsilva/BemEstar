@@ -15,19 +15,16 @@ td, th {
 }
 
 tr:nth-child(even) {
-  background-color: #D5E4F1;
+  background-color: #dddddd;
 }
 </style>
 </head>
 <body>
-  <h1>Avaliação Postural</h1>
+  <h1>Dados da consulta</h1>
 
 <img src="/assets/images/avatars/{{ $medicalappointment->patient->avatar }}" />
-<br/>
+
   <table>
-    <tr>
-      <th colspan="2">Dados da Consulta</th>
-    </tr>
     <tr>
       <td>Id</td>
       <td>{{ $medicalappointment->id }}</td>
@@ -53,7 +50,8 @@ tr:nth-child(even) {
       <td>{{ $medicalappointment->description }}</td>
     </tr>
   </table>
-<br/>
+</div>
+
 <table>
   <tr>
     <th colspan="2">Vista Posterior</th>
@@ -115,7 +113,7 @@ tr:nth-child(even) {
     <td>{{ $postural->retrop }}</td>
   </tr>
 </table>
-<br/>
+
 <table>
   <tr>
     <th colspan="2">Vista Anterior</th>
@@ -173,7 +171,7 @@ tr:nth-child(even) {
     <td>{{ $postural->palet }}</td>
   </tr>
 </table>
-<br/>
+
 <table>
   <tr>
     <th colspan="2">Vista Lateral</th>

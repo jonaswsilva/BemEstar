@@ -37,17 +37,15 @@ Route::group(['middleware' => 'auth'], function(){
 
     Route::resource('medicalrecords','MedicalRecordsController');
 
-
+    Route::get('medicalappointments/{id}/pdf','MedicalAppointmentController@pdf');
     Route::get('medicalappointments/avaliations','MedicalAppointmentController@avaliations');
     Route::get('medicalappointments/formpostural','MedicalAppointmentController@formpostural');
     Route::get('medicalappointments/formneurological','MedicalAppointmentController@formneurological');
     Route::resource('medicalappointments','MedicalAppointmentController');
 
-    Route::get('postural/{id}/pdf','PosturalController@pdf');
     Route::get('postural/create/{id}','PosturalController@create');
     Route::resource('postural','PosturalController');
 
-    Route::get('neurological/{id}/pdf','NeurologicalController@pdf');
     Route::get('neurological/create/{id}','NeurologicalController@create');
     Route::resource('neurological','NeurologicalController');
 

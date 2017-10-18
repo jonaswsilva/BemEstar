@@ -45,9 +45,7 @@
     </div>
 
     <div class="col-xs-12 col-sm-9">
-      <div class="col-md-11 col-md-offset-1">
-      <a class="btn btn-info pull-right" href="{{ URL::to('neurological/'. $neurological->medicalappointment->id .'/pdf') }}"><i class="ace-icon fa fa-file bigger-110"></i>Gerar PDF</a>
-      </div>
+
         <div class="space-12"></div>
 
         <div class="space-20"></div>

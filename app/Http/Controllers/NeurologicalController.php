@@ -10,7 +10,6 @@ use App\Neurological;
 use Redirect;
 use View;
 use DB;
-use PDF;
 
 class NeurologicalController extends Controller
 {
@@ -120,18 +119,6 @@ class NeurologicalController extends Controller
       $neurological = Neurological::find($id);
       //dd($neurological);
       return View::make('neurological.show',compact('neurological'));
-    }
-
-    public function pdf($id){
-
-      $medicalappointment = MedicalAppointment::find($id);
-      $neurological = DB::table('neurologicals')->where('medicalappointment_id', $id)->first();
-
-
-      return $pdf = PDF::setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true])
-                            ->loadView('neurological.printpdf',compact('medicalappointment','neurological'))->stream();
-      //return $pdf->download('avaliacao_postural.pdf');
-
     }
 
     /**
