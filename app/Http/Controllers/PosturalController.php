@@ -10,6 +10,7 @@ use App\MedicalAppointment;
 use Redirect;
 use View;
 use DB;
+use PDF;
 
 class PosturalController extends Controller
 {
@@ -100,11 +101,23 @@ class PosturalController extends Controller
 
     public function show($id)
     {
+
       $postural = Postural::find($id);
       //dd($postural);
       return View::make('postural.show',compact('postural'));
     }
 
+    public function pdf($id){
+
+      $medicalappointment = MedicalAppointment::find($id);
+      $postural = DB::table('posturals')->where('medicalappointment_id', $id)->first();
+
+
+      return $pdf = PDF::setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true])
+                            ->loadView('postural.printpdf',compact('medicalappointment','postural'))->stream();
+      //return $pdf->download('avaliacao_postural.pdf');
+
+    }
 
     public function edit($id)
     {

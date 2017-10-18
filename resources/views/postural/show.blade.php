@@ -59,15 +59,10 @@
 
 
       <div class="space-12"></div>
-
+      <div class="col-md-11 col-md-offset-1">
+      <a class="btn btn-info pull-right" href="{{ URL::to('postural/'. $postural->medicalappointment->id .'/pdf') }}"><i class="ace-icon fa fa-file bigger-110"></i>Gerar PDF</a>
+      </div>
       <div class="profile-user-info profile-user-info-striped">
-        <div class="profile-info-row">
-          <div class="profile-info-name"> Id </div>
-
-          <div class="profile-info-value">
-            <span class="editable" id="username">{{ $postural->id }}</span>
-          </div>
-        </div>
 
         <div class="profile-info-row">
           <div class="profile-info-name"> Anamnese: </div>
