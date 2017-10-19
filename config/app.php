@@ -166,6 +166,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         Barryvdh\DomPDF\ServiceProvider::class,
+        Laracasts\Flash\FlashServiceProvider::class,
 
     ],
 

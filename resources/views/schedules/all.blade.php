@@ -9,16 +9,14 @@
 						<h3 class="header smaller lighter blue">Consultas Marcadas</h3>
 
 						<div class="pull-left">
-							<a class="btn btn-default" href="{{ URL::to('schedules/create') }}"><i class="ace-icon fa fa-user-plus"></i>Novo</a>
+							<a class="btn btn-default" href="{{ URL::to('schedules/create') }}"><i class="ace-icon fa fa-calendar-plus-o"></i> Nova Consulta</a>
 						</div>
 
 						<div class="clearfix">
 							<div class="pull-right tableTools-container"></div>
 						</div>
 
-						@if (Session::has('message'))
-					    <div class="alert alert-{{ @$alert }}">{{ Session::get('message') }}</div>
-					  @endif
+						@include('flash::message')
 
 						<div class="table-header">
 							Resultado para Consultas
@@ -48,7 +46,7 @@
 										<td class="center">{{ $schedule->id }}</td>
 										<td>{{ $schedule->patient->person->name }} {{ $schedule->patient->person->lastname }}</td>
 										<td>{{ $schedule->professional->person->name }}</td>
-										<td>{{ $schedule->date }}</td>
+										<td>{{ $schedule->date_mu->format('d/m/Y') }}</td>
 										<td class="hour">{{ $schedule->hour }}</td>
 
 										<td>
@@ -117,9 +115,9 @@
 					</div>
 				</div>
 
-				<a href="#my-modal" role="button" class="bigger-125 bg-primary white" data-toggle="modal">
+				<!-- <a href="#my-modal" role="button" class="bigger-125 bg-primary white" data-toggle="modal">
 					&nbsp; Chamar modal &nbsp;
-				</a>
+				</a> -->
 
 				<div id="my-modal" class="modal fade" tabindex="-1">
 					<div class="modal-dialog">

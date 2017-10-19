@@ -8,7 +8,7 @@
     Calendário
     <small>
       <i class="ace-icon fa fa-angle-double-right"></i>
-      with draggable and editable events
+      Agendamento de Consultas
     </small>
   </h1>
 </div><!-- /.page-header -->
@@ -20,13 +20,13 @@
   <div class="col-xs-12">
     <!-- PAGE CONTENT BEGINS -->
     <div class="row">
-      <div class="col-sm-9">
+      <div class="col-sm-12">
         <div class="space"></div>
 
         <div id="calendar"></div>
       </div>
 
-      <div class="col-sm-3">
+      <!-- <div class="col-sm-3">
         <div class="widget-box transparent">
           <div class="widget-header">
             <h4>Draggable events</h4>
@@ -78,7 +78,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
 
     <!-- PAGE CONTENT ENDS -->
@@ -185,26 +185,27 @@
 		  center: 'title',
 		  right: 'month,agendaWeek,agendaDay'
 		},
-		events: [
-		  {
-		  title: 'Evento todo o dia',
-		  start: new Date(y, m, 1),
-		  className: 'label-important'
-		  },
-		  {
-		  title: 'Evento longo',
-		  start: moment().subtract(5, 'days').format('YYYY-MM-DD'),
-		  end: moment().subtract(1, 'days').format('YYYY-MM-DD'),
-		  className: 'label-success'
-		  },
-		  {
-		  title: 'Algum evento',
-		  start: new Date(y, m, d-3, 16, 0),
-		  allDay: false,
-		  className: 'label-info'
-		  }
-		]
-		,
+
+		// events: [
+		//   {
+		//   title: 'Evento todo o dia',
+		//   start: new Date(y, m, 1),
+		//   className: 'label-important'
+		//   },
+		//   {
+		//   title: 'Evento longo',
+		//   start: moment().subtract(5, 'days').format('YYYY-MM-DD'),
+		//   end: moment().subtract(1, 'days').format('YYYY-MM-DD'),
+		//   className: 'label-success'
+		//   },
+		//   {
+		//   title: 'Algum evento',
+		//   start: new Date(y, m, d-3, 16, 0),
+		//   allDay: false,
+		//   className: 'label-info'
+		//   }
+		// ]
+		// ,
 
 		/**eventResize: function(event, delta, revertFunc) {
 

@@ -43,6 +43,10 @@ class ScheduleController extends Controller
 
   public function store(Request $request)
   {
+    $date = $request->input('date');
+    //dd($date);
+    $scheduledate = DB::table('schedules')->where('date',$date)->pluck('date');
+    dd($scheduledate);
 
     $schedule = new Schedule;
     $schedule->patient_id = $request->input('patient_id');
@@ -50,12 +54,10 @@ class ScheduleController extends Controller
     $schedule->date = $request->input('date');
     $schedule->hour = $request->input('hour');
     //dd($schedule);
-    $schedule->save();
+    //$schedule->save();
 
-
-
-    Session::flash('message', 'Agendamento realizado com sucesso!');
-    return Redirect::to('schedules');
+    flash('Agendamento realizado com sucesso!')->success()->important();
+    return $this->all();
 
   }
 

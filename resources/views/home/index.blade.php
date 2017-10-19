@@ -140,7 +140,7 @@
     </div>
 
     <div class="infobox-data">
-      <span class="infobox-data-number">11</span>
+      <span class="infobox-data-number">{{ @$schedulestoday }}</span>
       <div class="infobox-content">Consultas Hoje</div>
     </div>
 
@@ -153,7 +153,7 @@
     </div>
 
     <div class="infobox-data">
-      <span class="infobox-data-number">8</span>
+      <span class="infobox-data-number">{{ @$countsessions }}</span>
       <div class="infobox-content">Sessões de Hoje</div>
     </div>
 
