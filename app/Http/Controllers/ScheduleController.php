@@ -44,20 +44,30 @@ class ScheduleController extends Controller
   public function store(Request $request)
   {
     $date = $request->input('date');
-    //dd($date);
-    $scheduledate = DB::table('schedules')->where('date',$date)->pluck('date');
-    dd($scheduledate);
+    // dd($date);
+    $hour = $request->input('hour');
+    $professional = $request->input('professional_id');
+    $markedschedule = DB::table('schedules')
+                      ->where('date', '=' ,$date)
+                      ->where('hour', '=' ,$hour)
+                      ->where('professional_id', '=', $professional)
+                      ->first();
+    if (is_null($markedschedule)){
+      $schedule = new Schedule;
+      $schedule->patient_id = $request->input('patient_id');
+      $schedule->professional_id = $request->input('professional_id');
+      $schedule->date = $request->input('date');
+      $schedule->hour = $request->input('hour');
 
-    $schedule = new Schedule;
-    $schedule->patient_id = $request->input('patient_id');
-    $schedule->professional_id = $request->input('professional_id');
-    $schedule->date = $request->input('date');
-    $schedule->hour = $request->input('hour');
+      flash('Agendamento realizado com sucesso!')->success()->important();
+      return $this->all();
+    }else{
+      flash()->overlay('Já existe uma consulta nessa date e horário!','Atenção');
+      return Redirect::to('schedules/create')->withInput();
+    }
     //dd($schedule);
     //$schedule->save();
 
-    flash('Agendamento realizado com sucesso!')->success()->important();
-    return $this->all();
 
   }
 

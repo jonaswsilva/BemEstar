@@ -146,7 +146,7 @@
 							<div class="modal-footer">
 								<button class="btn btn-sm btn-danger pull-right" data-dismiss="modal">
 									<i class="ace-icon fa fa-times"></i>
-									Close
+									Sair
 								</button>
 							</div>
 						</div><!-- /.modal-content -->

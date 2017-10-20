@@ -24,7 +24,7 @@
 			<div class="form-group">
 				{!!  Form::label('form-field-1', 'Data: ', ['class' => 'col-sm-3 control-label no-padding-right'])  !!}
 				<div class="col-sm-9">
-					{!! Form::date('date', @$schedule->date, ['class' => 'col-xs-10 col-sm-5', 'placeholder' => 'Data...']) !!}
+					{!! Form::date('date', @$schedule->date, ['class' => 'col-xs-10 col-sm-5', 'id' => 'date']) !!}
 					@if($errors->any())
 					<div class="red darken-4">&nbsp &nbsp{!! $errors->first('date') !!}</div>
 					@endif
