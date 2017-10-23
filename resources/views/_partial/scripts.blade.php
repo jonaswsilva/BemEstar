@@ -50,13 +50,16 @@ if('ontouchstart' in document.documentElement) document.write("<script src='asse
 		<!-- inline scripts related to this page -->
 		<script type="text/javascript">
 
-		$(document).ready(function (){
-    var date = new Date().toISOString().substring(0, 10),
-        field = document.querySelector('#date');
-    field.value = date;
-    console.log(field.value);
-
-		});
+		// $(document).ready(function (){
+    // var date = new Date().toISOString().substring(0, 10),
+    //     field = document.querySelector('#date');
+    // field.value = date;
+    // console.log(field.value);
+		//
+		// });
+		$(".delete").on("submit", function(){
+        return confirm("Deseja realmente excluir?");
+    });
 
 		$(document).ready(function(){
 			//$('.date').mask('00/00/0000');
@@ -95,11 +98,6 @@ if('ontouchstart' in document.documentElement) document.write("<script src='asse
 			});
 			$('.selectonfocus').mask("00/00/0000", {selectOnFocus: true});
 		});
-
-		//função para modal de mensagem
-		$('#flash-overlay-modal').modal();
-		$('div.alert').not('.alert-important').delay(3000).fadeOut(350);
-
 
 
 //função para estados e cidades

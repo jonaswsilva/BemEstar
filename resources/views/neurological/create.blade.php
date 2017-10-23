@@ -79,7 +79,7 @@
 
           <div class="step-content pos-rel">
 
-            {!! Form::open(['route' => 'neurological.store', 'method' => 'post' ,'class' => 'form-horizontal']) !!}
+            {!! Form::open(['route' => 'neurological.store', 'method' => 'post' , 'id' => 'form1','class' => 'form-horizontal']) !!}
             {!! Form::hidden('medicalappointment_id', @$medicalappointment->id, ['id'=>'idMedical']) !!}
 
             @include('neurological/_form')
@@ -95,7 +95,7 @@
           Anterior
         </button>
 
-        <button class="btn btn-success btn-next" type="submit" data-last="Finalizar">
+        <button class="btn btn-success btn-next" type="submit" data-last="Finalizar!">
           Próximo
           <i class="ace-icon fa fa-arrow-right icon-on-right"></i>
         </button>
@@ -145,6 +145,7 @@ jQuery(function($) {
   //.on('changed.fu.wizard', function() {
   //})
   .on('finished.fu.wizard', function(e) {
+    $('#form1').submit();
     bootbox.dialog({
       message: "Obrigado! Avaliação realizada com sucesso!",
       buttons: {

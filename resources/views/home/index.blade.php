@@ -2,8 +2,7 @@
 
 @section('content')
 
-
-@can('manager-access')
+@can('admin-access')
 <div class="col-xs-12 col-sm-6 widget-container-col" id="widget-container-col-2">
   <div class="widget-box widget-color-blue" id="widget-box-2">
     <div class="widget-header">
@@ -11,7 +10,6 @@
         <i class="ace-icon fa fa-table"></i>
         Pacientes de hoje
       </h5>
-
       <div class="widget-toolbar widget-toolbar-light no-border">
         <select id="simple-colorpicker-1" class="hide">
           <option selected="" data-class="blue" value="#307ECC">#307ECC</option>
@@ -42,7 +40,6 @@
                 <i class="ace-icon fa fa-user"></i>
                 Paciente
               </th>
-
               <th>
                 <i class="ace-icon fa fa-user-md"></i>
                 Profissional
@@ -54,12 +51,10 @@
               <th class="hidden-480">Status</th>
             </tr>
           </thead>
-
           <tbody>
             @foreach ($schedulestoday as $schedule)
             <tr>
               <td class="">{{ $schedule->patient->person->name }}</td>
-
               <td>{{ $schedule->professional->person->name }}</td>
               <td>{{ $schedule->hour }}</td>
               <td class="hidden-480">
@@ -67,13 +62,8 @@
               </td>
             </tr>
             @endforeach
-
-
-
-
           </tbody>
         </table>
-
       </div>
     </div>
   </div>
@@ -83,10 +73,7 @@
   <div class="widget-box widget-color-dark light-border" id="widget-box-6">
     <div class="widget-header">
       <h5 class="widget-title smaller">Telefones Úteis</h5>
-
-
     </div>
-
     <div class="widget-body">
       <div class="widget-main padding-6">
         <div class="alert alert-info"> Polícia <div class="widget-toolbar">
@@ -106,10 +93,7 @@
   <div class="widget-box" id="widget-box-5">
     <div class="widget-header">
       <h5 class="widget-title smaller purple">Calendário</h5>
-
-
     </div>
-
     <div class="widget-body">
       <div class="widget-main padding-6">
         <iframe src="https://calendar.google.com/calendar/embed?height=200&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=je5qc3ql8st90vvidipsprtosg%40group.calendar.google.com&amp;color=%23AB8B00&amp;ctz=America%2FSao_Paulo" style="border-width:0" width="250" height="200" frameborder="0" scrolling="no"></iframe>
@@ -125,53 +109,41 @@
     <div class="infobox-icon">
       <i class="ace-icon fa fa-list"></i>
     </div>
-
     <div class="infobox-data">
       <span class="infobox-data-number">{{ @$countschedules }}</span>
       <div class="infobox-content">Consultas Marcadas</div>
     </div>
-
-
   </div>
 
   <div class="infobox infobox-blue">
     <div class="infobox-icon">
       <i class="ace-icon fa fa-check-square-o"></i>
     </div>
-
     <div class="infobox-data">
-      <span class="infobox-data-number">{{ @$schedulestoday }}</span>
+      <span class="infobox-data-number">{{ @$countschedulestoday }}</span>
       <div class="infobox-content">Consultas Hoje</div>
     </div>
-
-
   </div>
 
   <div class="infobox infobox-pink">
     <div class="infobox-icon">
       <i class="ace-icon fa fa-file-o"></i>
     </div>
-
     <div class="infobox-data">
       <span class="infobox-data-number">{{ @$countsessions }}</span>
       <div class="infobox-content">Sessões de Hoje</div>
     </div>
-
   </div>
-
-
 
   <div class="infobox infobox-red">
     <div class="infobox-icon">
       <i class="ace-icon fa fa-user"></i>
     </div>
-
     <div class="infobox-data">
       <span class="infobox-data-number">{{ @$countspatients }}</span>
       <div class="infobox-content">Pacientes</div>
     </div>
   </div>
-
 
   <div class="infobox infobox-blue2">
       <div class="infobox-progress">
@@ -179,10 +151,8 @@
           <span class="percent">42</span>
         </div>
       </div>
-
       <div class="infobox-data">
         <span class="infobox-text">42</span>
-
         <div class="infobox-content">Consultas realizadas</div>
       </div>
     </div>
@@ -191,13 +161,10 @@
       <div class="infobox-chart">
         <span class="sparkline" data-values="196,128,202,177,154,94,100,170,224"></span>
       </div>
-
       <div class="infobox-data">
         <span class="infobox-data-number">6,251</span>
         <div class="infobox-content">Consultas no mês</div>
       </div>
-
-
     </div>
 
   <div class="space-6"></div>
@@ -208,7 +175,6 @@
         <span class="percent">61</span>%
       </div>
     </div>
-
     <div class="infobox-data">
       <div class="infobox-content">Task</div>
       <div class="infobox-content">Completion</div>
@@ -219,7 +185,6 @@
     <div class="infobox-chart">
       <span class="sparkline" data-values="3,4,2,3,4,4,2,2"></span>
     </div>
-
     <div class="infobox-data">
       <div class="infobox-content">Earnings</div>
       <div class="infobox-content">$32,000</div>
@@ -230,7 +195,6 @@
     <div class="infobox-icon">
       <i class="ace-icon fa fa-download"></i>
     </div>
-
     <div class="infobox-data">
       <div class="infobox-content">Downloads</div>
       <div class="infobox-content">1,205</div>
@@ -245,14 +209,12 @@
         <i class="ace-icon fa fa-signal"></i>
         Traffic Sources
       </h5>
-
       <div class="widget-toolbar no-border">
         <div class="inline dropdown-hover">
           <button class="btn btn-minier btn-primary">
             Nesta Semana
             <i class="ace-icon fa fa-angle-down icon-on-right bigger-110"></i>
           </button>
-
           <ul class="dropdown-menu dropdown-menu-right dropdown-125 dropdown-lighter dropdown-close dropdown-caret">
             <li class="active">
               <a href="#" class="blue">
@@ -260,21 +222,18 @@
                 This Week
               </a>
             </li>
-
             <li>
               <a href="#">
                 <i class="ace-icon fa fa-caret-right bigger-110 invisible">&nbsp;</i>
                 Last Week
               </a>
             </li>
-
             <li>
               <a href="#">
                 <i class="ace-icon fa fa-caret-right bigger-110 invisible">&nbsp;</i>
                 This Month
               </a>
             </li>
-
             <li>
               <a href="#">
                 <i class="ace-icon fa fa-caret-right bigger-110 invisible">&nbsp;</i>
@@ -300,7 +259,6 @@
             </span>
             <h4 class="bigger pull-right">55</h4>
           </div>
-
           <div class="grid3">
             <span class="grey">
               <i class="ace-icon fa fa-twitter-square fa-2x purple"></i>
@@ -308,7 +266,6 @@
             </span>
             <h4 class="bigger pull-right">941</h4>
           </div>
-
           <div class="grid3">
             <span class="grey">
               <i class="ace-icon fa fa-pinterest-square fa-2x red"></i>

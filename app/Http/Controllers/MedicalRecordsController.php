@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Http\Requests\MedicalRecordRequest;
 use App\Http\Requests;
 use App\MedicalRecords;
 use DB;
@@ -34,7 +34,7 @@ class MedicalRecordsController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function store(MedicalRecordRequest $request)
     {
         $medicalrecord = new MedicalRecords();
         $medicalrecord->patient_id         = $request->input('patient_id');
@@ -92,7 +92,7 @@ class MedicalRecordsController extends Controller
                    ->with(compact('medicalrecords'));
     }
 
-    
+
     public function destroy($id)
     {
       $medicalrecord = MedicalRecords::find($id);

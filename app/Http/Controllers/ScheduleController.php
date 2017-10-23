@@ -1,9 +1,7 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
-
+use App\Http\Requests\ScheduleRequest;
 use App\Http\Requests;
 use App\Patient;
 use App\Person;
@@ -14,19 +12,14 @@ use Response;
 use Redirect;
 use Session;
 use App\Schedule;
-
 class ScheduleController extends Controller
 {
-
   public function index()
   {
     return view('schedules.index');
   }
-
-
   public function create()
   {
-
     // $professional = DB::table('professionals')
     // ->join('person', 'professionals.person_id', '=', 'person.id')
     // ->pluck('person.name','professionals.id');
@@ -39,9 +32,7 @@ class ScheduleController extends Controller
                     ->with(compact('professionals'))
                     ->with(['button'=>'Salvar']);
   }
-
-
-  public function store(Request $request)
+  public function store(ScheduleRequest $request)
   {
     $date = $request->input('date');
     // dd($date);
@@ -58,7 +49,6 @@ class ScheduleController extends Controller
       $schedule->professional_id = $request->input('professional_id');
       $schedule->date = $request->input('date');
       $schedule->hour = $request->input('hour');
-
       flash('Agendamento realizado com sucesso!')->success()->important();
       return $this->all();
     }else{
@@ -67,19 +57,13 @@ class ScheduleController extends Controller
     }
     //dd($schedule);
     //$schedule->save();
-
-
   }
-
-
   public function show($id)
   {
     $schedule = Schedule::findOrFail($id);
     return view('schedules.show')
                 ->with(compact('schedule'));
   }
-
-
   public function edit($id)
   {
     $schedule = Schedule::findOrFail($id);
@@ -89,13 +73,10 @@ class ScheduleController extends Controller
     $patients = DB::table('patients')
     ->join('person', 'patients.person_id', '=', 'person.id')
     ->pluck('person.name','patients.id');
-
     return view('schedules.edit')
                 ->with(compact('schedule','professionals','patients'))
                 ->with(['button'=>'Atualizar']);
   }
-
-
   public function update(Request $request, $id)
   {
       $schedule = Schedule::findOrFail($id);
@@ -104,43 +85,31 @@ class ScheduleController extends Controller
       $schedule->date = $request->input('date');
       $schedule->hour = $request->input('hour');
       $schedule->push();
-
       $schedules = Schedule::all();
       return view('schedules.all')
                    ->with(compact('schedules'));
-
   }
-
-
   public function destroy($id)
   {
     //
   }
-
   public function autoComplete(Request $request){
-
     $term = $request->input('term');
-
     $results = array();
-
     $queries = DB::table('person')
     ->join('patients', 'person.id', '=', 'patients.person_id')
     ->where('name', 'LIKE', '%'.$term.'%')
     ->orWhere('lastname', 'LIKE', '%'.$term.'%')
     ->take(5)->get();
-
     foreach ($queries as $query)
     {
       $results[] = [ 'id' => $query->id, 'value' => $query->name.' '.$query->lastname.' '.$query->cpf];
-
     }
     return Response::json($results);
    }
-
    public function all(){
      $schedules = Schedule::all();
      return view('schedules.all')
                   ->with(compact('schedules'));
    }
-
 }

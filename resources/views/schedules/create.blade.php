@@ -15,7 +15,6 @@
 	@if($errors->any())
 	<div class="alert alert-danger">Existem dados incorretos no formulário!</div>
 	@endif
-	@include('flash::message')
 	<div class="col-xs-12">
 		<!-- PAGE CONTENT BEGINS -->
 		{{ Form::open(array('route' => 'schedules.store', 'class' => 'form-horizontal')) }}

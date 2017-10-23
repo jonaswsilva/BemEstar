@@ -472,11 +472,7 @@
   <div class="step-pane" data-step="8">
     <div class="center">
       <h3 class="green">Avaliação completa!</h3>
-      Clique em finalizar para continuar!
-      <button class="btn btn-info" type="submit">
-        <i class="ace-icon fa fa-check"></i>
-        Concluir Avaliação
-      </button>
+      Clique em finalizar para concluir!
     </div>
   </div>
 <!-- </div> -->

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Http\Requests\MedicalAppointmentRequest;
 use App\Professional;
 use App\Patient;
 use App\Postural;
@@ -53,7 +54,7 @@ class MedicalAppointmentController extends Controller
   }
 
 
-  public function store(Request $request)
+  public function store(MedicalAppointmentRequest $request)
   {
     $medicalappointment = new MedicalAppointment();
 

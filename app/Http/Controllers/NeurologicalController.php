@@ -10,6 +10,7 @@ use App\Neurological;
 use Redirect;
 use View;
 use DB;
+use PDF;
 
 class NeurologicalController extends Controller
 {
@@ -103,7 +104,7 @@ class NeurologicalController extends Controller
 
         $neurological->save();
 
-        return Redirect::to('medicalAppointments');
+        return $this->show($neurological->id);
 
 
     }
@@ -121,6 +122,17 @@ class NeurologicalController extends Controller
       return View::make('neurological.show',compact('neurological'));
     }
 
+    public function pdf($id){
+
+      $medicalappointment = MedicalAppointment::find($id);
+      $neurological = DB::table('neurologicals')->where('medicalappointment_id', $id)->first();
+
+
+      return $pdf = PDF::setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true])
+                            ->loadView('neurological.printpdf',compact('medicalappointment','neurological'))->stream();
+      //return $pdf->download('avaliacao_postural.pdf');
+
+    }
     /**
      * Show the form for editing the specified resource.
      *
@@ -201,6 +213,19 @@ class NeurologicalController extends Controller
      */
     public function destroy($id)
     {
-        //
+
+      $neurological = Neurological::find($id);
+      if ($neurological != null) {
+        // dd($neurological);
+        $neurological->delete();
+        $medicalappointments = MedicalAppointment::all();
+        flash('Paciente excluido com sucesso!')->success()->important();
+        return view('medicalappointments.index')
+                          ->with(compact('medicalappointments'));
+      }
+      flash('Código não encontrado!')->error()->important();
+      $medicalappointments = MedicalAppointment::all();
+      return view('medicalappointments.index')
+                  ->with(compact('medicalappointments'));
     }
 }

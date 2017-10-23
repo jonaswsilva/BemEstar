@@ -26,6 +26,9 @@
   {!!  Form::label('form-field-1', 'Data: ', ['class' => 'col-sm-3 control-label no-padding-right'])  !!}
   <div class="col-sm-9">
   {!! Form::date('date', @$medicalappointment->date, ['class' => 'col-xs-10 col-sm-5']) !!}
+  @if($errors->any())
+  <div class="red darken-4">&nbsp &nbsp{!! $errors->first('date') !!}</div>
+  @endif
 </div>
 </div>
 

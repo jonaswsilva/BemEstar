@@ -45,7 +45,14 @@
     </div>
 
     <div class="col-xs-12 col-sm-9">
-
+      <div class="col-md-11 col-md-offset-1">
+          {!! Form::open(['url'=>'neurological/'.$neurological->id,'method'=>'post','class'=>'delete']) !!}
+          {{ csrf_field() }}
+          {{ method_field('DELETE') }}
+          <button type="submit" class="btn btn-danger pull-right" >Excluir</button>
+        {!! Form::close() !!}
+      <a class="btn btn-info pull-right" href="{{ URL::to('neurological/'. $neurological->medicalappointment->id .'/pdf') }}"><i class="ace-icon fa fa-file bigger-110"></i>Gerar PDF</a>
+      </div>
         <div class="space-12"></div>
 
         <div class="space-20"></div>
@@ -372,7 +379,10 @@
   </div>
 
 
+  {{ Form::open(array('url' => 'neurological/' . @$neurological->id, 'id' => 'form-delete')) }}
+    {{ Form::hidden('_method', 'DELETE') }}
 
+  {{ Form::close() }}
 
 </div>
 

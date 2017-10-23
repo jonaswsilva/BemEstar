@@ -59,6 +59,7 @@
               <a class="btn btn-xs btn-secundary" href="{{ URL::to('neurological/create/'. $medicalappointment->id ) }}">
                 Neurológica
               </a>
+              
             </td>
 
             <td>
@@ -72,13 +73,9 @@
                   <i class="ace-icon fa fa-pencil bigger-120"></i>
                 </a>
 
-
                 <a class="btn btn-xs btn-danger btn-delete" data-toggle="tooltip" data-placement="bottom" title="Excluir" href="#">
                   <i class="ace-icon fa fa-trash-o bigger-120"></i>
                 </a>
-
-
-
               </div>
 
 

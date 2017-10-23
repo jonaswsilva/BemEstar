@@ -10,6 +10,7 @@ use App\MedicalAppointment;
 use Redirect;
 use View;
 use DB;
+use PDF;
 
 class PosturalController extends Controller
 {
@@ -105,6 +106,17 @@ class PosturalController extends Controller
       return View::make('postural.show',compact('postural'));
     }
 
+    public function pdf($id){
+
+      $medicalappointment = MedicalAppointment::find($id);
+      $postural = DB::table('posturals')->where('medicalappointment_id', $id)->first();
+
+
+      return $pdf = PDF::setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true])
+                            ->loadView('postural.printpdf',compact('medicalappointment','postural'))->stream();
+      //return $pdf->download('avaliacao_postural.pdf');
+
+    }
 
     public function edit($id)
     {
@@ -172,6 +184,19 @@ class PosturalController extends Controller
 
     public function destroy($id)
     {
-        //
+      $postural = Postural::find($id);
+      if ($postural != null) {
+        // dd($postural);
+        $postural->delete();
+        $medicalappointments = MedicalAppointment::all();
+        flash('Paciente excluido com sucesso!')->success()->important();
+        return view('medicalappointments.index')
+                          ->with(compact('medicalappointments'));
+      }
+      flash('Código não encontrado!')->error()->important();
+      $medicalappointments = MedicalAppointment::all();
+      return view('medicalappointments.index')
+                  ->with(compact('medicalappointments'));
+
     }
 }

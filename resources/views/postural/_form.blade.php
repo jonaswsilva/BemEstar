@@ -4,11 +4,10 @@
 
   <div class="form-group">
     <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="comment">Anamnese:</label>
-
     <div class="col-xs-12 col-sm-9">
       <div class="clearfix">
         <!-- <textarea class="input-xlarge" name="comment" id="comment"></textarea> -->
-        {!! Form::textarea('comment', @$postural->comment, ['class' => 'input-xlarge', 'size' => '30x3','id' => 'comment']) !!}
+        {!! Form::textarea('comment', @$postural->comment, ['size' => '60x3','id' => 'comment']) !!}
       </div>
     </div>
   </div>
@@ -859,10 +858,6 @@
 <div class="step-pane" data-step="4">
   <div class="center">
     <h3 class="green">Avaliação completa!</h3>
-    Clique em finalizar para continuar!
+    Clique em finalizar para concluir!
   </div>
-  <button class="btn btn-success" type="submit">
-    <i class="ace-icon fa fa-arrow-left"></i>
-    Salvar
-  </button>
 </div>
