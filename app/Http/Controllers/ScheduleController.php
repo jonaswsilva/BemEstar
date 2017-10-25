@@ -32,10 +32,11 @@ class ScheduleController extends Controller
                     ->with(compact('professionals'))
                     ->with(['button'=>'Salvar']);
   }
+
   public function store(ScheduleRequest $request)
   {
     $date = $request->input('date');
-    // dd($date);
+    //dd($date);
     $hour = $request->input('hour');
     $professional = $request->input('professional_id');
     $markedschedule = DB::table('schedules')
@@ -49,22 +50,26 @@ class ScheduleController extends Controller
       $schedule->professional_id = $request->input('professional_id');
       $schedule->date = $request->input('date');
       $schedule->hour = $request->input('hour');
+      //dd($schedule);
+      $schedule->save();
       flash('Agendamento realizado com sucesso!')->success()->important();
       return $this->all();
     }else{
-      flash()->overlay('Já existe uma consulta nessa date e horário!','Atenção');
+      flash('Já existe uma consulta nessa date e horário!','Atenção')->error();
       return Redirect::to('schedules/create')->withInput();
+      //dd($schedule);
     }
-    //dd($schedule);
     //$schedule->save();
   }
-  public function show($id)
+
+public function show($id)
   {
     $schedule = Schedule::findOrFail($id);
     return view('schedules.show')
                 ->with(compact('schedule'));
   }
-  public function edit($id)
+
+public function edit($id)
   {
     $schedule = Schedule::findOrFail($id);
     $professionals = DB::table('professionals')
@@ -77,7 +82,8 @@ class ScheduleController extends Controller
                 ->with(compact('schedule','professionals','patients'))
                 ->with(['button'=>'Atualizar']);
   }
-  public function update(Request $request, $id)
+
+public function update(Request $request, $id)
   {
       $schedule = Schedule::findOrFail($id);
       $schedule->patient_id = $request->input('patient_id');
@@ -85,15 +91,16 @@ class ScheduleController extends Controller
       $schedule->date = $request->input('date');
       $schedule->hour = $request->input('hour');
       $schedule->push();
-      $schedules = Schedule::all();
-      return view('schedules.all')
-                   ->with(compact('schedules'));
+
+      return $this->edit($id);
   }
-  public function destroy($id)
+
+public function destroy($id)
   {
     //
   }
-  public function autoComplete(Request $request){
+
+public function autoComplete(Request $request){
     $term = $request->input('term');
     $results = array();
     $queries = DB::table('person')
@@ -107,9 +114,14 @@ class ScheduleController extends Controller
     }
     return Response::json($results);
    }
-   public function all(){
-     $schedules = Schedule::all();
+
+public function all(){
+     $schedules =Schedule::orderBy('date','hour')->get();
+     $professionals = DB::table('professionals')
+     ->join('person', 'professionals.person_id', '=', 'person.id')
+     ->pluck('person.name','professionals.id');
      return view('schedules.all')
-                  ->with(compact('schedules'));
+                  ->with(compact('schedules','professionals'))
+                  ->with(['button'=>'Salvar']);
    }
 }

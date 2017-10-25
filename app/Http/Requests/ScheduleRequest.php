@@ -24,7 +24,7 @@ class ScheduleRequest extends Request
     public function rules()
     {
         return [
-            'patient_name' => 'required',
+            'term' => 'required',
             'date' => 'required',
             'hour' => 'required',
         ];

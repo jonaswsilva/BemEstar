@@ -98,7 +98,7 @@ class ProceduresController extends Controller
                    ->with(compact('procedures'));
     }
 
-    
+
     public function destroy($id)
     {
       $procedure = Procedures::find($id);

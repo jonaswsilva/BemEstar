@@ -42,6 +42,7 @@ if('ontouchstart' in document.documentElement) document.write("<script src='asse
 		<script src="{{ asset('assets/js/moment.min.js') }}"></script>
 		<script src="{{ asset('assets/js/fullcalendar.min.js') }}"></script>
 		<script src="{{ asset('assets/js/bootbox.js') }}"></script>
+		<script src="{{ asset('assets/js/bootstrap-timepicker.min.js') }}"></script>
 
 		<!-- ace scripts -->
 		<script src="{{ asset('assets/js/ace-elements.min.js') }}"></script>
@@ -60,6 +61,24 @@ if('ontouchstart' in document.documentElement) document.write("<script src='asse
 		$(".delete").on("submit", function(){
         return confirm("Deseja realmente excluir?");
     });
+
+
+			$('#timepicker1').timepicker({
+				template: 'modal',
+				minuteStep: 1,
+				showSeconds: false,
+				showMeridian: false,
+				disableFocus: true,
+				icons: {
+					up: 'fa fa-chevron-up',
+					down: 'fa fa-chevron-down'
+				}
+			}).on('focus', function() {
+				$('#timepicker1').timepicker('showWidget');
+			}).next().on(ace.click_event, function(){
+				$(this).prev().focus();
+			});
+
 
 		$(document).ready(function(){
 			//$('.date').mask('00/00/0000');
@@ -133,14 +152,16 @@ if('ontouchstart' in document.documentElement) document.write("<script src='asse
 				});
 		}
 
-		$( "#autoComplete" ).autocomplete({
-	 	source: "{{ URL::to('schedules/autocomplete') }}",
-	 	minLength: 1,
-	 	select: function(event, ui) {
-	 		$('#autoComplete').val(ui.item.value);
-	 		$('#idPatient').val(ui.item.id);
-	 	}
+		$( "#autoComplete" ).css("zIndex", 5000).autocomplete({
+		 	source: "{{ URL::to('schedules/autocomplete') }}",
+		 	minLength: 1,
+			 	select: function(event, ui) {
+			 		$('#autoComplete').val(ui.item.value);
+			 		$('#idPatient').val(ui.item.id);
+			 	}
 	 	});
+
+
 		</script>
 
 		<script type="text/javascript">

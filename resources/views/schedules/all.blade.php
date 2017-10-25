@@ -11,6 +11,7 @@
 						<div class="pull-left">
 							<a class="btn btn-default" href="{{ URL::to('schedules/create') }}"><i class="ace-icon fa fa-calendar-plus-o"></i> Nova Consulta</a>
 						</div>
+						<a href="#my-modal" role="button" class="btn btn-default" data-toggle="modal"><i class="ace-icon fa fa-calendar-plus-o"></i> Nova Consulta</a>
 
 						<div class="clearfix">
 							<div class="pull-right tableTools-container"></div>
@@ -34,21 +35,17 @@
 										<th><i class="fa fa-user-md"></i>Profissional</th>
 										<th><i class="ace-icon fa fa-calendar bigger-110 hidden-480"></i>Data</th>
 										<th><i class="ace-icon fa fa-clock-o bigger-110 hidden-480"></i>Hora</th>
-
 										<th></th>
 									</tr>
 								</thead>
-
 								<tbody>
 									@foreach ($schedules as $schedule)
 									<tr>
-
 										<td class="center">{{ $schedule->id }}</td>
 										<td>{{ $schedule->patient->person->name }} {{ $schedule->patient->person->lastname }}</td>
 										<td>{{ $schedule->professional->person->name }}</td>
 										<td>{{ $schedule->date_mu->format('d/m/Y') }}</td>
 										<td class="hour">{{ $schedule->hour }}</td>
-
 										<td>
 											<div class="hidden-sm hidden-xs btn-group">
 
@@ -60,14 +57,11 @@
 													<i class="ace-icon fa fa-pencil bigger-120"></i>
 												</a>
 
-
 												<a class="btn btn-xs btn-danger btn-delete" href="#">
 													<i class="ace-icon fa fa-trash-o bigger-120"></i>
 												</a>
 
 											</div>
-
-
 
 											<div class="hidden-md hidden-lg">
 												<div class="inline pos-rel">
@@ -83,7 +77,6 @@
 																</span>
 															</a>
 														</li>
-
 														<li>
 															<a href="#" class="tooltip-success" data-rel="tooltip" title="Edit">
 																<span class="green">
@@ -91,7 +84,6 @@
 																</span>
 															</a>
 														</li>
-
 														<li>
 															<a href="#" class="tooltip-error" data-rel="tooltip" title="Delete">
 																<span class="red">
@@ -115,40 +107,71 @@
 					</div>
 				</div>
 
-				<!-- <a href="#my-modal" role="button" class="bigger-125 bg-primary white" data-toggle="modal">
-					&nbsp; Chamar modal &nbsp;
-				</a> -->
-
 				<div id="my-modal" class="modal fade" tabindex="-1">
-					<div class="modal-dialog">
+					<div class="modal-dialog" style="z-index:5000;">
 						<div class="modal-content">
 							<div class="modal-header">
 								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-								<h3 class="smaller lighter blue no-margin">Esse modal aqui!</h3>
+								<h3 class="smaller lighter blue no-margin">Nova Consulta!</h3>
 							</div>
 
 							<div class="modal-body">
-								Some content
-								<br />
-								<br />
-								<br />
-								<br />
-								<br />
-								1
-								<br />
-								<br />
-								<br />
-								<br />
-								<br />
-								2
+								{{ Form::open(array('route' => 'schedules.store', 'class' => 'form-horizontal')) }}
+
+											{{ Form::token() }}
+
+											<div class="form-group">
+												{!!  Form::label('form-field-1', 'Paciente: ', ['class' => 'col-sm-3 control-label no-padding-right'])  !!}
+												<div class="col-sm-9">
+													{!! Form::text('term', null, ['class' => 'col-xs-10 col-sm-8','id' => 'autoComplete', 'placeholder' => 'Paciente...']) !!}
+													@if($errors->any())
+													<div class="red darken-4">&nbsp &nbsp{!! $errors->first('patient_name') !!}</div>
+													@endif
+												</div>
+											</div>
+
+											{!! Form::hidden('patient_id', null, ['id'=>'idPatient']) !!}
+
+											<div class="form-group">
+												{!! Form::label('form-field-5', 'Profissional:', ['class'=> 'col-sm-3 control-label no-padding-right']) !!}
+												<div class="col-sm-9">
+													{!! Form::select('professional_id', $professionals, null,['id'=> 'state','class' => 'col-xs-10 col-sm-8']) !!}
+												</div>
+											</div>
+
+											<div class="form-group">
+												{!!  Form::label('form-field-1', 'Data: ', ['class' => 'col-sm-3 control-label no-padding-right'])  !!}
+												<div class="col-sm-9">
+													{!! Form::date('date', null, ['class' => 'col-xs-10 col-sm-5', 'placeholder' => 'Data...']) !!}
+													@if($errors->any())
+													<div class="red darken-4">&nbsp &nbsp{!! $errors->first('date') !!}</div>
+													@endif
+												</div>
+											</div>
+
+											<div class="form-group">
+												{!!  Form::label('form-field-1', 'Hora: ', ['class' => 'col-sm-3 control-label no-padding-right'])  !!}
+												<div class="col-sm-9">
+													{!! Form::text('hour', null, ['class' => 'col-xs-10 col-sm-5 hour', 'id'=>'timepicker1', 'placeholder' => 'Hora...']) !!}
+													@if($errors->any())
+													<div class="red darken-4">&nbsp &nbsp{!! $errors->first('hour') !!}</div>
+													@endif
+												</div>
+											</div>
 							</div>
 
 							<div class="modal-footer">
+								<button class="btn btn-sm btn-info pull-right" type="submit">
+									<i class="ace-icon fa fa-check bigger-110"></i>
+									{{ $button }}
+								</button>
+								{!! Form::close() !!}
 								<button class="btn btn-sm btn-danger pull-right" data-dismiss="modal">
 									<i class="ace-icon fa fa-times"></i>
-									Close
+									Sair
 								</button>
 							</div>
+
 						</div><!-- /.modal-content -->
 					</div><!-- /.modal-dialog -->
 				</div>
@@ -214,33 +237,33 @@
 			buttons: [
 				{
 				"extend": "colvis",
-				"text": "<i class='fa fa-search bigger-110 blue'></i> <span class='hidden'>Show/hide columns</span>",
+				"text": "<i class='fa fa-search bigger-110 blue'></i> <span class='hidden'>Mostrar/Ocultar Colunas</span>",
 				"className": "btn btn-white btn-primary btn-bold",
 				columns: ':not(:first):not(:last)'
 				},
 				{
 				"extend": "copy",
-				"text": "<i class='fa fa-copy bigger-110 pink'></i> <span class='hidden'>Copy to clipboard</span>",
+				"text": "<i class='fa fa-copy bigger-110 pink'></i> <span class='hidden'>Copiar</span>",
 				"className": "btn btn-white btn-primary btn-bold"
 				},
 				{
 				"extend": "csv",
-				"text": "<i class='fa fa-database bigger-110 orange'></i> <span class='hidden'>Export to CSV</span>",
+				"text": "<i class='fa fa-database bigger-110 orange'></i> <span class='hidden'>Exportar para CSV</span>",
 				"className": "btn btn-white btn-primary btn-bold"
 				},
 				{
 				"extend": "excel",
-				"text": "<i class='fa fa-file-excel-o bigger-110 green'></i> <span class='hidden'>Export to Excel</span>",
+				"text": "<i class='fa fa-file-excel-o bigger-110 green'></i> <span class='hidden'>Exportar para Excel</span>",
 				"className": "btn btn-white btn-primary btn-bold"
 				},
 				{
 				"extend": "pdf",
-				"text": "<i class='fa fa-file-pdf-o bigger-110 red'></i> <span class='hidden'>Export to PDF</span>",
+				"text": "<i class='fa fa-file-pdf-o bigger-110 red'></i> <span class='hidden'>Exportar para PDF</span>",
 				"className": "btn btn-white btn-primary btn-bold"
 				},
 				{
 				"extend": "print",
-				"text": "<i class='fa fa-print bigger-110 grey'></i> <span class='hidden'>Print</span>",
+				"text": "<i class='fa fa-print bigger-110 grey'></i> <span class='hidden'>Imprimir</span>",
 				"className": "btn btn-white btn-primary btn-bold",
 				autoPrint: false,
 				message: 'This print was produced using the Print button for DataTables'

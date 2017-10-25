@@ -1,7 +1,7 @@
 <div class="form-group">
   {!!  Form::label('form-field-1', 'Paciente: ', ['class' => 'col-sm-3 control-label no-padding-right'])  !!}
   <div class="col-sm-9">
-    {!! Form::text('patient_name', @$medicalappointment->patient->person->name, ['class' => 'col-xs-10 col-sm-5','id' => 'autoComplete', 'placeholder' => 'Paciente...']) !!}
+    {!! Form::text('term', @$medicalappointment->patient->person->name, ['class' => 'col-xs-10 col-sm-5','id' => 'autoComplete', 'placeholder' => 'Paciente...']) !!}
     @if($errors->any())
     <div class="red darken-4">&nbsp &nbsp{!! $errors->first('patient_name') !!}</div>
     @endif

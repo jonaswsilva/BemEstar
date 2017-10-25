@@ -4,7 +4,7 @@
 			<div class="form-group">
 				{!!  Form::label('form-field-1', 'Paciente: ', ['class' => 'col-sm-3 control-label no-padding-right'])  !!}
 				<div class="col-sm-9">
-					{!! Form::text('patient_name', @$schedule->patient->person->name, ['class' => 'col-xs-10 col-sm-5','id' => 'autoComplete', 'placeholder' => 'Paciente...']) !!}
+					{!! Form::text('term', @$schedule->patient->person->name, ['class' => 'col-xs-10 col-sm-5','id' => 'autoComplete', 'placeholder' => 'Paciente...']) !!}
 					@if($errors->any())
 					<div class="red darken-4">&nbsp &nbsp{!! $errors->first('patient_name') !!}</div>
 					@endif
@@ -67,6 +67,6 @@
 					</button>
 
 					&nbsp; &nbsp; &nbsp;
-					<a class="btn btn-primary" href="{{ URL::to('schedules') }}"><i class="ace-icon fa fa-undo bigger-110"></i>Voltar</a>
+					<a class="btn btn-primary" href="{{ URL::to('schedules/all') }}"><i class="ace-icon fa fa-undo bigger-110"></i>Voltar</a>
 				</div>
 			</div>

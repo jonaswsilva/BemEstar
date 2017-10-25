@@ -188,6 +188,18 @@ textarea:focus {
     color: #723098;
 }
 
+.ui-autocomplete {
+    position: absolute;
+    top: 0;
+    left: 0;
+    cursor: default;
+     z-index:2147483647 !important;
+
+}
+
+.bootstrap-timepicker-widget.dropdown-menu {
+    z-index: 99999!important;
+}
 /*.ace-nav>li.light-blue>a {
     background-color: #8753a5;
 }
