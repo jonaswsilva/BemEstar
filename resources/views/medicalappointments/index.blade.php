@@ -8,13 +8,13 @@
     <h2 class="header smaller lighter purple">Consultas</h2>
 
     <div class="pull-left">
-      <a class="btn btn-default" href="{{ URL::to('medicalappointments/create') }}"><i class="ace-icon fa fa-plus"></i>Nova consulta</a>
+      <a class="btn btn-default" href="{{ URL::to('medicalappointments/create') }}"><i class="ace-icon fa fa-file-text-o"></i> Iniciar Consulta</a>
     </div>
 
     <div class="clearfix">
       <div class="pull-right tableTools-container"></div>
     </div>
-
+    @include('flash::message')
     @if (Session::has('message'))
       <div class="alert alert-{{ @$alert }}">{{ Session::get('message') }}</div>
     @endif
@@ -59,12 +59,14 @@
               <a class="btn btn-xs btn-secundary" href="{{ URL::to('neurological/create/'. $medicalappointment->id ) }}">
                 Neurológica
               </a>
-              
+
             </td>
 
             <td>
               <div class="hidden-sm hidden-xs btn-group">
-
+                {!! Form::open(['url'=>'medicalappointments/'.$medicalappointment->id,'method'=>'post','class'=>'delete']) !!}
+                  {{ csrf_field() }}
+                  {{ method_field('DELETE') }}
                 <a class="btn btn-xs btn-success" data-toggle="tooltip" data-placement="bottom" title="Visualizar" href="{{ URL::to('medicalappointments/'. $medicalappointment->id) }}">
                   <i class="ace-icon fa fa-check bigger-120"></i>
                 </a>
@@ -73,9 +75,8 @@
                   <i class="ace-icon fa fa-pencil bigger-120"></i>
                 </a>
 
-                <a class="btn btn-xs btn-danger btn-delete" data-toggle="tooltip" data-placement="bottom" title="Excluir" href="#">
-                  <i class="ace-icon fa fa-trash-o bigger-120"></i>
-                </a>
+                <button type="submit" class="btn btn-xs btn-danger" data-toggle="tooltip" data-placement="bottom" title="Excluir Consulta" ><i class="ace-icon fa fa-trash-o bigger-120"></i></button>
+              {!! Form::close() !!}
               </div>
 
 

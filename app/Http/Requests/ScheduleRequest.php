@@ -29,4 +29,12 @@ class ScheduleRequest extends Request
             'hour' => 'required',
         ];
     }
+
+    public function messages(){
+      return [
+          'term.required' => 'Campo obrigatório!',
+          'date.required' => 'O campo data é obrigatório!',
+          'hour.required' => 'O campo hora é obrigatório!',
+      ];
+    }
 }

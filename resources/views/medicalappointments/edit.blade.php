@@ -15,6 +15,7 @@
       <div class="widget-body">
         <div class="widget-main">
           <div class="row">
+            @include('flash::message')
             <div class="">
               {!! Form::model($medicalappointment, [
                 'route' => ['medicalappointments.update', $medicalappointment->id],

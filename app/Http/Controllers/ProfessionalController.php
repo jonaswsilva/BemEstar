@@ -179,18 +179,17 @@ class ProfessionalController extends Controller
       'route' => '/profissional/atualizar/', 'method' => 'post', 'button' => 'Atualizar'],compact('states','cities','especialities'));
     }
 
-    
+
     public function destroy($id)
     {
       $professional = Professional::find($id);
       if ($professional != null) {
         $professional->delete();
-        $professionals = Professional::orderBy('id', 'desc')->get();
-        Session::flash('message', 'Profissional excluido com sucesso!');
-        return View::make('professionals.index',['professionals' => $professionals, 'alert'=>'danger']);
+        flash('Profissional excluido com sucesso!')->success();
+        return $this->index();
       }
-      Session::flash('message', 'Código não encontrado!');
-      return View::make('professionals.index',['alert'=>'alert']);
+      flash('Código não encontrado!')->error();
+      return $this->index();
     }
 
 }

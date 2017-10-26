@@ -104,12 +104,11 @@ class ProceduresController extends Controller
       $procedure = Procedures::find($id);
       if ($procedure != null) {
         $procedure->delete();
-        $procedures = Procedures::orderBy('id', 'desc')->get();
-        Session::flash('message', 'Procedimento excluido com sucesso!');
-        return View::make('procedures.index',['procedures' => $procedures, 'alert'=>'danger']);
+        flash('Procedimento excluido com sucesso!')->success();
+        return $this->index();
       }
-      Session::flash('message', 'Código não encontrado!');
-      return View::make('procedures.index',['alert'=>'alert']);
+      flash('Código não encontrado!')->error();
+      return $this->index();
     }
 
     public function autoComplete(Request $request){

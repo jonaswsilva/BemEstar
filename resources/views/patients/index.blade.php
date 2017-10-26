@@ -24,7 +24,7 @@
 							<br>
 						</div>
 						@endif
-
+						@include('flash::message')
 						<div class="table-header">
 							Resultado para Pacientes
 						</div>
@@ -60,7 +60,9 @@
 
 										<td>
 											<div class="hidden-sm hidden-xs btn-group">
-
+												{!! Form::open(['url'=>'patients/'.$patient->id,'method'=>'post','class'=>'delete']) !!}
+				                  {{ csrf_field() }}
+				                  {{ method_field('DELETE') }}
 												<a class="btn btn-xs btn-success" href="{{ URL::to('patients/'.$patient->id) }}">
 													<i class="ace-icon fa fa-check bigger-120"></i>
 												</a>
@@ -69,10 +71,8 @@
 													<i class="ace-icon fa fa-pencil bigger-120"></i>
 												</a>
 
-
-												<a class="btn btn-xs btn-danger btn-delete" href="#">
-													<i class="ace-icon fa fa-trash-o bigger-120"></i>
-												</a>
+												<button type="submit" class="btn btn-xs btn-danger" data-toggle="tooltip" data-placement="bottom" title="Excluir Consulta" ><i class="ace-icon fa fa-trash-o bigger-120"></i></button>
+				              {!! Form::close() !!}
 
 											</div>
 

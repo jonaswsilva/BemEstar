@@ -4,7 +4,7 @@
 			<div class="form-group">
 				{!!  Form::label('form-field-1', 'Paciente: ', ['class' => 'col-sm-3 control-label no-padding-right'])  !!}
 				<div class="col-sm-9">
-					{!! Form::text('patient_name', @$procedure->patient->person->name, ['class' => 'col-xs-10 col-sm-5','id' => 'autoComplete', 'placeholder' => 'Paciente...']) !!}
+					{!! Form::text('term', @$procedure->patient->person->name, ['class' => 'col-xs-10 col-sm-5','id' => 'autoComplete', 'placeholder' => 'Paciente...']) !!}
 					@if($errors->any())
 					<div class="red darken-4">&nbsp &nbsp{!! $errors->first('patient_name') !!}</div>
 					@endif
@@ -74,7 +74,7 @@
       <div class="form-group">
 				{!!  Form::label('form-field-1', 'Parcelas: ', ['class' => 'col-sm-3 control-label no-padding-right'])  !!}
 				<div class="col-sm-9">
-					{!! Form::select('plots', ['2x' => '2x','4x' => '4x','6x' => '6x','8x' => '8x','10x' => '10x','12x' => '12x'], ['class' => 'col-xs-10 col-sm-5 plots', 'placeholder' => 'Parcelas...']) !!}
+					{!! Form::select('plots', ['2' => '2x','4' => '4x','6' => '6x','8' => '8x','10' => '10x','12' => '12x'], ['class' => 'col-xs-10 col-sm-5 plots', 'placeholder' => 'Parcelas...']) !!}
 					@if($errors->any())
 					<div class="red darken-4">&nbsp &nbsp{!! $errors->first('plots') !!}</div>
 					@endif

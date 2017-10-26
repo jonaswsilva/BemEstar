@@ -14,7 +14,7 @@
     <div class="clearfix">
       <div class="pull-right tableTools-container"></div>
     </div>
-
+    @include('flash::message')
     @if (Session::has('message'))
       <div class="alert alert-{{ @$alert }}">{{ Session::get('message') }}</div>
     @endif
@@ -52,7 +52,9 @@
 
             <td>
               <div class="hidden-sm hidden-xs btn-group">
-
+                {!! Form::open(['url'=>'medicalrecords/'.$medicalrecord->id,'method'=>'post','class'=>'delete']) !!}
+                  {{ csrf_field() }}
+                  {{ method_field('DELETE') }}
                 <a class="btn btn-xs btn-success" href="{{ URL::to('medicalrecords/'.$medicalrecord->id) }}">
                   <i class="ace-icon fa fa-check bigger-120"></i>
                 </a>
@@ -62,10 +64,8 @@
                 </a>
 
 
-                <a class="btn btn-xs btn-danger btn-delete" href="#">
-                  <i class="ace-icon fa fa-trash-o bigger-120"></i>
-                </a>
-
+                <button type="submit" class="btn btn-xs btn-danger" data-toggle="tooltip" data-placement="bottom" title="Excluir Consulta" ><i class="ace-icon fa fa-trash-o bigger-120"></i></button>
+              {!! Form::close() !!}
               </div>
 
 

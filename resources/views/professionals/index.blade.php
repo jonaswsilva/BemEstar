@@ -11,7 +11,7 @@
 					<h2 class="header smaller lighter purple">Profissionais</h2>
 
 					<div class="pull-left">
-						<a class="btn btn-default" href="{{ URL::to('professionals/create') }}"><i class="ace-icon fa fa-user-plus"></i>Novo Profissional</a>
+						<a class="btn btn-default" href="{{ URL::to('professionals/create') }}"><i class="ace-icon fa fa-user-md"></i>Novo Profissional</a>
 					</div>
 
 					<div class="clearfix">
@@ -21,7 +21,7 @@
 					@if (Session::has('message'))
 						<div class="alert alert-{{ @$alert }}">{{ Session::get('message') }}</div>
 					@endif
-
+					@include('flash::message')
 					<div class="table-header">
 						Resultado para Profissionais
 					</div>
@@ -57,7 +57,9 @@
 
 									<td>
 										<div class="hidden-sm hidden-xs btn-group">
-
+											{!! Form::open(['url'=>'professionals/'.$professional->id,'method'=>'post','class'=>'delete']) !!}
+												{{ csrf_field() }}
+												{{ method_field('DELETE') }}
 											<a class="btn btn-xs btn-success" href="{{ URL::to('professionals/'.$professional->id) }}">
 												<i class="ace-icon fa fa-check bigger-120"></i>
 											</a>
@@ -67,10 +69,8 @@
 											</a>
 
 
-											<a class="btn btn-xs btn-danger btn-delete" href="#">
-												<i class="ace-icon fa fa-trash-o bigger-120"></i>
-											</a>
-
+											<button type="submit" class="btn btn-xs btn-danger" data-toggle="tooltip" data-placement="bottom" title="Excluir Consulta" ><i class="ace-icon fa fa-trash-o bigger-120"></i></button>
+										{!! Form::close() !!}
 										</div>
 
 

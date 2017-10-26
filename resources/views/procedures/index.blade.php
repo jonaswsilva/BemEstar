@@ -14,7 +14,7 @@
     <div class="clearfix">
       <div class="pull-right tableTools-container"></div>
     </div>
-
+    @include('flash::message')
     @if (Session::has('message'))
       <div class="alert alert-{{ @$alert }}">{{ Session::get('message') }}</div>
     @endif

@@ -62,6 +62,7 @@ if('ontouchstart' in document.documentElement) document.write("<script src='asse
         return confirm("Deseja realmente excluir?");
     });
 
+		$('div.alert').not('.alert-important').delay(7000).fadeOut(350);
 
 			$('#timepicker1').timepicker({
 				template: 'modal',

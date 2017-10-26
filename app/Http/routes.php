@@ -14,7 +14,7 @@
 Route::auth();
 
 Route::group(['middleware' => 'auth'], function(){
-  Route::get('/', 'HomeController@index');
+  Route::get('/','HomeController@index');
 
   Route::get('/autocomplete', 'Controller@autoComplete');
 
@@ -37,9 +37,6 @@ Route::group(['middleware' => 'auth'], function(){
 
     Route::resource('medicalrecords','MedicalRecordsController');
 
-    Route::get('medicalappointments/avaliations','MedicalAppointmentController@avaliations');
-    Route::get('medicalappointments/formpostural','MedicalAppointmentController@formpostural');
-    Route::get('medicalappointments/formneurological','MedicalAppointmentController@formneurological');
     Route::resource('medicalappointments','MedicalAppointmentController');
 
     Route::get('postural/{id}/pdf','PosturalController@pdf');
@@ -47,7 +44,6 @@ Route::group(['middleware' => 'auth'], function(){
     Route::resource('postural','PosturalController');
 
     Route::get('neurological/{id}/pdf','NeurologicalController@pdf');
-    Route::delete('neurological/{id}', array('as' => 'neurological.destroy','uses' => 'NeurologicalController@destroy'));
     Route::get('neurological/create/{id}','NeurologicalController@create');
     Route::resource('neurological','NeurologicalController');
 

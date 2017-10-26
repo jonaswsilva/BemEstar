@@ -216,7 +216,6 @@ class NeurologicalController extends Controller
 
       $neurological = Neurological::find($id);
       if ($neurological != null) {
-        // dd($neurological);
         $neurological->delete();
         $medicalappointments = MedicalAppointment::all();
         flash('Paciente excluido com sucesso!')->success()->important();

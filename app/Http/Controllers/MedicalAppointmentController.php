@@ -18,30 +18,12 @@ use PDF;
 class MedicalAppointmentController extends Controller
 {
 
-
-
   public function index(){
 
     $medicalappointments = MedicalAppointment::all();
     return view('medicalappointments.index')
     ->with(compact('medicalappointments'));
-
   }
-
-
-  public function avaliations($id){
-    $medicalappointment = MedicalAppointment::findOrFail($id);
-    $professionals = DB::table('professionals')
-    ->join('person', 'professionals.person_id', '=', 'person.id')
-    ->pluck('person.name','professionals.id');
-    $patients = DB::table('patients')
-    ->join('person', 'patients.person_id', '=', 'person.id')
-    ->pluck('person.name','patients.id');
-    //dd($medicalappointment);
-    return view('medicalappointments.avaliations')
-    ->with(compact('medicalappointment'));
-  }
-
 
   public function create()
   {
@@ -52,7 +34,6 @@ class MedicalAppointmentController extends Controller
     ->with(['button'=>'Salvar'])
     ->with(compact('professionals'));
   }
-
 
   public function store(MedicalAppointmentRequest $request)
   {
@@ -65,15 +46,9 @@ class MedicalAppointmentController extends Controller
     $medicalappointment->description     = $request->input('description');
     $medicalappointment->save();
 
-    $professionals = DB::table('professionals')
-    ->join('person', 'professionals.person_id', '=', 'person.id')
-    ->pluck('person.name','person.id');
-    $medicalappointments = MedicalAppointment::all();
-    return view('medicalappointments.index')
-    ->with(['button'=>'Salvar'])
-    ->with(compact('professionals','medicalappointments'));
+    flash('Consulta criada com sucesso!')->success();
+    return $this->index();
   }
-
 
   public function show($id)
   {
@@ -91,34 +66,23 @@ class MedicalAppointmentController extends Controller
 
     return $pdf = PDF::setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true])
                           ->loadView('medicalappointments.printpdf',compact('medicalappointment','postural'))->stream();
-    //return $pdf->download('avaliacao_postural.pdf');
 
   }
-
-  public function formpostural(){
-    return view('postural.create');
-  }
-
-  public function formneurological(){
-    return view('medicalappointments._formneurological');
-  }
-
 
   public function edit($id)
   {
     $medicalappointment = MedicalAppointment::findOrFail($id);
     $professionals = DB::table('professionals')
-    ->join('person', 'professionals.person_id', '=', 'person.id')
-    ->pluck('person.name','professionals.id');
+                        ->join('person', 'professionals.person_id', '=', 'person.id')
+                          ->pluck('person.name','professionals.id');
     $patients = DB::table('patients')
-    ->join('person', 'patients.person_id', '=', 'person.id')
-    ->pluck('person.name','patients.id');
-    //dd($medicalappointment);
-    return view('medicalappointments.edit')
-    ->with(compact('medicalappointment'))
-    ->with(['button' => 'Atualizar']);
-  }
+                        ->join('person', 'patients.person_id', '=', 'person.id')
+                         ->pluck('person.name','patients.id');
 
+    return view('medicalappointments.edit')
+                ->with(compact('medicalappointment'))
+                  ->with(['button' => 'Atualizar']);
+  }
 
   public function update(Request $request, $id)
   {
@@ -130,25 +94,20 @@ class MedicalAppointmentController extends Controller
     $medicalappointment->description     = $request->input('description');
     $medicalappointment->push();
 
-    return $this->index();
+    flash('Consulta atualizada com sucesso!')->info()->important();
+    return $this->edit($id);
 
   }
 
   public function destroy($id)
   {
     $medicalappointment = MedicalAppointment::find($id);
-    dd($medicalappointment);
     if ($medicalappointment != null) {
-      dd($medicalappointment);
       $medicalappointment->delete();
-      $medicalappointments = MedicalAppointment::orderBy('id', 'desc')->get();
-      Session::flash('message', 'Consulta excluida com sucesso!');
-      return view('medicalappointments.index')
-                        ->with(compact('medicalappointments'))
-                          ->with(['alert' => 'success']);
+      flash('Consulta excluido com sucesso!')->success();
+      return $this->index();
     }
-    Session::flash('message', 'Código não encontrado!');
-    return view('medicalappointments.index')
-                ->with(['alert'=>'alert']);
+    flash('Código não encontrado!')->error();
+    return $this->index();
   }
 }

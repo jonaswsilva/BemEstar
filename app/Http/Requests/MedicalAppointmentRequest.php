@@ -24,9 +24,17 @@ class MedicalAppointmentRequest extends Request
     public function rules()
     {
         return [
-            'patient_name' => 'required',
+            'term' => 'required',
             'date' => 'required',
             'hour' => 'required',
         ];
+    }
+
+    public function messages(){
+      return [
+          'term.required' => 'Campo obrigatório!',
+          'date.required' => 'O campo data é obrigatório!',
+          'hour.required' => 'O campo hora é obrigatório!',
+      ];
     }
 }

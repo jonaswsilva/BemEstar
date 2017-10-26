@@ -163,7 +163,7 @@ class PatientController extends Controller
       'route' => '/paciente/atualizar/', 'method' => 'post', 'button' => 'Atualizar'],compact('states','cities'));
     }
 
-  
+
     public function destroy($id)
     {
 
@@ -171,15 +171,11 @@ class PatientController extends Controller
       if ($patient != null) {
         dd($patient);
         $patient->delete();
-        $patients = Patient::orderBy('id', 'desc')->get();
-        Session::flash('message', 'Paciente excluido com sucesso!');
-        return view('patients.index')
-                          ->with(compact('patients'))
-                            ->with(['alert' => 'success']);
+        flash('Paciente excluido com sucesso!')->success();
+        return $this->index();
       }
-      Session::flash('message', 'Código não encontrado!');
-      return view('patients.index')
-                  ->with(['alert'=>'alert']);
+      flash('Código não encontrado!')->error();
+      return $this->index();
     }
 
     public function cities($id)

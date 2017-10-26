@@ -186,7 +186,6 @@ class PosturalController extends Controller
     {
       $postural = Postural::find($id);
       if ($postural != null) {
-        // dd($postural);
         $postural->delete();
         $medicalappointments = MedicalAppointment::all();
         flash('Paciente excluido com sucesso!')->success()->important();

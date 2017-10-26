@@ -18,7 +18,7 @@ class CreateProceduresTable extends Migration
             $table->float('price');
             $table->string('type_payment');
             $table->integer('plots');
-            $table->text('observation');
+            $table->text('observation')->nullable();
             $table->integer('type_procedures_id')->unsigned();
             $table->foreign('type_procedures_id')->references('id')->on('type_procedures')->onUpdate('cascade')->onDelete('cascade');
             $table->bigInteger('patient_id')->unsigned();

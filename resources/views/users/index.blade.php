@@ -18,7 +18,7 @@
     @if (Session::has('message'))
     <div class="alert alert-{{ @$alert }}">{{ Session::get('message') }}</div>
     @endif
-
+    @include('flash::message')
     <div class="table-header">
       Resultado para Usuários
     </div>

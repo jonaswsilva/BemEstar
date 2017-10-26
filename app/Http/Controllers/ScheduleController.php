@@ -52,11 +52,11 @@ class ScheduleController extends Controller
       $schedule->hour = $request->input('hour');
       //dd($schedule);
       $schedule->save();
-      flash('Agendamento realizado com sucesso!')->success()->important();
+      flash('Agendamento realizado com sucesso!')->success();
       return $this->all();
     }else{
-      flash('Já existe uma consulta nessa date e horário!','Atenção')->error();
-      return Redirect::to('schedules/create')->withInput();
+      flash('Já existe uma consulta nessa date e horário!')->error();
+      return view('schedules/all')->withInput();
       //dd($schedule);
     }
     //$schedule->save();
@@ -95,9 +95,15 @@ public function update(Request $request, $id)
       return $this->edit($id);
   }
 
-public function destroy($id)
-  {
-    //
+public function destroy($id){
+    $schedule = Schedule::find($id);
+    if ($schedule != null) {
+      $schedule->delete();
+      flash('Agendamento excluido com sucesso!')->success();
+      return $this->all();
+    }
+    flash('Código não encontrado!')->error();
+    return $this->all();
   }
 
 public function autoComplete(Request $request){

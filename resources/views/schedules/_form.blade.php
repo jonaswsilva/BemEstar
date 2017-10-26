@@ -6,7 +6,7 @@
 				<div class="col-sm-9">
 					{!! Form::text('term', @$schedule->patient->person->name, ['class' => 'col-xs-10 col-sm-5','id' => 'autoComplete', 'placeholder' => 'Paciente...']) !!}
 					@if($errors->any())
-					<div class="red darken-4">&nbsp &nbsp{!! $errors->first('patient_name') !!}</div>
+					<div class="red darken-4">&nbsp &nbsp{!! $errors->first('term') !!}</div>
 					@endif
 				</div>
 			</div>
