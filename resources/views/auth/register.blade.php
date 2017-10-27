@@ -71,9 +71,10 @@
 
                             <div class="col-md-6">
                                 <select id="role" type="role" class="form-control" name="role">
-                                  <option value="1">Secretária</option>
-                                  <option value="2">Fisioterapeuta</option>
-                                  <option value="3">Psicologa</option>
+                                  <option value="1">Administrador(a)</option>
+                                  <option value="2">Secretária</option>
+                                  <option value="3">Fisioterapeuta</option>
+                                  <option value="4">Psicologa</option>
                                 </select>
                                 @if ($errors->has('role'))
                                     <span class="help-block">

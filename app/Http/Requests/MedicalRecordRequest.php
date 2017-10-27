@@ -24,7 +24,7 @@ class MedicalRecordRequest extends Request
     public function rules()
     {
         return [
-            'term' => 'required',
+            'patient_id' => 'required',
             'date' => 'required',
             'description' => 'required',
         ];

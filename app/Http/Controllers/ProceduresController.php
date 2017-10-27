@@ -9,6 +9,7 @@ use App\Procedures;
 use App\TypeProcedures;
 use DB;
 use View;
+use App\Patient;
 
 class ProceduresController extends Controller
 {
@@ -24,13 +25,14 @@ class ProceduresController extends Controller
 
     public function create()
     {
+      $patients = Patient::all();
       $typeprocedures = TypeProcedures::pluck('name','id');
       $typeprocedurestable = TypeProcedures::all();
       $professionals = DB::table('professionals')
       ->join('person', 'professionals.person_id', '=', 'person.id')
       ->pluck('person.name','professionals.id');
       return View::make('procedures.create')
-                      ->with(compact('professionals','typeprocedures','typeprocedurestable'))
+                      ->with(compact('professionals','typeprocedures','typeprocedurestable','patients'))
                         ->with(['button'=>'Salvar']);
     }
 

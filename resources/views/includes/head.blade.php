@@ -16,6 +16,8 @@
 <link rel="stylesheet" href="{{ asset('assets/css/jquery-ui.custom.min.css') }}" />
 <link rel="stylesheet" href="{{ asset('assets/css/fullcalendar.min.css') }}" />
 
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+
 <!-- page specific plugin styles datetimepicker-->
 <link rel="stylesheet" href="{{ asset('assets/css/chosen.min.css') }}" />
 <link rel="stylesheet" href="{{ asset('assets/css/bootstrap-datepicker3.min.css') }}" />

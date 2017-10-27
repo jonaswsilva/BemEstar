@@ -1,7 +1,7 @@
 
 			{{ Form::token() }}
 
-			<div class="form-group">
+			<!-- <div class="form-group">
 				{!!  Form::label('form-field-1', 'Paciente: ', ['class' => 'col-sm-3 control-label no-padding-right'])  !!}
 				<div class="col-sm-9">
 					{!! Form::text('term', @$procedure->patient->person->name, ['class' => 'col-xs-10 col-sm-5','id' => 'autoComplete', 'placeholder' => 'Paciente...']) !!}
@@ -11,7 +11,19 @@
 				</div>
 			</div>
 
-			{!! Form::hidden('patient_id', @$procedure->patient_id, ['id'=>'idPatient']) !!}
+			{!! Form::hidden('patient_id', @$procedure->patient_id, ['id'=>'idPatient']) !!} -->
+
+			<div class="form-group">
+			  {!!  Form::label('form-field-1', 'Paciente: ', ['class' => 'col-sm-3 control-label no-padding-right'])  !!}
+			  <div class="col-sm-9">
+			    <select name="patient_id" class="col-xs-10 col-sm-5" id="nameid">
+			      <option></option>
+			      @foreach($patients as $patient)
+			        <option value="{{ $patient->id }}">{{$patient->person->name}}</option>
+			      @endforeach
+			    </select>
+			  </div>
+			</div>
 
 			<div class="form-group">
 				{!! Form::label('form-field-5', 'Profissional:', ['class'=> 'col-sm-3 control-label no-padding-right']) !!}

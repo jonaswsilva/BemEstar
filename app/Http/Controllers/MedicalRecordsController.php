@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\MedicalRecords;
 use DB;
 use View;
+use App\Patient;
 
 class MedicalRecordsController extends Controller
 {
@@ -25,11 +26,12 @@ class MedicalRecordsController extends Controller
 
     public function create()
     {
+      $patients = Patient::all();
       $professionals = DB::table('professionals')
       ->join('person', 'professionals.person_id', '=', 'person.id')
       ->pluck('person.name','professionals.id');
       return View::make('medicalrecords.create')
-      ->with(compact('professionals'))
+      ->with(compact('professionals','patients'))
       ->with(['button'=>'Salvar']);
     }
 

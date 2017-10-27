@@ -6,7 +6,7 @@
 
 				<div class="row">
 					<div class="col-xs-12">
-						<h3 class="header smaller lighter blue">Consultas Marcadas</h3>
+						<h3 class="header smaller lighter green">Consultas Marcadas</h3>
 
 						<div class="pull-left">
 							<a class="btn btn-default" href="{{ URL::to('schedules/create') }}"><i class="ace-icon fa fa-calendar-plus-o"></i> Nova Consulta</a>
@@ -118,7 +118,7 @@
 
 											{{ Form::token() }}
 
-											<div class="form-group">
+											<!-- <div class="form-group">
 												{!!  Form::label('form-field-1', 'Paciente: ', ['class' => 'col-sm-3 control-label no-padding-right'])  !!}
 												<div class="col-sm-9">
 													{!! Form::text('term', null, ['class' => 'col-xs-10 col-sm-8','id' => 'autoComplete', 'placeholder' => 'Paciente...']) !!}
@@ -128,7 +128,19 @@
 												</div>
 											</div>
 
-											{!! Form::hidden('patient_id', null, ['id'=>'idPatient']) !!}
+											{!! Form::hidden('patient_id', null, ['id'=>'idPatient']) !!} -->
+
+											<div class="form-group">
+											  {!!  Form::label('form-field-1', 'Paciente: ', ['class' => 'col-sm-3 control-label no-padding-right'])  !!}
+											  <div class="col-sm-9">
+											    <select name="patient_id" class="col-xs-10 col-sm-5" id="nameid">
+											      <option></option>
+											      @foreach($patients as $patient)
+											        <option value="{{ $patient->id }}">{{$patient->person->name}}</option>
+											      @endforeach
+											    </select>
+											  </div>
+											</div>
 
 											<div class="form-group">
 												{!! Form::label('form-field-5', 'Profissional:', ['class'=> 'col-sm-3 control-label no-padding-right']) !!}

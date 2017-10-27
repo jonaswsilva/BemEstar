@@ -7,7 +7,7 @@
 		Cadastro
 		<small>
 			<i class="ace-icon fa fa-angle-double-right"></i>
-			procedimento
+			Sessão
 		</small>
 	</h1>
 </div><!-- /.page-header -->

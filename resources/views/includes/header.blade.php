@@ -22,7 +22,7 @@
     <div class="navbar-buttons navbar-header pull-right" role="navigation">
       <ul class="nav ace-nav">
         @if(Auth::user()->role == 1)
-        <li class="grey dropdown-modal">
+        <!-- <li class="grey dropdown-modal">
           <a data-toggle="dropdown" class="dropdown-toggle" href="#">
             <i class="ace-icon fa fa-tasks"></i>
             <span class="badge badge-grey">4</span>
@@ -97,10 +97,10 @@
               </a>
             </li>
           </ul>
-        </li>
+        </li> -->
         @endif
         @if(Auth::user()->role == 1)
-        <li class="purple dropdown-modal">
+        <!-- <li class="purple dropdown-modal">
           <a data-toggle="dropdown" class="dropdown-toggle" href="#">
             <i class="ace-icon fa fa-bell icon-animated-bell"></i>
             <span class="badge badge-important">{{ @$countschedules }}</span>
@@ -112,7 +112,7 @@
               {{ @$countschedules }} Consultas marcadas
             </li>
 
-            <!-- <li class="dropdown-content">
+            <li class="dropdown-content">
               <ul class="dropdown-menu dropdown-navbar navbar-pink">
                 <li>
                   <a href="#">
@@ -164,12 +164,12 @@
                 See all notifications
                 <i class="ace-icon fa fa-arrow-right"></i>
               </a>
-            </li> -->
+            </li>
           </ul>
-        </li>
+        </li> -->
         @endif
         @if(Auth::user()->role == 1)
-        <li class="green dropdown-modal">
+        <!-- <li class="green dropdown-modal">
           <a data-toggle="dropdown" class="dropdown-toggle" href="#">
             <i class="ace-icon fa fa-envelope icon-animated-vertical"></i>
             <span class="badge badge-success">5</span>
@@ -278,7 +278,7 @@
             </li>
 
           </ul>
-        </li>
+        </li> -->
         @endif
         <li class="dropdown-modal purple">
           <a data-toggle="dropdown" href="#" class="dropdown-toggle">
@@ -296,7 +296,7 @@
             <li>
               <a href="{{ URL::to('users/'.Auth::user()->id) }}">
                 <i class="ace-icon fa fa-user"></i>
-                Profile
+                Perfil
               </a>
             </li>
 

@@ -145,16 +145,17 @@
 												</a>
 											</div>
 
-											<div>
+											<!-- <div>
 												<a href="#" data-target="#signup-box" class="white">
 													Registrar
 													<i class="ace-icon fa fa-arrow-right"></i>
 												</a>
-											</div>
+											</div> -->
 										</div>
 									</div><!-- /.widget-body -->
 								</div><!-- /.login-box -->
 
+								<!-- Recuperar senha -->
 								<div id="forgot-box" class="forgot-box widget-box no-border">
 									<div class="widget-body">
 										<div class="widget-main">
@@ -204,7 +205,8 @@
 									</div><!-- /.widget-body -->
 								</div><!-- /.forgot-box -->
 
-								<div id="signup-box" class="signup-box widget-box no-border">
+								<!-- cadastro de novo usuario -->
+								<!-- <div id="signup-box" class="signup-box widget-box no-border">
 									<div class="widget-body">
 										<div class="widget-main">
 											<h4 class="header green lighter bigger">
@@ -311,7 +313,7 @@
 												voltar para login
 											</a>
 										</div>
-									</div><!-- /.widget-body -->
+									</div> /.widget-body -->
 								</div><!-- /.signup-box -->
 							</div><!-- /.position-relative -->
 

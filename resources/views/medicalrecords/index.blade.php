@@ -5,7 +5,7 @@
 
 <div class="row">
   <div class="col-xs-12">
-    <h2 class="header smaller lighter purple">Sessões</h2>
+    <h2 class="header smaller lighter green">Sessões</h2>
 
     <div class="pull-left">
       <a class="btn btn-default" href="{{ URL::to('medicalrecords/create') }}"><i class="ace-icon fa fa-file-o"></i>Nova Sessão</a>

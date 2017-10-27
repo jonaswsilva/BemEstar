@@ -200,6 +200,10 @@ textarea:focus {
 .bootstrap-timepicker-widget.dropdown-menu {
     z-index: 99999!important;
 }
+
+.dropdown-yellow>li.active:hover>a, .dropdown-yellow>li.active>a, .dropdown-yellow>li:hover>a, .dropdown-yellow>li>a:active, .dropdown-yellow>li>a:focus {
+    background: #6dd898;
+    color: #444;
 /*.ace-nav>li.light-blue>a {
     background-color: #8753a5;
 }

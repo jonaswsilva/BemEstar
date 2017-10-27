@@ -5,7 +5,7 @@
 
 <div class="row">
   <div class="col-xs-12">
-    <h2 class="header smaller lighter purple">Procedimentos</h2>
+    <h2 class="header smaller lighter green">Procedimentos</h2>
 
     <div class="pull-left">
       <a class="btn btn-default" href="{{ URL::to('procedures/create') }}"><i class="ace-icon fa fa-file"></i>Novo Procedimento</a>

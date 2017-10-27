@@ -1,16 +1,16 @@
+
 <div class="form-group">
   {!!  Form::label('form-field-1', 'Paciente: ', ['class' => 'col-sm-3 control-label no-padding-right'])  !!}
   <div class="col-sm-9">
-    {!! Form::text('term', @$medicalappointment->patient->person->name, ['class' => 'col-xs-10 col-sm-5','id' => 'autoComplete', 'placeholder' => 'Paciente...']) !!}
-    @if($errors->any())
-    <div class="red darken-4">&nbsp &nbsp{!! $errors->first('patient_name') !!}</div>
-    @endif
+    <select name="patient_id" class="col-xs-10 col-sm-5" id="nameid">
+      <option></option>
+      @foreach($patients as $patient)
+        <option value="{{ $patient->id }}">{{$patient->person->name}}</option>
+      @endforeach
+    </select>
   </div>
 </div>
-
-{!! Form::hidden('patient_id', @$medicalappointments->patient_id, ['id'=>'idPatient']) !!}
-
-<div class="form-group">
+<!-- <div class="form-group">
   {!! Form::label('form-field-5', 'Profissional:', ['class'=> 'col-sm-3 control-label no-padding-right']) !!}
   <div class="col-sm-9">
       {!! Form::text('professional_id', Auth::user()->name, ['disabled'=>'disabled', 'class' => 'col-xs-10 col-sm-5']) !!}
@@ -18,7 +18,7 @@
     <div class="red darken-4">{{ $errors->first('professionals') }}</div>
     @endif
   </div>
-</div>
+</div> -->
 
 {!! Form::hidden('professional_id', Auth::user()->id ) !!}
 
@@ -62,7 +62,9 @@
       {{ $button }}
     </button>
 
-
+    <div class="widget-title purple pull-right">
+      <h4>Profissional: {!! Auth::user()->name !!}</h4>
+    </div>
 	</div>
   </div>
 </div>

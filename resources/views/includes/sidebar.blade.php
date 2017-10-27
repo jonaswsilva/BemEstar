@@ -8,7 +8,7 @@
       try{ace.settings.loadState('sidebar')}catch(e){}
     </script>
 
-    <div class="sidebar-shortcuts" id="sidebar-shortcuts">
+    <!-- <div class="sidebar-shortcuts" id="sidebar-shortcuts">
       <div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
         <button class="btn btn-success">
           <i class="ace-icon fa fa-signal"></i>
@@ -36,16 +36,16 @@
 
         <span class="btn btn-danger"></span>
       </div>
-    </div><!-- /.sidebar-shortcuts -->
+    </div>--><!-- /.sidebar-shortcuts -->
 
     <ul class="nav nav-list">
-      <li {{{ (Request::is('/') ? 'class=active' : '') }}}>
+      <!-- <li {{{ (Request::is('/') ? 'class=active' : '') }}}>
         <a href="{{ URL::to('/') }}">
           <i class="menu-icon fa fa-heartbeat"></i>
           <span class="menu-text"> Bem Estar </span>
         </a>
         <b class="arrow"></b>
-      </li>
+      </li> -->
       <li class="{{ $menu_open or '' }}">
         <a href="#" class="dropdown-toggle">
           <i class="menu-icon fa fa-users"></i>
@@ -122,7 +122,14 @@
         <b class="arrow"></b>
       </li>
       @can('admin-access')
-      <li class="">
+      <li class="{{ $nav_contr or '' }}">
+        <a href="{{ URL::to('contract') }}">
+          <i class="menu-icon fa fa-list"></i>
+          <span class="menu-text"> Relatórios </span>
+        </a>
+        <b class="arrow"></b>
+      </li>
+      <!-- <li class="">
         <a href="#" class="dropdown-toggle">
           <i class="menu-icon fa fa-list"></i>
           <span class="menu-text"> Relatórios </span>
@@ -145,7 +152,7 @@
             <b class="arrow"></b>
           </li>
         </ul>
-      </li>
+      </li> -->
       @endcan
     </ul><!-- /.nav-list -->
 

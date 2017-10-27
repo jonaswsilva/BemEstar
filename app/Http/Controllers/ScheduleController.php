@@ -124,13 +124,14 @@ public function autoComplete(Request $request){
    }
 
 public function all(){
+    $patients = Patient::all();
      $schedules =Schedule::orderBy('date','hour')->get();
      $professionals = DB::table('professionals')
      ->join('person', 'professionals.person_id', '=', 'person.id')
      ->pluck('person.name','professionals.id');
      $status = ['1' => 'Pendente', '2' => 'Realizada'];
      return view('schedules.all')
-                  ->with(compact('schedules','professionals'))
+                  ->with(compact('schedules','professionals','patients'))
                   ->with(['button'=>'Salvar']);
    }
 }

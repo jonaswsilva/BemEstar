@@ -170,7 +170,7 @@
 			<div class="form-group">
 				{!!  Form::label('form-field-1', 'Atribuição: ', ['class' => 'col-sm-3 control-label no-padding-right'])  !!}
 				<div class="col-sm-9">
-			    {!! Form::select('role', ['1'=>'Secretária','2'=>'Fisioterapeuta','3'=>'Psicologa'], null, ['class' => 'col-xs-10 col-sm-5'])!!}
+			    {!! Form::select('role', ['1'=>'Administrador(a)','2'=>'Secretária','3'=>'Fisioterapeuta','4'=>'Psicologa'], null, ['class' => 'col-xs-10 col-sm-5'])!!}
 			        @if($errors->any())
 			        <div class="red darken-4">&nbsp &nbsp{!! $errors->first('password_confirm') !!}</div>
 			    		@endif

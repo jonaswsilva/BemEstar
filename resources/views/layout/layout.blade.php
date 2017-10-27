@@ -37,9 +37,9 @@
 
 	<div class="footer">
 		<div class="footer-inner">
-			<!-- <div class="behind_container pull-right">
+			<div class="behind_container pull-right">
 				<div class="behind"><img src="{{ asset('assets/images/logo1.png') }}" width="304" height="236"></div>
-			</div> -->
+			</div>
 			<div class="footer-content">
 				@include('includes.footer')
 			</div>

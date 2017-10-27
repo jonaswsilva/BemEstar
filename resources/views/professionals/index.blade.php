@@ -8,7 +8,7 @@
 <div class="row">
 
 				<div class="col-xs-12">
-					<h2 class="header smaller lighter purple">Profissionais</h2>
+					<h2 class="header smaller lighter green">Profissionais</h2>
 
 					<div class="pull-left">
 						<a class="btn btn-default" href="{{ URL::to('professionals/create') }}"><i class="ace-icon fa fa-user-md"></i>Novo Profissional</a>

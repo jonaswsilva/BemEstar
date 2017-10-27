@@ -27,12 +27,14 @@ class MedicalAppointmentController extends Controller
 
   public function create()
   {
+    $patients = Patient::all();
+
     $professionals = DB::table('professionals')
     ->join('person', 'professionals.person_id', '=', 'person.id')
     ->pluck('person.name','professionals.id');
     return view('medicalappointments.create')
     ->with(['button'=>'Salvar'])
-    ->with(compact('professionals'));
+    ->with(compact('professionals','patients'));
   }
 
   public function store(MedicalAppointmentRequest $request)

@@ -5,7 +5,7 @@
 
 <div class="row">
   <div class="col-xs-12">
-    <h2 class="header smaller lighter purple">Consultas</h2>
+    <h2 class="header smaller lighter green">Consultas</h2>
 
     <div class="pull-left">
       <a class="btn btn-default" href="{{ URL::to('medicalappointments/create') }}"><i class="ace-icon fa fa-file-text-o"></i> Iniciar Consulta</a>

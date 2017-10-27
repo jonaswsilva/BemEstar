@@ -2,7 +2,7 @@
   <ul class="breadcrumb">
     <li>
       <i class="ace-icon fa fa-home home-icon"></i>
-      <a href="{{ URL::to('/') }}">Home</a>
+      <a class="green" href="{{ URL::to('/') }}">Home</a>
     </li>
     <li class="active">{{ @$local }}</li>
   </ul><!-- /.breadcrumb -->
@@ -14,5 +14,5 @@
         <i class="ace-icon fa fa-search nav-search-icon"></i>
       </span>
     </form>
-  </div>< /.nav-search --> 
+  </div>< /.nav-search -->
 </div>

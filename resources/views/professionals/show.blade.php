@@ -5,22 +5,11 @@
 
 <div class="row">
   <div class="col-lg-12 margin-tb">
-    <div class="pull-left">
       <h3 class="header smaller lighter blue">Dados do profissional</h3>
-    </div>
 
-
-    <div class="pull-right">
-
-      <div class="btn-toolbar inline middle no-margin">
-        <div data-toggle="buttons" class="btn-group no-margin">
-
-        </div>
-      </div>
-    </div>
   </div>
 </div>
-<div class="hr dotted"></div>
+
   <div>
     <div id="user-profile-1" class="user-profile row">
       <div class="col-xs-12 col-sm-3 center">

@@ -5,7 +5,7 @@
 @section('content')
 
 					<div class="col-xs-12">
-						<h2 class="header smaller lighter purple">Pacientes</h2>
+						<h2 class="header smaller lighter green">Pacientes</h2>
 
 						<div class="pull-left">
 							<a class="btn btn-default" href="{{ URL::to('patients/create') }}"><i class="ace-icon fa fa-user-plus"></i>Novo Paciente</a>
