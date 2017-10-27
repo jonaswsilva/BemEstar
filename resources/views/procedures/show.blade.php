@@ -9,13 +9,10 @@
       <h3 class="header smaller lighter blue">Dados do procedimento</h3>
     </div>
 
-
     <div class="pull-right">
 
       <div class="btn-toolbar inline middle no-margin">
         <div data-toggle="buttons" class="btn-group no-margin">
-
-
         </div>
       </div>
     </div>
@@ -27,11 +24,8 @@
       <div class="col-xs-12 col-sm-3 center">
         <div>
           <span class="profile-picture">
-            <img id="avatar" class="editable img-responsive" src="{{ asset('assets/images/avatars/profile-pic.jpg') }}" />
+            <img id="avatar" class="editable img-responsive" src="/assets/images/avatars/{{ $procedure->patient->avatar }}" />
           </span>
-
-
-
           <div class="width-80 label label-info label-xlg arrowed-in arrowed-in-right">
             <div class="inline position-relative">
               <a href="#" class="user-title-label dropdown-toggle" data-toggle="dropdown">
@@ -95,6 +89,15 @@
               <span class="editable" id="username">{{ $procedure->type_procedures->name }}</span>
             </div>
           </div>
+
+          <div class="profile-info-row">
+            <div class="profile-info-name"> Data </div>
+
+            <div class="profile-info-value">
+              <span class="editable" id="username">{{ $procedure->date_mu->format('d/m/Y') }}</span>
+            </div>
+          </div>
+
 
           <div class="profile-info-row">
             <div class="profile-info-name"> Preço </div>

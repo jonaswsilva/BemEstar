@@ -8,9 +8,10 @@ class TypeProcedures extends Model
 {
   public $fillable = [
     'name',
+
   ];
 
   public function procedures(){
-    return $this->hasOne('App\Procedures', 'type_procedures_id', 'id');
+    return $this->hasMany('App\Procedures', 'type_procedures_id');
   }
 }

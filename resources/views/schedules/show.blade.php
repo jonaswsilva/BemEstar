@@ -27,7 +27,7 @@
       <div class="col-xs-12 col-sm-3 center">
         <div>
           <span class="profile-picture">
-            <img id="avatar" class="editable img-responsive" src="{{ asset('assets/images/avatars/profile-pic.jpg') }}" />
+            <img id="avatar" class="editable img-responsive" src="/assets/images/avatars/{{ $schedule->patient->avatar }}" />
           </span>
 
 

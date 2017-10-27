@@ -47,7 +47,7 @@
             <td class="center">{{ $procedure->id }}</td>
             <td>{{ $procedure->patient->person->name }}</td>
             <td>{{ $procedure->professional->person->name }}</td>
-            <td>{{ $procedure->date }}</td>
+            <td>{{ $procedure->date_mu->format('d/m/Y') }}</td>
             <td>{{ $procedure->type_procedures->name }}</td>
 
             <td>

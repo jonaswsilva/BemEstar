@@ -8,7 +8,7 @@
     <div class="widget-header">
       <h5 class="widget-title bigger lighter">
         <i class="ace-icon fa fa-table"></i>
-        Pacientes de hoje
+        Agendamentos de hoje
       </h5>
       <div class="widget-toolbar widget-toolbar-light no-border">
         <select id="simple-colorpicker-1" class="hide">
@@ -41,6 +41,10 @@
                 Paciente
               </th>
               <th>
+                <i class="ace-icon fa fa-phone"></i>
+                Telefone
+              </th>
+              <th>
                 <i class="ace-icon fa fa-user-md"></i>
                 Profissional
               </th>
@@ -55,11 +59,10 @@
             @foreach ($schedulestoday as $schedule)
             <tr>
               <td class="">{{ $schedule->patient->person->name }}</td>
+              <td class="phone">{{ $schedule->patient->person->phone }}</td>
               <td>{{ $schedule->professional->person->name }}</td>
               <td>{{ $schedule->hour }}</td>
-              <td class="hidden-480">
-                <span class="label label-warning">Pendente</span>
-              </td>
+              <td>{!! ($schedule->status == 1) ? "<span class='label label-warning'>Pendente</span>" : "<span class='label label-success'>Realizada</span>" !!}</td>
             </tr>
             @endforeach
           </tbody>

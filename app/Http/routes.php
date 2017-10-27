@@ -33,6 +33,7 @@ Route::group(['middleware' => 'auth'], function(){
   Route::group(['middleware' => 'can:admin-access'], function () {
     Route::resource('procedures','ProceduresController');
 
+    Route::get('typeprocedures/{id}/destroy','TypeProceduresController@destroy');    
     Route::resource('typeprocedures','TypeProceduresController');
 
     Route::resource('medicalrecords','MedicalRecordsController');

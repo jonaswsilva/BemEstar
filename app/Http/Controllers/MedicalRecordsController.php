@@ -60,6 +60,16 @@ class MedicalRecordsController extends Controller
         //
     }
 
+    public function pdf($id){
+
+      $medicalrecord = MedicalRecords::find($id);
+      //$postural = DB::table('posturals')->where('medicalappointment_id', $id)->first();
+
+
+      return $pdf = PDF::setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true])
+                            ->loadView('medicalrecords.printpdf',compact('medicalrecord'))->stream();
+
+    }
 
     public function edit($id)
     {

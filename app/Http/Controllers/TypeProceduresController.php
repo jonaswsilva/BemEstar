@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\TypeProcedures;
 use DB;
 use View;
+use Redirect;
 
 class TypeProceduresController extends Controller
 {
@@ -43,15 +44,7 @@ class TypeProceduresController extends Controller
         $typeprocedure->name = $request->input('name');
         $typeprocedure->save();
 
-        $typeprocedures = TypeProcedures::all();
-        //dd($typeprocedures);
-        $professionals = DB::table('professionals')
-        ->join('person', 'professionals.person_id', '=', 'person.id')
-        ->pluck('person.name','person.id');
-        //dd($professionals);
-        return View::make('procedures.create')
-        ->with(compact('professionals','typeprocedures'))
-        ->with(['button'=>'Salvar']);
+        return Redirect::to('procedures/create');
     }
 
     /**
@@ -96,6 +89,8 @@ class TypeProceduresController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $typeprocedure = TypeProcedures::find($id);
+        $typeprocedure->delete();
+        return Redirect::to('procedures/create');
     }
 }

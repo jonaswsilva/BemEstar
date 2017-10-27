@@ -20,6 +20,7 @@ class CreateSchedulesTable extends Migration
           $table->foreign('professional_id')->references('id')->on('professionals')->onUpdate('cascade')->onDelete('cascade');
           $table->date('date');
           $table->time('hour');
+          $table->integer('status');
           $table->timestamps();
       });
     }

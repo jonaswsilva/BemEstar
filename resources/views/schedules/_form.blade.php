@@ -41,6 +41,13 @@
 				</div>
 			</div>
 
+			<div class="form-group">
+				{!! Form::label('form-field-5', 'Status:', ['class'=> 'col-sm-3 control-label no-padding-right']) !!}
+				<div class="col-sm-9">
+					{!! Form::select('status', $status, @$schedule->status,['class' => 'col-xs-10 col-sm-5']) !!}
+				</div>
+			</div>
+
       <!-- <div class="form-group">
 				{!!  Form::label('form-field-1', 'Hora: ', ['class' => 'col-sm-3 control-label no-padding-right'])  !!}
 				<div class="col-sm-9">

@@ -24,10 +24,19 @@ class MedicalRecordRequest extends Request
     public function rules()
     {
         return [
-            'patient_name' => 'required',
+            'term' => 'required',
             'date' => 'required',
-            'patient_name' => 'required',
             'description' => 'required',
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'term.required' => 'Campo obrigatório',
+            'date.required' => 'Campo obrigatório',
+            'description.required' => 'Campo obrigatório',
+        ];
+    }
+
 }

@@ -6,7 +6,7 @@
 				<div class="col-sm-9">
 					{!! Form::text('term', @$procedure->patient->person->name, ['class' => 'col-xs-10 col-sm-5','id' => 'autoComplete', 'placeholder' => 'Paciente...']) !!}
 					@if($errors->any())
-					<div class="red darken-4">&nbsp &nbsp{!! $errors->first('patient_name') !!}</div>
+					<div class="red darken-4">&nbsp &nbsp{!! $errors->first('term') !!}</div>
 					@endif
 				</div>
 			</div>
@@ -38,7 +38,7 @@
 			<div class="form-group">
 				{!! Form::label('form-field-5', 'Tipo do procedimento:', ['class'=> 'col-sm-3 control-label no-padding-right']) !!}
 				<div class="col-sm-9">
-						{!! Form::select('type_procedures_id', $typeprocedures, @$procedure->procedure_id ) !!}
+						{!! Form::select('type_procedures_id', $typeprocedures, @$procedure->type_procedures_id ) !!}
 						<a href="#my-modal" role="button" class="btn btn-sm btn-default" data-toggle="modal">
 							&nbsp; Novo tipo &nbsp;
 						</a>
@@ -165,18 +165,25 @@
 								</thead>
 
 								<tbody>
-									@foreach ($typeprocedures as $typename)
+									@foreach ($typeprocedurestable as $type)
 									<tr>
 										<td>
-											{{ $typename }}
+											{{ $type->name }}
 										</td>
-										<td>$45</td>
-										<td>3,330</td>
-										<td>Feb 12</td>
+										<td>
+											<div class="hidden-sm hidden-xs btn-group">
+
+				                <a class="btn btn-xs btn-info" href="{{ URL::to('procedures/'. $type->id .'/edit') }}" data-toggle="modal">
+				                  <i class="ace-icon fa fa-pencil bigger-120"></i>
+				                </a>
+
+				                <a class="btn btn-xs btn-danger btn-delete" href="{{ URL::to('typeprocedures/'. $type->id .'/destroy') }}">
+				                  <i class="ace-icon fa fa-trash-o bigger-120"></i>
+				                </a>
+
+										</td>
 									</tr>
 									@endforeach
-
-
 								</tbody>
 							</table>
 						</div>

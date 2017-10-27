@@ -86,7 +86,7 @@ if('ontouchstart' in document.documentElement) document.write("<script src='asse
 			$('.hour').mask('00:00');
 			$('.date_time').mask('00/00/0000 00:00:00');
 			$('.cep').mask('00000-000');
-			$('.phone').mask('(00) 000-000-000');
+			$('.phone').mask('(00) 0-0000-0000');
 			$('.phonefix').mask('(00) 0000-0000');
 			$('.rg').mask('00000000-0');
 			$('.numbersessions').mask('0x');
@@ -153,7 +153,7 @@ if('ontouchstart' in document.documentElement) document.write("<script src='asse
 				});
 		}
 
-		$( "#autoComplete" ).css("zIndex", 5000).autocomplete({
+		$( "#autoComplete" ).autocomplete({
 		 	source: "{{ URL::to('schedules/autocomplete') }}",
 		 	minLength: 1,
 			 	select: function(event, ui) {

@@ -27,9 +27,9 @@ class ScheduleController extends Controller
     $professionals = DB::table('professionals')
     ->join('person', 'professionals.person_id', '=', 'person.id')
     ->pluck('person.name','professionals.id');
-    //dd($professional);
+    $status = ['Pedente' => 'Pendente', 'Realizada' => 'Realizada'];
     return View::make('schedules.create')
-                    ->with(compact('professionals'))
+                    ->with(compact('professionals','status'))
                     ->with(['button'=>'Salvar']);
   }
 
@@ -50,7 +50,7 @@ class ScheduleController extends Controller
       $schedule->professional_id = $request->input('professional_id');
       $schedule->date = $request->input('date');
       $schedule->hour = $request->input('hour');
-      //dd($schedule);
+      $schedule->status = 1;
       $schedule->save();
       flash('Agendamento realizado com sucesso!')->success();
       return $this->all();
@@ -78,8 +78,9 @@ public function edit($id)
     $patients = DB::table('patients')
     ->join('person', 'patients.person_id', '=', 'person.id')
     ->pluck('person.name','patients.id');
+    $status = ['1' => 'Pendente', '2' => 'Realizada'];
     return view('schedules.edit')
-                ->with(compact('schedule','professionals','patients'))
+                ->with(compact('schedule','professionals','patients','status'))
                 ->with(['button'=>'Atualizar']);
   }
 
@@ -90,8 +91,9 @@ public function update(Request $request, $id)
       $schedule->professional_id = $request->input('professional_id');
       $schedule->date = $request->input('date');
       $schedule->hour = $request->input('hour');
+      $schedule->status = $request->input('status');
       $schedule->push();
-
+      flash('Agendamento atualizado com sucesso!')->info();
       return $this->edit($id);
   }
 
@@ -126,6 +128,7 @@ public function all(){
      $professionals = DB::table('professionals')
      ->join('person', 'professionals.person_id', '=', 'person.id')
      ->pluck('person.name','professionals.id');
+     $status = ['1' => 'Pendente', '2' => 'Realizada'];
      return view('schedules.all')
                   ->with(compact('schedules','professionals'))
                   ->with(['button'=>'Salvar']);

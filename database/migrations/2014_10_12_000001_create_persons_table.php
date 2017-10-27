@@ -17,11 +17,11 @@ class CreatePersonsTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('lastname');
-            $table->bigInteger('rg');
+            $table->string('rg');
             $table->string('cpf');
             $table->string('sex');
-            $table->bigInteger('phone');
-            $table->bigInteger('landline');
+            $table->string('phone');
+            $table->string('landline');
             $table->string('email');
             $table->rememberToken();
             $table->timestamps();

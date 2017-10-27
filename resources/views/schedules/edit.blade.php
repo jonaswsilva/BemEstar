@@ -12,6 +12,7 @@
   </h1>
 </div><!-- /.page-header -->
 <div class="row">
+  @include('flash::message')
   @if (Session::has('message'))
     <div class="alert alert-info">{{ Session::get('message') }}</div>
   @endif

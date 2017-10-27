@@ -25,13 +25,13 @@ class ProceduresController extends Controller
     public function create()
     {
       $typeprocedures = TypeProcedures::pluck('name','id');
+      $typeprocedurestable = TypeProcedures::all();
       $professionals = DB::table('professionals')
       ->join('person', 'professionals.person_id', '=', 'person.id')
       ->pluck('person.name','professionals.id');
-      //dd($professionals);
       return View::make('procedures.create')
-      ->with(compact('professionals','typeprocedures'))
-      ->with(['button'=>'Salvar']);
+                      ->with(compact('professionals','typeprocedures','typeprocedurestable'))
+                        ->with(['button'=>'Salvar']);
     }
 
 
@@ -45,12 +45,11 @@ class ProceduresController extends Controller
         $procedure->type_payment = $request->input('type_payment');
         $procedure->plots = $request->input('plots');
         $procedure->observation = $request->input('observation');
-        $procedure->type_procedures_id = ('type_procedures_id');
+        $procedure->type_procedures_id = $request->input('type_procedures_id');
         $procedure->save();
 
-        $procedures = Procedures::all();
-        return view('procedures.index')
-                    ->with(compact('procedures'));
+        flash('Procedimento criado com sucesso!')->success();
+        return $this->index();
 
     }
 
@@ -74,8 +73,9 @@ class ProceduresController extends Controller
       ->join('person', 'patients.person_id', '=', 'person.id')
       ->pluck('person.name','patients.id');
       $typeprocedures = TypeProcedures::pluck('name','id');
+      $typeprocedurestable = TypeProcedures::all();
       return view('procedures.edit')
-                  ->with(compact('procedure','professionals','patients','typeprocedures'))
+                  ->with(compact('procedure','professionals','patients','typeprocedures','typeprocedurestable'))
                   ->with(['button'=>'Atualizar']);
     }
 
@@ -93,9 +93,8 @@ class ProceduresController extends Controller
       $procedure->price = $request->input('price');
       $procedure->push();
 
-      $procedures = Procedures::orderBy('id', 'desc')->paginate(5);
-      return view('procedures.index')
-                   ->with(compact('procedures'));
+      flash('Procedimento atualizado com sucesso!')->info();
+      return $this->edit($id);
     }
 
 

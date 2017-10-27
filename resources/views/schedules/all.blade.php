@@ -33,6 +33,7 @@
 										<th><i class="fa fa-user-md"></i>Profissional</th>
 										<th><i class="ace-icon fa fa-calendar bigger-110 hidden-480"></i>Data</th>
 										<th><i class="ace-icon fa fa-clock-o bigger-110 hidden-480"></i>Hora</th>
+										<th>Status</th>
 										<th></th>
 									</tr>
 								</thead>
@@ -44,6 +45,7 @@
 										<td>{{ $schedule->professional->person->name }}</td>
 										<td>{{ $schedule->date_mu->format('d/m/Y') }}</td>
 										<td class="hour">{{ $schedule->hour }}</td>
+										<td>{!! ($schedule->status == 1) ? "<span class='label label-warning'>Pendente</span>" : "<span class='label label-success'>Realizada</span>" !!}</td>
 										<td>
 											<div class="hidden-sm hidden-xs btn-group">
 												{!! Form::open(['url'=>'schedules/'.$schedule->id,'method'=>'post','class'=>'delete']) !!}
@@ -103,7 +105,7 @@
 				</div>
 
 				<div id="my-modal" class="modal fade" tabindex="-1">
-					<div class="modal-dialog" style="z-index:5000;">
+					<div class="modal-dialog">
 						<div class="modal-content">
 							<div class="modal-header">
 								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
