@@ -27,18 +27,15 @@ class MedicalAppointmentController extends Controller
 
   public function create()
   {
-    $patients = Patient::all();
-
-    $professionals = DB::table('professionals')
-    ->join('person', 'professionals.person_id', '=', 'person.id')
-    ->pluck('person.name','professionals.id');
+    $patients = DB::table('patients')
+                  ->join('person', 'patients.person_id', '=', 'person.id')
+                  ->pluck('person.name','patients.id');
     return view('medicalappointments.create')
-    ->with(['button'=>'Salvar'])
-    ->with(compact('professionals','patients'));
+                ->with(['button'=>'Salvar'])
+                ->with(compact('patients'));
   }
 
-  public function store(MedicalAppointmentRequest $request)
-  {
+  public function store(MedicalAppointmentRequest $request){
     $medicalappointment = new MedicalAppointment();
 
     $medicalappointment->patient_id      = $request->input('patient_id');
@@ -52,37 +49,27 @@ class MedicalAppointmentController extends Controller
     return $this->index();
   }
 
-  public function show($id)
-  {
-
+  public function show($id){
     $medicalappointment = MedicalAppointment::find($id);
     $postural = DB::table('posturals')->where('medicalappointment_id', $id)->first();
     return View::make('medicalappointments.show',compact('medicalappointment','postural'));
   }
 
   public function pdf($id){
-
     $medicalappointment = MedicalAppointment::find($id);
     $postural = DB::table('posturals')->where('medicalappointment_id', $id)->first();
-
-
     return $pdf = PDF::setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true])
                           ->loadView('medicalappointments.printpdf',compact('medicalappointment','postural'))->stream();
-
   }
 
   public function edit($id)
   {
     $medicalappointment = MedicalAppointment::findOrFail($id);
-    $professionals = DB::table('professionals')
-                        ->join('person', 'professionals.person_id', '=', 'person.id')
-                          ->pluck('person.name','professionals.id');
     $patients = DB::table('patients')
                         ->join('person', 'patients.person_id', '=', 'person.id')
                          ->pluck('person.name','patients.id');
-
     return view('medicalappointments.edit')
-                ->with(compact('medicalappointment'))
+                ->with(compact('medicalappointment','patients'))
                   ->with(['button' => 'Atualizar']);
   }
 

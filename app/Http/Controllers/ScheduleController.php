@@ -20,16 +20,15 @@ class ScheduleController extends Controller
   }
   public function create()
   {
-    // $professional = DB::table('professionals')
-    // ->join('person', 'professionals.person_id', '=', 'person.id')
-    // ->pluck('person.name','professionals.id');
-    // dd($professional);
+    $patients = DB::table('patients')
+    ->join('person', 'patients.person_id', '=', 'person.id')
+    ->pluck('person.name','patients.id');
     $professionals = DB::table('professionals')
     ->join('person', 'professionals.person_id', '=', 'person.id')
     ->pluck('person.name','professionals.id');
     $status = ['Pedente' => 'Pendente', 'Realizada' => 'Realizada'];
     return View::make('schedules.create')
-                    ->with(compact('professionals','status'))
+                    ->with(compact('professionals','status','patients'))
                     ->with(['button'=>'Salvar']);
   }
 
@@ -124,7 +123,9 @@ public function autoComplete(Request $request){
    }
 
 public function all(){
-    $patients = Patient::all();
+    $patients = DB::table('patients')
+              ->join('person', 'patients.person_id', '=', 'person.id')
+                ->pluck('person.name','patients.id');
      $schedules =Schedule::orderBy('date','hour')->get();
      $professionals = DB::table('professionals')
      ->join('person', 'professionals.person_id', '=', 'person.id')

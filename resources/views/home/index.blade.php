@@ -4,13 +4,13 @@
 
 @can('admin-access')
 <div class="col-xs-12 col-sm-6 widget-container-col" id="widget-container-col-2">
-  <div class="widget-box widget-color-blue" id="widget-box-2">
+  <div class="widget-box widget-color-purple" id="widget-box-2">
     <div class="widget-header">
       <h5 class="widget-title bigger lighter">
         <i class="ace-icon fa fa-table"></i>
         Agendamentos de hoje
       </h5>
-      <div class="widget-toolbar widget-toolbar-light no-border">
+      <!-- <div class="widget-toolbar widget-toolbar-light no-border">
         <select id="simple-colorpicker-1" class="hide">
           <option selected="" data-class="blue" value="#307ECC">#307ECC</option>
           <option data-class="blue2" value="#5090C1">#5090C1</option>
@@ -28,12 +28,12 @@
           <option data-class="grey" value="#848484">#848484</option>
           <option data-class="default" value="#EEE">#EEE</option>
         </select>
-      </div>
+      </div> -->
     </div>
 
     <div class="widget-body">
       <div class="widget-main no-padding">
-        <table class="table table-striped table-bordered table-hover">
+        <table class="table table-striped table-bordered table-hover table-responsive">
           <thead class="thin-border-bottom">
             <tr>
               <th>
@@ -73,9 +73,9 @@
 </div><!-- /.span -->
 
 <div class="col-xs-12 col-sm-3 widget-container-col" id="widget-container-col-6">
-  <div class="widget-box widget-color-dark light-border" id="widget-box-6">
+  <div class="widget-box widget-color-purple light-border" id="widget-box-6">
     <div class="widget-header">
-      <h5 class="widget-title smaller">Telefones Úteis</h5>
+      <h5 class="widget-title smaller ">Telefones Úteis</h5>
     </div>
     <div class="widget-body">
       <div class="widget-main padding-6">
@@ -93,9 +93,9 @@
 </div>
 
 <div class="col-xs-12 col-sm-3 widget-container-col" id="widget-container-col-5">
-  <div class="widget-box" id="widget-box-5">
-    <div class="widget-header">
-      <h5 class="widget-title smaller purple">Calendário</h5>
+  <div class="widget-box widget-color-purple light-border" id="widget-box-5">
+    <div class="widget-header ">
+      <h5 class="widget-title smaller">Calendário</h5>
     </div>
     <div class="widget-body">
       <div class="widget-main padding-6">
@@ -205,7 +205,7 @@
   </div>
 </div>
 
-<div class="col-sm-5">
+<!-- <div class="col-sm-5">
   <div class="widget-box">
     <div class="widget-header widget-header-flat widget-header-small">
       <h5 class="widget-title">
@@ -279,7 +279,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 </div>
 @endcan
 @stop

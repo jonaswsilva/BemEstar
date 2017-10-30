@@ -14,21 +14,12 @@ use PDF;
 
 class NeurologicalController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
         //
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create($id)
     {
       $medicalappointment = MedicalAppointment::findOrFail($id);
@@ -56,12 +47,6 @@ class NeurologicalController extends Controller
     //     }
     // }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $neurological = new Neurological();
@@ -109,12 +94,6 @@ class NeurologicalController extends Controller
 
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
       $neurological = Neurological::find($id);
@@ -133,12 +112,7 @@ class NeurologicalController extends Controller
       //return $pdf->download('avaliacao_postural.pdf');
 
     }
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit($id)
     {
       $neurological = Neurological::findOrFail($id);
@@ -153,13 +127,6 @@ class NeurologicalController extends Controller
       ->with(compact('neurological'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
       $neurological = Neurological::findOrFail($id);
@@ -205,12 +172,6 @@ class NeurologicalController extends Controller
       return $this->show($neurological->id);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
 
@@ -218,7 +179,7 @@ class NeurologicalController extends Controller
       if ($neurological != null) {
         $neurological->delete();
         $medicalappointments = MedicalAppointment::all();
-        flash('Paciente excluido com sucesso!')->success()->important();
+        flash('Avaliação Neurológica excluída com sucesso!')->info();
         return view('medicalappointments.index')
                           ->with(compact('medicalappointments'));
       }

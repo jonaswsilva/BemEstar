@@ -31,11 +31,17 @@ Route::group(['middleware' => 'auth'], function(){
   Route::resource('schedules','ScheduleController');
 
   Route::group(['middleware' => 'can:admin-access'], function () {
+    Route::get('reports','ReportsController@index');
+
     Route::resource('procedures','ProceduresController');
 
-    Route::get('typeprocedures/{id}/destroy','TypeProceduresController@destroy');    
+    Route::get('typeprocedures/{id}/destroy','TypeProceduresController@destroy');
     Route::resource('typeprocedures','TypeProceduresController');
 
+    Route::get('medicalrecords/session/find','MedicalRecordsController@findSession');
+    Route::post('medicalrecords/session','MedicalRecordsController@session');
+    Route::post('medicalrecords/destroy/{sessionid}/medical/{medicalid}','MedicalRecordsController@destroySession');
+    Route::post('medicalrecords/session/store','MedicalRecordsController@storeSession');
     Route::resource('medicalrecords','MedicalRecordsController');
 
     Route::resource('medicalappointments','MedicalAppointmentController');

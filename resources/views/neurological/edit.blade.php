@@ -78,7 +78,7 @@
 
           <div class="step-content pos-rel">
 
-            {!! Form::open(['route' => ['neurological.update', $neurological->id], 'method' => 'PUT' ,'class' => 'form-horizontal']) !!}
+            {!! Form::open(['route' => ['neurological.update', $neurological->id], 'method' => 'PUT' ,'class' => 'form-horizontal', 'id'=>'form1']) !!}
 
             @include('neurological/_form')
 
@@ -144,15 +144,16 @@ jQuery(function($) {
   //.on('changed.fu.wizard', function() {
   //})
   .on('finished.fu.wizard', function(e) {
-    bootbox.dialog({
-      message: "Obrigado! Avaliação realizada com sucesso!",
-      buttons: {
-        "success" : {
-          "label" : "OK",
-          "className" : "btn-sm btn-primary"
-        }
-      }
-    });
+    $('#form1').submit();
+    // bootbox.dialog({
+    //   message: "Obrigado! Avaliação realizada com sucesso!",
+    //   buttons: {
+    //     "success" : {
+    //       "label" : "OK",
+    //       "className" : "btn-sm btn-primary"
+    //     }
+    //   }
+    // });
   }).on('stepclick.fu.wizard', function(e){
     //e.preventDefault();//this will prevent clicking and selecting steps
   });

@@ -4,14 +4,9 @@
 			<div class="form-group">
 				{!!  Form::label('form-field-1', 'Paciente: ', ['class' => 'col-sm-3 control-label no-padding-right'])  !!}
 				<div class="col-sm-9">
-					{!! Form::text('term', @$schedule->patient->person->name, ['class' => 'col-xs-10 col-sm-5','id' => 'autoComplete', 'placeholder' => 'Paciente...']) !!}
-					@if($errors->any())
-					<div class="red darken-4">&nbsp &nbsp{!! $errors->first('term') !!}</div>
-					@endif
+					{!! Form::select('patient_id', $patients, @$schedules->patient_id, ["class"=>"col-xs-10 col-sm-5" ,"id"=>"nameid", "placeholder"=>"Selecione um paciente"]) !!}
 				</div>
 			</div>
-
-			{!! Form::hidden('patient_id', @$schedule->patient_id, ['id'=>'idPatient']) !!}
 
 			<div class="form-group">
 				{!! Form::label('form-field-5', 'Profissional:', ['class'=> 'col-sm-3 control-label no-padding-right']) !!}

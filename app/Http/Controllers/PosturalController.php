@@ -176,7 +176,6 @@ class PosturalController extends Controller
         $postural->medp    = $request->input('medp');
 
         $postural->push();
-
         return $this->show($postural->id);
 
     }
@@ -187,8 +186,8 @@ class PosturalController extends Controller
       $postural = Postural::find($id);
       if ($postural != null) {
         $postural->delete();
+        flash("Avaliação postural excluída com sucesso!")->info();
         $medicalappointments = MedicalAppointment::all();
-        flash('Paciente excluido com sucesso!')->success()->important();
         return view('medicalappointments.index')
                           ->with(compact('medicalappointments'));
       }

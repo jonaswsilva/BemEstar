@@ -25,14 +25,13 @@ class ProceduresController extends Controller
 
     public function create()
     {
-      $patients = Patient::all();
+      $patients = DB::table('patients')
+      ->join('person', 'patients.person_id', '=', 'person.id')
+      ->pluck('person.name','patients.id');
       $typeprocedures = TypeProcedures::pluck('name','id');
       $typeprocedurestable = TypeProcedures::all();
-      $professionals = DB::table('professionals')
-      ->join('person', 'professionals.person_id', '=', 'person.id')
-      ->pluck('person.name','professionals.id');
       return View::make('procedures.create')
-                      ->with(compact('professionals','typeprocedures','typeprocedurestable','patients'))
+                      ->with(compact('typeprocedures','typeprocedurestable','patients'))
                         ->with(['button'=>'Salvar']);
     }
 
@@ -68,16 +67,13 @@ class ProceduresController extends Controller
     public function edit($id)
     {
       $procedure = Procedures::findOrFail($id);
-      $professionals = DB::table('professionals')
-      ->join('person', 'professionals.person_id', '=', 'person.id')
-      ->pluck('person.name','professionals.id');
       $patients = DB::table('patients')
       ->join('person', 'patients.person_id', '=', 'person.id')
       ->pluck('person.name','patients.id');
       $typeprocedures = TypeProcedures::pluck('name','id');
       $typeprocedurestable = TypeProcedures::all();
       return view('procedures.edit')
-                  ->with(compact('procedure','professionals','patients','typeprocedures','typeprocedurestable'))
+                  ->with(compact('procedure','patients','typeprocedures','typeprocedurestable'))
                   ->with(['button'=>'Atualizar']);
     }
 

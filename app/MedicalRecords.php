@@ -24,4 +24,8 @@ class MedicalRecords extends Model
       return $this->belongsTo('App\Professional', 'professional_id', 'id');
     }
 
+    public function session(){
+      return $this->hasOne('App\Session');
+    }
+
 }

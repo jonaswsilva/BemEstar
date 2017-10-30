@@ -8,7 +8,8 @@
     <h2 class="header smaller lighter green">Sessões</h2>
 
     <div class="pull-left">
-      <a class="btn btn-default" href="{{ URL::to('medicalrecords/create') }}"><i class="ace-icon fa fa-file-o"></i>Nova Sessão</a>
+      <a class="btn btn-info" href="{{ URL::to('medicalrecords/create') }}"><i class="ace-icon fa fa-file-o"></i>Marcar Sessão</a>
+      <a class="btn btn-warning" href="{{ URL::to('medicalrecords/session/find') }}"><i class="ace-icon fa fa-file-o bigger-120"></i> Realizar Sessão</a>
     </div>
 
     <div class="clearfix">
@@ -34,7 +35,7 @@
             <th><i class="fa fa-wheelchair"></i>Paciente</th>
             <th><i class="fa fa-user-md"></i>Profissional</th>
             <th>N° de sessões</th>
-            <th><i class=""></i>Sessão atual</th>
+            <th><i class=""></i>Sessões realizadas</th>
 
             <th></th>
           </tr>
@@ -47,28 +48,27 @@
             <td class="center">{{ $medicalrecord->id }}</td>
             <td>{{ $medicalrecord->patient->person->name }}</td>
             <td>{{ $medicalrecord->professional->person->name }}</td>
-            <td class="numbersessions">{{ $medicalrecord->number_of_sessions }}</td>
-            <td class="actualsession">{{ $medicalrecord->actual_session }}</td>
+            <td class="text-center">{{ $medicalrecord->number_of_sessions }}</td>
+            <td class="text-center">{{ $medicalrecord->actual_session }}</td>
 
             <td>
               <div class="hidden-sm hidden-xs btn-group">
                 {!! Form::open(['url'=>'medicalrecords/'.$medicalrecord->id,'method'=>'post','class'=>'delete']) !!}
                   {{ csrf_field() }}
                   {{ method_field('DELETE') }}
+
                 <a class="btn btn-xs btn-success" href="{{ URL::to('medicalrecords/'.$medicalrecord->id) }}">
-                  <i class="ace-icon fa fa-check bigger-120"></i>
+                  <i class="ace-icon fa fa-check bigger-120"></i>Ver sessões
                 </a>
 
                 <a class="btn btn-xs btn-info" href="{{ URL::to('medicalrecords/'. $medicalrecord->id .'/edit') }}" data-toggle="modal">
-                  <i class="ace-icon fa fa-pencil bigger-120"></i>
+                  <i class="ace-icon fa fa-pencil bigger-120"></i>Editar
                 </a>
 
 
-                <button type="submit" class="btn btn-xs btn-danger" data-toggle="tooltip" data-placement="bottom" title="Excluir Consulta" ><i class="ace-icon fa fa-trash-o bigger-120"></i></button>
+                <button type="submit" class="btn btn-xs btn-danger" data-toggle="tooltip" data-placement="bottom" title="Excluir Consulta" ><i class="ace-icon fa fa-trash-o bigger-120"></i>Excluir</button>
               {!! Form::close() !!}
               </div>
-
-
 
               <div class="hidden-md hidden-lg">
                 <div class="inline pos-rel">
@@ -112,7 +112,7 @@
         {{ Form::hidden('_method', 'DELETE') }}
 
       {{ Form::close() }}
-    {{ $medicalrecords->render() }}
+
     </div>
   </div>
 </div>

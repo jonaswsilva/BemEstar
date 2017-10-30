@@ -8,7 +8,7 @@
 
   <div class="widget-box">
     <div class="widget-header widget-header-purple widget-header-flat">
-      <h4 class="widget-title lighter">Editar Avaliação Postural</h4>
+      <h4 class="widget-title lighter">Avaliação Postural</h4>
 
     </div>
     <div class="hr hr-18 hr-double dotted"></div>
@@ -51,8 +51,6 @@
                 <span class="step">4</span>
                 <span class="title">Avaliação Completa</span>
               </li>
-
-
             </ul>
           </div>
 
@@ -60,7 +58,7 @@
 
           <div class="step-content pos-rel">
 
-            {!! Form::open(['route' => ['postural.update', $postural->id], 'method' => 'PUT' ,'class' => 'form-horizontal']) !!}
+            {!! Form::open(['route' => ['postural.update', $postural->id], 'method' => 'PUT' ,'class' => 'form-horizontal', 'id'=>'form1']) !!}
 
             @include('postural/_form')
 
@@ -68,7 +66,7 @@
             {!! Form::close() !!}
           </div>
         </div>
-      </div>
+
 
       <hr />
       <div class="wizard-actions">
@@ -77,14 +75,14 @@
           Anterior
         </button>
 
-        <button class="btn btn-success btn-next" type="submit" data-last="Finalizar">
+        <button class="btn btn-success btn-next" data-last="Finalizar!">
           Próximo
           <i class="ace-icon fa fa-arrow-right icon-on-right"></i>
         </button>
-
       </div>
     </div><!-- /.widget-main -->
   </div><!-- /.widget-body -->
+</div>
 </div>
 
 
@@ -127,15 +125,16 @@ jQuery(function($) {
   //.on('changed.fu.wizard', function() {
   //})
   .on('finished.fu.wizard', function(e) {
-    bootbox.dialog({
-      message: "Obrigado! Avaliação realizada com sucesso!",
-      buttons: {
-        "success" : {
-          "label" : "OK",
-          "className" : "btn-sm btn-primary"
-        }
-      }
-    });
+    $('#form1').submit();
+    // bootbox.dialog({
+    //   message: "Obrigado! Avaliação realizada com sucesso!",
+    //   buttons: {
+    //     "success" : {
+    //       "label" : "OK",
+    //       "className" : "btn-sm btn-primary"
+    //     }
+    //   }
+    // });
   }).on('stepclick.fu.wizard', function(e){
     //e.preventDefault();//this will prevent clicking and selecting steps
   });

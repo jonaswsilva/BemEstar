@@ -12,6 +12,7 @@
 	</h1>
 </div><!-- /.page-header -->
 <div class="row">
+	@include('flash::message')
 	@if($errors->any())
 	<div class="alert alert-danger">Existem dados incorretos no formulário!</div>
 	@endif

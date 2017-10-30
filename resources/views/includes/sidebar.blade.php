@@ -122,8 +122,8 @@
         <b class="arrow"></b>
       </li>
       @can('admin-access')
-      <li class="{{ $nav_contr or '' }}">
-        <a href="{{ URL::to('contract') }}">
+      <li class="{{ $nav_report or '' }}">
+        <a href="{{ URL::to('reports') }}">
           <i class="menu-icon fa fa-list"></i>
           <span class="menu-text"> Relatórios </span>
         </a>

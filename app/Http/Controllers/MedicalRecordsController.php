@@ -9,87 +9,107 @@ use App\MedicalRecords;
 use DB;
 use View;
 use App\Patient;
+use App\Session;
+use Redirect;
 
-class MedicalRecordsController extends Controller
-{
+class MedicalRecordsController extends Controller{
 
-    public function index()
-    {
-        $medicalrecords = MedicalRecords::orderBy('id', 'desc')->paginate(5);
+    public function index(){
+        $medicalrecords = MedicalRecords::all();
         $professionals = DB::table('professionals')
         ->join('person', 'professionals.person_id', '=', 'person.id')
         ->pluck('person.name','person.id');
         return view('medicalrecords.index')
-                    ->with(compact('medicalrecords','professionals'));
+                    ->with(compact('medicalrecords','professionals','performed'));
     }
 
 
-    public function create()
-    {
-      $patients = Patient::all();
-      $professionals = DB::table('professionals')
-      ->join('person', 'professionals.person_id', '=', 'person.id')
-      ->pluck('person.name','professionals.id');
+    public function create(){
+      $patients = DB::table('patients')
+                      ->join('person', 'patients.person_id', '=', 'person.id')
+                      ->pluck('person.name','patients.id');
+
       return View::make('medicalrecords.create')
-      ->with(compact('professionals','patients'))
-      ->with(['button'=>'Salvar']);
+                      ->with(compact('professionals','patients'))
+                      ->with(['button'=>'Salvar']);
     }
 
+    public function findSession(){
+      $patients = DB::table('patients')
+                    ->join('person', 'patients.person_id', '=', 'person.id')
+                    ->pluck('person.name','patients.id');
+      return view('medicalrecords.findsession')->with(compact('patients'));
+    }
 
-    public function store(MedicalRecordRequest $request)
-    {
+    public function session(Request $request){
+      $id = $request->input('patient_id');
+      $medicalrecord = MedicalRecords::where('patient_id', $id)->first();
+      if($medicalrecord == null){
+          flash('Paciente ainda não marcou sessões!')->error();
+          return $this->findSession();
+      }else{
+        return view('medicalrecords.session')->with(compact('medicalrecord'));
+      }
+    }
+
+    public function storeSession(Request $request){
+      $session = new Session();
+      $session->medicalrecord_id = $request->input('medicalrecord_id');
+      $id = $request->input('medicalrecord_id');
+      $session->hour = $request->input('hour');
+      $session->date = $request->input('date');
+      $session->description = $request->input('description');
+      $session->save();
+
+      $medicalrecord = MedicalRecords::find($id);
+      $performed = DB::table('sessions')->where('medicalrecord_id', '=', $id)->count();
+      $medicalrecord->actual_session = $performed;
+      $medicalrecord->push();
+
+      flash('Sessão salva com sucesso!')->success();
+      return $this->show($id);
+    }
+
+    public function store(MedicalRecordRequest $request){
         $medicalrecord = new MedicalRecords();
         $medicalrecord->patient_id         = $request->input('patient_id');
         $medicalrecord->professional_id    = $request->input('professional_id');
-        $medicalrecord->number_of_sessions = $request->input('number_of_sessions');
-        $medicalrecord->actual_session     = 1;
         $medicalrecord->date               = $request->input('date');
+        $medicalrecord->number_of_sessions = $request->input('number_of_sessions');
+        $medicalrecord->actual_session     = 0;
         $medicalrecord->description        = $request->input('description');
         $medicalrecord->save();
 
-        $medicalrecords = MedicalRecords::orderBy('id', 'desc')->paginate(5);
-        $professionals = DB::table('professionals')
-        ->join('person', 'professionals.person_id', '=', 'person.id')
-        ->pluck('person.name','professionals.id');
-        return view('medicalrecords.index')
-                    ->with(compact('medicalrecords','professionals'));
-
+        flash('Sessão criada com sucesso!')->success();
+        return $this->index();
     }
 
 
-    public function show($id)
-    {
-        //
+    public function show($id){
+        $medicalrecord = MedicalRecords::findOrFail($id);
+        $sessions = DB::table('sessions')->where('medicalrecord_id', '=', $id)->get();
+        //dd($sessions);
+        return view('medicalrecords.show')->with(compact('medicalrecord','sessions'));
     }
 
     public function pdf($id){
-
       $medicalrecord = MedicalRecords::find($id);
-      //$postural = DB::table('posturals')->where('medicalappointment_id', $id)->first();
-
-
       return $pdf = PDF::setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true])
                             ->loadView('medicalrecords.printpdf',compact('medicalrecord'))->stream();
-
     }
 
-    public function edit($id)
-    {
+    public function edit($id){
       $medicalrecord = MedicalRecords::findOrFail($id);
-      $professionals = DB::table('professionals')
-      ->join('person', 'professionals.person_id', '=', 'person.id')
-      ->pluck('person.name','professionals.id');
       $patients = DB::table('patients')
-      ->join('person', 'patients.person_id', '=', 'person.id')
-      ->pluck('person.name','patients.id');
+                ->join('person', 'patients.person_id', '=', 'person.id')
+                ->pluck('person.name','patients.id');
       return view('medicalrecords.edit')
-                  ->with(compact('medicalrecord','professionals','patients'))
+                  ->with(compact('medicalrecord','patients'))
                   ->with(['button'=>'Atualizar']);
     }
 
 
-    public function update(Request $request, $id)
-    {
+    public function update(Request $request, $id){
       $medicalrecord = MedicalRecords::findOrFail($id);
       $medicalrecord->patient_id = $request->input('patient_id');
       $medicalrecord->professional_id = $request->input('professional_id');
@@ -99,23 +119,34 @@ class MedicalRecordsController extends Controller
       $medicalrecord->actual_session = 1;
       $medicalrecord->push();
 
-      $medicalrecords = MedicalRecords::orderBy('id', 'desc')->paginate(5);
-      return view('medicalrecords.index')
-                   ->with(compact('medicalrecords'));
+      flash('Sessão atualizada com sucesso!')->info();
+      return $this->edit($id);
     }
 
 
-    public function destroy($id)
-    {
+    public function destroy($id){
       $medicalrecord = MedicalRecords::find($id);
       if ($medicalrecord != null) {
         $medicalrecord->delete();
-        $medicalrecords = MedicalRecords::orderBy('id', 'desc')->get();
-        Session::flash('message', 'Sessão excluida com sucesso!');
-        return View::make('medicalrecords.index',['medicalrecords' => $medicalrecords, 'alert'=>'danger']);
+        $medicalrecords = MedicalRecords::all();
+        flash('Sessão excluída com sucesso!')->info();
+        return $this->index();
       }
-      Session::flash('message', 'Código não encontrado!');
-      return View::make('medicalrecords.index',['alert'=>'alert']);
+      flash('Código não encontrado!')->info();
+      return $this->index();
+    }
+
+    public function destroySession($sessionid, $medicalid){
+      $session = Session::find($sessionid);
+      if ($session != null) {
+        $session->delete();
+        MedicalRecords::where('id',$medicalid)->decrement('actual_session',1);
+        $sessions = Session::all();
+        flash('Sessão excluída com sucesso!')->info();
+        return redirect()->back();
+      }
+      flash('Código da sessão não encontrado!')->info();
+      return $this->index();
     }
 
     public function autoComplete(Request $request){

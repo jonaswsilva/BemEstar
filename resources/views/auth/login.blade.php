@@ -47,12 +47,13 @@
 						<div class="login-container">
 							<div class="center">
 								<h1>
-									<i class="ace-icon fa fa-heartbeat purple"></i>
-									<span class="light-grey">Clínica</span>
-									<span class="green">Bem</span>
-									<span class="green" id="id-text2">Estar</span>
+									<!-- <i class="ace-icon fa fa-heartbeat purple"></i> -->
+									<img height="168px" width="198px" src="/assets/images/logo1.png" />
+									<!-- <span class="light-grey">Clínica</span> -->
+									<!-- <span class="green">Bem</span> -->
+									<!-- <span class="green" id="id-text2">Estar</span> -->
 								</h1>
-								<h4 class="purple" id="id-company-text">&copy; Clínica multidisciplinar</h4>
+								<h4 class="purple" id="id-company-text">Clínica multidisciplinar</h4>
 							</div>
 
 							<div class="space-6"></div>
@@ -120,7 +121,7 @@
 
 														<button type="submit" class="width-35 pull-right btn btn-sm btn-purple">
 															<i class="ace-icon fa fa-key"></i>
-															<span class="bigger-110">Login</span>
+															<span class="bigger-110">Entrar</span>
 														</button>
 													</div>
 

@@ -314,7 +314,7 @@
             <li>
               <a href="{{ url('/logout') }}">
                 <i class="ace-icon fa fa-power-off"></i>
-                Logout
+                Sair
               </a>
             </li>
           </ul>

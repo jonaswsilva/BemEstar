@@ -2,23 +2,9 @@
 <div class="form-group">
   {!!  Form::label('form-field-1', 'Paciente: ', ['class' => 'col-sm-3 control-label no-padding-right'])  !!}
   <div class="col-sm-9">
-    <select name="patient_id" class="col-xs-10 col-sm-5" id="nameid">
-      <option></option>
-      @foreach($patients as $patient)
-        <option value="{{ $patient->id }}">{{$patient->person->name}}</option>
-      @endforeach
-    </select>
+    {!! Form::select('patient_id', $patients, @$medicalappointment->patient_id, ["class"=>"col-xs-10 col-sm-5", "id"=>"nameid","placeholder"=>"Selecione um paciente"]) !!}
   </div>
 </div>
-<!-- <div class="form-group">
-  {!! Form::label('form-field-5', 'Profissional:', ['class'=> 'col-sm-3 control-label no-padding-right']) !!}
-  <div class="col-sm-9">
-      {!! Form::text('professional_id', Auth::user()->name, ['disabled'=>'disabled', 'class' => 'col-xs-10 col-sm-5']) !!}
-    @if($errors->any())
-    <div class="red darken-4">{{ $errors->first('professionals') }}</div>
-    @endif
-  </div>
-</div> -->
 
 {!! Form::hidden('professional_id', Auth::user()->id ) !!}
 

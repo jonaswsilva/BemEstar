@@ -15,7 +15,6 @@ class CreateMedicalRecordsTable extends Migration
         Schema::create('medical_records', function (Blueprint $table) {
             $table->increments('id');
             $table->date('date');
-            $table->time('hour');
             $table->text('number_of_sessions');
             $table->integer('actual_session');
             $table->text('description');
