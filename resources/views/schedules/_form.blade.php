@@ -2,10 +2,10 @@
 			{{ Form::token() }}
 
 			<div class="form-group">
-				{!!  Form::label('form-field-1', 'Paciente: ', ['class' => 'col-sm-3 control-label no-padding-right'])  !!}
-				<div class="col-sm-9">
-					{!! Form::select('patient_id', $patients, @$schedules->patient_id, ["class"=>"col-xs-10 col-sm-5" ,"id"=>"nameid", "placeholder"=>"Selecione um paciente"]) !!}
-				</div>
+			  {!!  Form::label('form-field-1', 'Paciente: ', ['class' => 'col-sm-3 control-label no-padding-right'])  !!}
+			  <div class="col-sm-9">
+					{!! Form::select('patient_id', $patients, @$schedule->patient_id, ["class"=>"col-xs-10 col-sm-5" ,"id"=>"nameid","placeholder"=>"Selecione um paciente"]) !!}
+			  </div>
 			</div>
 
 			<div class="form-group">
@@ -15,11 +15,10 @@
 				</div>
 			</div>
 
-
 			<div class="form-group">
 				{!!  Form::label('form-field-1', 'Data: ', ['class' => 'col-sm-3 control-label no-padding-right'])  !!}
 				<div class="col-sm-9">
-					{!! Form::date('date', @$schedule->date, ['class' => 'col-xs-10 col-sm-5', 'placeholder' => 'Data...']) !!}
+					{!! Form::date('date', @$schedule->date, ['class' => 'col-xs-10 col-sm-5', "id"=>"datePicker"]) !!}
 					@if($errors->any())
 					<div class="red darken-4">&nbsp &nbsp{!! $errors->first('date') !!}</div>
 					@endif

@@ -15,7 +15,7 @@ class CreateProceduresTable extends Migration
         Schema::create('procedures', function (Blueprint $table) {
             $table->increments('id');
             $table->date('date');
-            $table->float('price');
+            $table->string('price');
             $table->string('type_payment');
             $table->integer('plots');
             $table->text('observation')->nullable();

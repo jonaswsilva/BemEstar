@@ -5,20 +5,10 @@
 
 <div class="row">
   <div class="col-lg-12 margin-tb">
-    <div class="pull-left">
+
       <h3 class="header smaller lighter blue">Dados do procedimento</h3>
-    </div>
 
-    <div class="pull-right">
-
-      <div class="btn-toolbar inline middle no-margin">
-        <div data-toggle="buttons" class="btn-group no-margin">
-        </div>
-      </div>
-    </div>
-  </div>
 </div>
-<div class="hr dotted"></div>
   <div>
     <div id="user-profile-1" class="user-profile row">
       <div class="col-xs-12 col-sm-3 center">
@@ -28,10 +18,7 @@
           </span>
           <div class="width-80 label label-info label-xlg arrowed-in arrowed-in-right">
             <div class="inline position-relative">
-              <a href="#" class="user-title-label dropdown-toggle" data-toggle="dropdown">
-                <i class="ace-icon fa fa-circle light-green"></i>
-                &nbsp;
-                <span class="white">Teste</span>
+                <span class="white">{{ $procedure->patient->person->name }}</span>
               </a>
             </div>
           </div>
@@ -103,7 +90,7 @@
             <div class="profile-info-name"> Preço </div>
 
             <div class="profile-info-value">
-              <span class="editable" id="username">{{ $procedure->price }}</span>
+              <span class="editable" id="username">R$ {{ $procedure->price }}</span>
             </div>
           </div>
 

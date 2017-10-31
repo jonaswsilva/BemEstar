@@ -24,7 +24,7 @@ class ScheduleRequest extends Request
     public function rules()
     {
         return [
-            'term' => 'required',
+            'patient_id' => 'required',
             'date' => 'required',
             'hour' => 'required',
         ];
@@ -32,7 +32,7 @@ class ScheduleRequest extends Request
 
     public function messages(){
       return [
-          'term.required' => 'Campo obrigatório!',
+          'patient_id.required' => 'Campo obrigatório!',
           'date.required' => 'O campo data é obrigatório!',
           'hour.required' => 'O campo hora é obrigatório!',
       ];

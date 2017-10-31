@@ -33,17 +33,15 @@
 <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js" ></script>
 <script type="text/javascript">
 $(function(){
+	
  $( "#autoComplete" ).autocomplete({
 	source: "{{ URL::to('schedules/autocomplete') }}",
 	minLength: 1,
-	select: function(event, ui) {
-		$('#autoComplete').val(ui.item.value);
-		$('#idPatient').val(ui.item.id);
-	}
+		select: function(event, ui) {
+			$('#autoComplete').val(ui.item.value);
+			$('#idPatient').val(ui.item.id);
+		}
+	});
 });
-});
-
-
-
 </script>
 @endpush

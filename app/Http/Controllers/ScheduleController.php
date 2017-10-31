@@ -72,11 +72,11 @@ public function edit($id)
   {
     $schedule = Schedule::findOrFail($id);
     $professionals = DB::table('professionals')
-    ->join('person', 'professionals.person_id', '=', 'person.id')
-    ->pluck('person.name','professionals.id');
+                ->join('person', 'professionals.person_id', '=', 'person.id')
+                  ->pluck('person.name','professionals.id');
     $patients = DB::table('patients')
-    ->join('person', 'patients.person_id', '=', 'person.id')
-    ->pluck('person.name','patients.id');
+                ->join('person', 'patients.person_id', '=', 'person.id')
+                  ->pluck('person.name','patients.id');
     $status = ['1' => 'Pendente', '2' => 'Realizada'];
     return view('schedules.edit')
                 ->with(compact('schedule','professionals','patients','status'))

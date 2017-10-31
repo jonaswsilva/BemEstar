@@ -13,7 +13,7 @@
 			<div class="form-group">
 				{!!  Form::label('form-field-1', 'Data: ', ['class' => 'col-sm-3 control-label no-padding-right'])  !!}
 				<div class="col-sm-9">
-					{!! Form::date('date', @$procedure->date, ['class' => 'col-xs-10 col-sm-5', 'placeholder' => 'Data...']) !!}
+					{!! Form::date('date', @$procedure->date, ['class' => 'col-xs-10 col-sm-5', 'placeholder' => 'Data...', "id"=>"datePicker"]) !!}
 					@if($errors->any())
 					<div class="red darken-4">&nbsp &nbsp{!! $errors->first('date') !!}</div>
 					@endif
@@ -39,7 +39,7 @@
       <div class="form-group">
 				{!!  Form::label('form-field-1', 'Valor: ', ['class' => 'col-sm-3 control-label no-padding-right'])  !!}
 				<div class="col-sm-9">
-					{!! Form::text('price', @$procedure->price, ['class' => 'col-xs-10 col-sm-5 price', 'placeholder' => 'Valor...']) !!}
+					{!! Form::text('price', @$procedure->price, ['class' => 'col-xs-10 col-sm-5 price money2', 'placeholder' => 'Valor...']) !!}
 					@if($errors->any())
 					<div class="red darken-4">&nbsp &nbsp{!! $errors->first('price') !!}</div>
 					@endif
@@ -161,12 +161,8 @@
 										<td>
 											<div class="hidden-sm hidden-xs btn-group">
 
-				                <a class="btn btn-xs btn-info" href="{{ URL::to('procedures/'. $type->id .'/edit') }}" data-toggle="modal">
-				                  <i class="ace-icon fa fa-pencil bigger-120"></i>
-				                </a>
-
 				                <a class="btn btn-xs btn-danger btn-delete" href="{{ URL::to('typeprocedures/'. $type->id .'/destroy') }}">
-				                  <i class="ace-icon fa fa-trash-o bigger-120"></i>
+				                  <i class="ace-icon fa fa-trash-o bigger-120"></i>Excluir
 				                </a>
 
 										</td>

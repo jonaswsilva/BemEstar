@@ -205,23 +205,6 @@ jQuery(function($) {
 
 		"aaSorting": [],
 
-
-		//"bProcessing": true,
-				//"bServerSide": true,
-				//"sAjaxSource": "http://127.0.0.1/table.php"	,
-
-		//,
-		//"sScrollY": "200px",
-		//"bPaginate": false,
-
-		//"sScrollX": "100%",
-		//"sScrollXInner": "120%",
-		//"bScrollCollapse": true,
-		//Note: if you are applying horizontal scrolling (sScrollX) on a ".table-bordered"
-		//you may want to wrap the table inside a "div.dataTables_borderWrap" element
-
-		//"iDisplayLength": 50
-
 		select: {
 			style: 'single'
 		}
@@ -539,27 +522,6 @@ jQuery(function($) {
 		if( parseInt(off2.left) < parseInt(off1.left) + parseInt(w1 / 2) ) return 'right';
 		return 'left';
 	}
-
-
-
-
-
-
-
-
-
-
-	/**
-	//add horizontal scrollbars to a simple table
-	$('#simple-table').css({'width':'2000px', 'max-width': 'none'}).wrap('<div style="width: 1000px;" />').parent().ace_scroll(
-		{
-		horizontal: true,
-		styleClass: 'scroll-top scroll-dark scroll-visible',//show the scrollbars on top(default is bottom)
-		size: 2000,
-		mouseWheelLock: true
-		}
-	).css('padding-top', '12px');
-	*/
 
 
 })

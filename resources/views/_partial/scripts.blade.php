@@ -68,7 +68,9 @@ if('ontouchstart' in document.documentElement) document.write("<script src='asse
     // field.value = date;
     // console.log(field.value);
 		//
-		// });
+    // });
+
+
 		$(".delete").on("submit", function(){
         return confirm("Deseja realmente excluir?");
     });
@@ -91,6 +93,13 @@ if('ontouchstart' in document.documentElement) document.write("<script src='asse
 				$(this).prev().focus();
 			});
 
+      $(document).ready(function(){
+    		var now = new Date();
+    		var day = ("0" + now.getDate()).slice(-2);
+    		var month = ("0" + (now.getMonth() + 1)).slice(-2);
+    		var today = now.getFullYear()+"-"+(month)+"-"+(day) ;
+    		$('#datePicker').val(today);
+    	})
 
 		$(document).ready(function(){
 			//$('.date').mask('00/00/0000');
