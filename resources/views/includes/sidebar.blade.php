@@ -81,7 +81,6 @@
         </a>
         <b class="arrow"></b>
       </li>
-      @can('admin-access')
       <li class="{{ $menuc_open or '' }}">
         <a href="#" class="dropdown-toggle">
           <i class="menu-icon fa fa-pencil-square-o"></i>
@@ -106,7 +105,6 @@
           </li>
         </ul>
       </li>
-      @endcan
       <li class="{{ $nav_session or '' }}">
         <a href="{{ URL::to('medicalrecords') }}">
           <i class="menu-icon fa fa-file-o"></i>
@@ -121,7 +119,6 @@
         </a>
         <b class="arrow"></b>
       </li>
-      @can('admin-access')
       <li class="{{ $nav_report or '' }}">
         <a href="{{ URL::to('reports') }}">
           <i class="menu-icon fa fa-list"></i>
@@ -153,7 +150,6 @@
           </li>
         </ul>
       </li> -->
-      @endcan
     </ul><!-- /.nav-list -->
 
     <div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">

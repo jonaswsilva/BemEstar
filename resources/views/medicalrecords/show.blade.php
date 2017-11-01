@@ -147,7 +147,10 @@
         </div>
 
         <div class="space-20"></div>
-        <a class="btn btn-success btn-xs pull-right" href="{{ URL::to('medicalrecords/session') }}"><i class="ace-icon fa fa-file-o bigger-120"></i> Realizar Sessão</a>
+        {{ Form::open(array('url' => 'medicalrecords/session','method'=>'post', 'class' => 'form-horizontal')) }}
+          {!! Form::hidden('patient_id', $medicalrecord->patient_id) !!}
+          <button class="btn btn-success btn-xs pull-right" type="submit" href="{{ URL::to('medicalrecords/session') }}"><i class="ace-icon fa fa-file-o bigger-120"></i> Realizar Sessão</button>
+        {!! Form::close() !!}
         <h3 class="header smaller lighter blue">Marcação das Sessões</h3>
         <div class="profile-user-info profile-user-info-striped">
 
@@ -175,37 +178,44 @@
             </div>
           </div>
         </div>
+        <div class="space-20"></div>
         @include('flash::message')
+        <h3 class="header smaller lighter blue">Sessões Realizadas</h3>
         @foreach ($sessions as $session)
 
         <div class="space-20"></div>
 
-        <h3 class="header smaller lighter blue">Sessão dia {{ $session->date }}</h3>
         <div class="col-md-11 col-md-offset-1">
             {!! Form::open(['url'=>'medicalrecords/destroy/'.$session->id.'/medical/'.$medicalrecord->id , 'method'=>'post','class'=>'delete']) !!}
             {{ csrf_field() }}
-
             <button type="submit" class="btn btn-danger btn-xs pull-right" >Excluir</button>
           {!! Form::close() !!}
         </div>
         <div class="profile-user-info profile-user-info-striped">
-
+          <div class="profile-info-row">
+            <div class="profile-info-name"> Nº da Sessão: </div>
+            <div class="profile-info-value">
+              <span class="editable" id="login">{{ $session->number_of_session }}</span>
+            </div>
+          </div>
+          <div class="profile-info-row">
+            <div class="profile-info-name"> Realizada dia: </div>
+            <div class="profile-info-value">
+              <span class="editable" id="login">{{ $session->date }}</span>
+            </div>
+          </div>
           <div class="profile-info-row">
             <div class="profile-info-name"> Hora: </div>
-
             <div class="profile-info-value">
               <span class="editable" id="login">{{ $session->hour }}</span>
             </div>
           </div>
-
           <div class="profile-info-row">
             <div class="profile-info-name"> Realizado: </div>
-
             <div class="profile-info-value">
               <span class="editable" id="login">{{ $session->description }}</span>
             </div>
           </div>
-
         </div>
         @endforeach
 

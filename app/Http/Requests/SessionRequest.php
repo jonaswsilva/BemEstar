@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
 
-class MedicalRecordRequest extends Request
+class SessionRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,20 +24,11 @@ class MedicalRecordRequest extends Request
     public function rules()
     {
         return [
-            'patient_id' => 'required',
-            'date' => 'required',
-            'hour' => 'required',
+            'medicalrecord_id' => 'required',
+            'date'=> 'required',
+            'hour'=> 'required',
             'description' => 'required',
+
         ];
     }
-
-    public function messages()
-    {
-        return [
-            'term.required' => 'Campo obrigatório',
-            'date.required' => 'Campo obrigatório',
-            'description.required' => 'Campo obrigatório',
-        ];
-    }
-
 }

@@ -17,6 +17,7 @@ use Session;
 use View;
 use Hash;
 use Validator;
+use App\Role;
 
 class ProfessionalController extends Controller
 {
@@ -31,11 +32,12 @@ class ProfessionalController extends Controller
 
     public function create()
     {
+      $roles = Role::lists('display_name','id');
       $states = State::pluck('name','id');
       $especialities = Especialitie::pluck('name','id');
         return View::make('professionals.create')
         ->with(['route' => 'profissional/salvar', 'method' => 'post', 'button' => 'Cadastrar'])
-        ->with(compact('states','especialities'));
+        ->with(compact('states','especialities','roles'));
     }
 
 
@@ -69,30 +71,27 @@ class ProfessionalController extends Controller
 
       $city->state_id = $request->input('state_id');
 
-      // $validator = Validator::make($request->all(), [
-      //       'password' => 'required|min:6|confirmed',
-      //   ]);
-      //
-      // if($validator->fails()){
-      //   $states = State::pluck('name','id');
-      //   $especialities = Especialitie::pluck('name','id');
-      //   return view('professionals.create')
-      //   ->with(['route' => 'profissional/salvar', 'method' => 'post', 'button' => 'Cadastrar'])
-      //   ->with(compact('states','especialities'))
-      //                   ->withErrors($validator)
-      //                   ->withInput();
-      // }
-
+      if($request->hasFile('avatar')){
+        $photo = $request->file('avatar');
+        $filename = time().'.'.$photo->getClientOriginalExtension();
+        Image::make($photo)->resize(175, 175)->save( public_path('assets/images/avatars/' . $filename ) );
+        $user->avatar = $filename;
+      }else{
+        $user->avatar = "default.jpg";
+      }
 
       $user->name = $request->input('name');
       $user->email = $request->input('email');
       $user->password = Hash::make($request->input('password'));
-      $user->role = $request->input('role');
-
       $user->save();
+
+      foreach ($request->input('roles') as $key => $value) {
+          $user->attachRole($value);
+      }
+
       $user_id = $user->id;
 
-
+      $professional->id = $user->id;
       $professional->crm = $request->input('crm');
       $professional->user_id = $user_id;
       $professional->person_id = $person_id;

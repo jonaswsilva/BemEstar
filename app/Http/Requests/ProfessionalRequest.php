@@ -36,7 +36,7 @@ class ProfessionalRequest extends Request
             'number'        => 'required',
             'neighborhood'  => 'required',
             'crm'           => 'required',
-            'password'      => 'required|min:6|confirmed',
+            'password'      => 'required|min:5|confirmed',
 
 
         ];

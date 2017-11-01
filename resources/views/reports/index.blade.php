@@ -12,19 +12,115 @@
     </div>
     @include('flash::message')
     @if (Session::has('message'))
-      <div class="alert alert-{{ @$alert }}">{{ Session::get('message') }}</div>
+    <div class="alert alert-{{ @$alert }}">{{ Session::get('message') }}</div>
     @endif
 
     <div class="table-header">
       Resultado para Relatórios
     </div>
 
-    <!-- div.table-responsive -->
+    <div class="space-6"></div>
 
-    <!-- div.dataTables_borderWrap -->
+    <div class="col-sm-7 infobox-container">
+      <div class="infobox infobox-green">
+        <div class="infobox-icon">
+          <i class="ace-icon fa fa-list"></i>
+        </div>
+        <div class="infobox-data">
+          <span class="infobox-data-number">{{ @$countschedules }}</span>
+          <div class="infobox-content">Consultas Marcadas</div>
+        </div>
+      </div>
 
+      <div class="infobox infobox-blue">
+        <div class="infobox-icon">
+          <i class="ace-icon fa fa-check-square-o"></i>
+        </div>
+        <div class="infobox-data">
+          <span class="infobox-data-number">{{ @$countschedulestoday }}</span>
+          <div class="infobox-content">Consultas Hoje</div>
+        </div>
+      </div>
 
+      <div class="infobox infobox-pink">
+        <div class="infobox-icon">
+          <i class="ace-icon fa fa-file-o"></i>
+        </div>
+        <div class="infobox-data">
+          <span class="infobox-data-number">{{ @$countsessions }}</span>
+          <div class="infobox-content">Sessões de Hoje</div>
+        </div>
+      </div>
+
+      <div class="infobox infobox-red">
+        <div class="infobox-icon">
+          <i class="ace-icon fa fa-user"></i>
+        </div>
+        <div class="infobox-data">
+          <span class="infobox-data-number">{{ @$countspatients }}</span>
+          <div class="infobox-content">Pacientes</div>
+        </div>
+      </div>
+
+      <div class="infobox infobox-blue2">
+        <div class="infobox-icon">
+          <i class="ace-icon fa fa-file-o"></i>
+        </div>
+        <div class="infobox-data">
+          <span class="infobox-data-number">{{ @$medicalappointmentsmounth }}</span>
+          <div class="infobox-content">Realizadas Mês</div>
+        </div>
+      </div>
+
+      <div class="infobox infobox-orange2">
+        <div class="infobox-icon">
+          <i class="ace-icon fa fa-file"></i>
+        </div>
+        <div class="infobox-data">
+          <span class="infobox-data-number">51</span>
+          <div class="infobox-content">Consultas no mês</div>
+        </div>
+      </div>
+
+      <div class="space-6"></div>
+
+      <div class="infobox infobox-green infobox-small infobox-dark">
+        <div class="infobox-progress">
+          <div class="easy-pie-chart percentage" data-percent="61" data-size="39">
+            <span><h1>{{ @$countposturals }}</h1></span>
+          </div>
+        </div>
+        <div class="infobox-data">
+          <div class="infobox-content">Avaliações</div>
+          <div class="infobox-content">Posturais</div>
+        </div>
+      </div>
+
+      <div class="infobox infobox-blue infobox-small infobox-dark">
+        <div class="infobox-progress">
+          <div class="infobox-data-number">
+            <p>
+              <h1>{{ @$countneurologicals }}</h1></p>
+            </div>
+          </div>
+          <div class="infobox-data">
+            <div class="infobox-content">Avaliações</div>
+            <div class="infobox-content">Posturais</div>
+          </div>
+        </div>
+
+        <div class="infobox infobox-grey infobox-small infobox-dark">
+          <div class="infobox-icon">
+            <h1>{{ @$countsprofessionals }}</h1></p>
+          </div>
+          <div class="infobox-data">
+            <div class="infobox-content">Profissionais</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
   </div>
-</div>
 
-@stop
+
+  @stop

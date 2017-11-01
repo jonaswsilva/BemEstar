@@ -29,6 +29,8 @@
       </div>
     </div>
 
+		{!! Form::hidden('number_of_session', $medicalrecord->actual_session +1) !!}
+
     <div class="form-group">
       {!!  Form::label('form-field-1', 'Data: ', ['class' => 'col-sm-3 control-label no-padding-right'])  !!}
       <div class="col-sm-9">

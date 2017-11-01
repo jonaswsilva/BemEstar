@@ -19,7 +19,7 @@
             <div class="">
               {!! Form::model($medicalappointment, [
                 'route' => ['medicalappointments.update', $medicalappointment->id],
-                'method' => 'PUT',
+                'method' => 'PATCH',
                 'class' => 'form-horizontal']) !!}
 
               {{ Form::token() }}

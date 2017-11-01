@@ -58,7 +58,7 @@
 
           <div class="step-content pos-rel">
 
-            {!! Form::open(['route' => ['postural.update', $postural->id], 'method' => 'PUT' ,'class' => 'form-horizontal', 'id'=>'form1']) !!}
+            {!! Form::open(['route' => ['postural.update', $postural->id], 'method' => 'PATCH' ,'class' => 'form-horizontal', 'id'=>'form1']) !!}
 
             @include('postural/_form')
 

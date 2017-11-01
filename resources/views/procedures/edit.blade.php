@@ -24,7 +24,7 @@
 
     {!! Form::open([
       'route' => ['procedures.update', $procedure->id],
-      'method' => 'PUT',
+      'method' => 'PATCH',
       'class' => 'form-horizontal']) !!}
 
       @include('procedures/_form')

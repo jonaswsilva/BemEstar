@@ -13,6 +13,9 @@
 </div><!-- /.page-header -->
 <div class="row">
 	@if($errors->any())
+		@foreach ($errors->all() as $error)
+			{!! $error !!}
+		@endforeach
 	<div class="alert alert-danger">Existem dados incorretos no formulário!</div>
 	@endif
 	<div class="col-xs-12">

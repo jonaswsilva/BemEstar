@@ -9,6 +9,7 @@
 
     <div class="pull-left">
       <a class="btn btn-default" href="{{ URL::to('professionals/create') }}"><i class="ace-icon fa fa-user-plus"></i>Novo Usuário</a>
+      <a class="btn btn-default" href="{{ URL::to('roles') }}"><i class="ace-icon fa fa-user-plus"></i>Regras</a>
     </div>
 
     <div class="clearfix">
@@ -48,21 +49,11 @@
             <td class="center">{{ $user->id }}</td>
             <td>{{ $user->name }}</td>
             <td>{{ $user->email }}</td>
-            <td>@php
-              switch($user->role){
-                  case 1:
-                    echo "Secretária";
-                    break;
-                  case 2:
-                    echo "Fisioterapeuta";
-                    break;
-                  case 3:
-                    echo "Psicóloga";
-                    break;
-                  default:
-
-                  }
-                @endphp
+            <td>@if(!empty($user->roles))
+          				@foreach($user->roles as $v)
+          					<label class="label label-success">{{ $v->display_name }}</label>
+          				@endforeach
+          			@endif
             </td>
 
             <td>

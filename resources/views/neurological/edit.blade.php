@@ -78,7 +78,7 @@
 
           <div class="step-content pos-rel">
 
-            {!! Form::open(['route' => ['neurological.update', $neurological->id], 'method' => 'PUT' ,'class' => 'form-horizontal', 'id'=>'form1']) !!}
+            {!! Form::open(['route' => ['neurological.update', $neurological->id], 'method' => 'PATCH' ,'class' => 'form-horizontal', 'id'=>'form1']) !!}
 
             @include('neurological/_form')
 

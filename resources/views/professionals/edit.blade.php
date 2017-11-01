@@ -23,7 +23,7 @@
 
       {!! Form::model($professional, [
       'route' => ['professionals.update', $professional->id],
-      'method' => 'PUT',
+      'method' => 'PATCH',
       'class' => 'form-horizontal']) !!}
 
       @include('professionals/_form')

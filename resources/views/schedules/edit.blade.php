@@ -24,7 +24,7 @@
 
     {!! Form::open([
       'route' => ['schedules.update', $schedule->id],
-      'method' => 'PUT',
+      'method' => 'PATCH',
       'class' => 'form-horizontal']) !!}
 
       @include('schedules/_form')

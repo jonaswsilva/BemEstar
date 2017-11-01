@@ -10,7 +10,6 @@
 	</div>
 </div>
 
-
 <div class="form-group">
 	{!!  Form::label('form-field-1', 'Avatar: ', ['class' => 'col-sm-3 control-label no-padding-right'])  !!}
 	<div class="col-sm-4">
@@ -20,7 +19,6 @@
 		@endif
 	</div>
 </div>
-
 
 <div class="form-group">
 	{!!  Form::label('form-field-1', 'E-mail: ', ['class' => 'col-sm-3 control-label no-padding-right'])  !!}
@@ -35,10 +33,7 @@
 <div class="form-group">
 	{!!  Form::label('form-field-1', 'Atribuição: ', ['class' => 'col-sm-3 control-label no-padding-right'])  !!}
 	<div class="col-sm-9">
-    {!! Form::select('role', ['1'=>'Administrador','2'=>'Secretária','3'=>'Fisioterapeuta'], null, ['class' => 'col-xs-10 col-sm-5'])!!}
-        @if($errors->any())
-        <div class="red darken-4">&nbsp &nbsp{!! $errors->first('password_confirm') !!}</div>
-    		@endif
+		{!! Form::select('roles[]', $roles,[], array('class' => 'col-xs-10 col-sm-5','multiple')) !!}
     </div>
   </div>
 
@@ -53,9 +48,9 @@
 </div>
 
 <div class="form-group">
-	{!!  Form::label('form-field-1', 'Confirmar de senha: ', ['class' => 'col-sm-3 control-label no-padding-right'])  !!}
+	{!!  Form::label('form-field-1', 'Confirmar senha: ', ['class' => 'col-sm-3 control-label no-padding-right'])  !!}
 	<div class="col-sm-9">
-		{!! Form::password('password_confirm', null, ['class' => 'col-xs-10 col-sm-5', 'placeholder' => 'Confirmar senha...']) !!}
+		{!! Form::password('confirm-password', null, ['class' => 'col-xs-10 col-sm-5', 'placeholder' => 'Confirmar senha...']) !!}
 		@if($errors->any())
 		<div class="red darken-4">&nbsp &nbsp{!! $errors->first('password_confirm') !!}</div>
 		@endif

@@ -24,7 +24,7 @@
 
     {!! Form::model($patient, [
       'route' => ['patients.update', $patient->id],
-      'method' => 'PUT',
+      'method' => 'PATCH',
       'class' => 'form-horizontal']) !!}
 
       @include('patients/_form')

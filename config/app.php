@@ -167,6 +167,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         Barryvdh\DomPDF\ServiceProvider::class,
         Laracasts\Flash\FlashServiceProvider::class,
+        Zizaco\Entrust\EntrustServiceProvider::class,
 
     ],
 
@@ -219,6 +220,7 @@ return [
         'Carbon' => 'Carbon\Carbon',
         'Image' => Intervention\Image\Facades\Image::class,
         'PDF' => Barryvdh\DomPDF\Facade::class,
+        'Entrust' => Zizaco\Entrust\EntrustFacade::class,
 
     ],
 

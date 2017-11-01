@@ -24,7 +24,7 @@
 
     {!! Form::open([
       'route' => ['medicalrecords.update', $medicalrecord->id],
-      'method' => 'PUT',
+      'method' => 'PATCH',
       'class' => 'form-horizontal']) !!}
 
       @include('medicalrecords/_form')

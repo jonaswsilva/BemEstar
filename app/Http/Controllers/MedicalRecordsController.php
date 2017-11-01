@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Requests\MedicalRecordRequest;
 use App\Http\Requests;
+use App\Http\Requests\MedicalRecordRequest;
 use App\MedicalRecords;
 use DB;
 use View;
@@ -56,6 +56,7 @@ class MedicalRecordsController extends Controller{
       $session = new Session();
       $session->medicalrecord_id = $request->input('medicalrecord_id');
       $id = $request->input('medicalrecord_id');
+      $session->number_of_session = $request->input('number_of_session');
       $session->hour = $request->input('hour');
       $session->date = $request->input('date');
       $session->description = $request->input('description');
@@ -70,7 +71,7 @@ class MedicalRecordsController extends Controller{
       return $this->show($id);
     }
 
-    public function store(MedicalRecordRequest $request){
+    public function store(Request $request){
         $medicalrecord = new MedicalRecords();
         $medicalrecord->patient_id         = $request->input('patient_id');
         $medicalrecord->professional_id    = $request->input('professional_id');
@@ -143,7 +144,7 @@ class MedicalRecordsController extends Controller{
         MedicalRecords::where('id',$medicalid)->decrement('actual_session',1);
         $sessions = Session::all();
         flash('Sessão excluída com sucesso!')->info();
-        return redirect()->back();
+        return $this->show($medicalid);
       }
       flash('Código da sessão não encontrado!')->info();
       return $this->index();

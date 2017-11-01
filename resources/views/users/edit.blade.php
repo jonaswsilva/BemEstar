@@ -23,7 +23,7 @@
 
     {!! Form::model($user, [
       'route' => ['users.update', $user->id],
-      'method' => 'PUT',
+      'method' => 'PATCH',
       'files' => true,
       'class' => 'form-horizontal']) !!}
 
