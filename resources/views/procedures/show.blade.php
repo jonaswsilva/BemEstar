@@ -46,7 +46,7 @@
 
         <div class="profile-user-info profile-user-info-striped">
           <div class="profile-info-row">
-            <div class="profile-info-name"> Id </div>
+            <div class="profile-info-name"> Cód. </div>
 
             <div class="profile-info-value">
               <span class="editable" id="username">{{ $procedure->id }}</span>

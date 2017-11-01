@@ -34,7 +34,7 @@
 							<thead>
 								<tr>
 									<th></th>
-									<th>Id</th>
+									<th>Cód.</th>
 									<th>Nome</th>
 									<th>Cpf</th>
 									<th><i class="ace-icon fa fa-mobile bigger-110 hidden-48" aria-hidden="true"></i>Celular</th>

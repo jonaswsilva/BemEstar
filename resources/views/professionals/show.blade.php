@@ -17,9 +17,6 @@
           <span class="profile-picture">
             <img id="avatar" class="editable img-responsive" src="/assets/images/avatars/{{ $professional->avatar }}" />
           </span>
-
-
-
           <div class="width-80 label label-info label-xlg arrowed-in arrowed-in-right">
             <div class="inline position-relative">
               <a href="#" class="user-title-label dropdown-toggle" data-toggle="dropdown">
@@ -50,7 +47,7 @@
 
         <div class="profile-user-info profile-user-info-striped">
           <div class="profile-info-row">
-            <div class="profile-info-name"> Id </div>
+            <div class="profile-info-name"> Cód. </div>
 
             <div class="profile-info-value">
               <span class="editable" id="username">{{ $professional->id }}</span>

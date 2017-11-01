@@ -31,11 +31,11 @@
       <table id="dynamic-table" class="table table-striped table-bordered table-hover">
         <thead>
           <tr>
-            <th class="center">Id</th>
-            <th><i class="fa fa-wheelchair"></i>Paciente</th>
-            <th><i class="fa fa-user-md"></i>Profissional</th>
-            <th>N° de sessões</th>
-            <th><i class=""></i>Sessões realizadas</th>
+            <th class="center">Cód.</th>
+            <th><i class="fa fa-user"></i> Paciente</th>
+            <th><i class="fa fa-user-md"></i> Profissional</th>
+            <th> N° de sessões</th>
+            <th><i class=""></i> Sessões realizadas</th>
 
             <th></th>
           </tr>
@@ -196,7 +196,7 @@ jQuery(function($) {
 		function format (  ) {
     // `d` is the original data object for the row
     return '<div class="table-detail">'+
-								
+
 							'</div>';
 
 	}

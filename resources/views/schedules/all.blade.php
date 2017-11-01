@@ -28,11 +28,11 @@
 							<table id="dynamic-table" class="table table-striped table-bordered table-hover">
 								<thead>
 									<tr>
-										<th class="center">Id</th>
-										<th><i class="fa fa-wheelchair"></i>Paciente</th>
-										<th><i class="fa fa-user-md"></i>Profissional</th>
-										<th><i class="ace-icon fa fa-calendar bigger-110 hidden-480"></i>Data</th>
-										<th><i class="ace-icon fa fa-clock-o bigger-110 hidden-480"></i>Hora</th>
+										<th class="center">Cód.</th>
+										<th><i class="fa fa-user"></i> Paciente</th>
+										<th><i class="fa fa-user-md"></i> Profissional</th>
+										<th><i class="ace-icon fa fa-calendar bigger-110 hidden-480"></i> Data</th>
+										<th><i class="ace-icon fa fa-clock-o bigger-110 hidden-480"></i> Hora</th>
 										<th>Status</th>
 										<th></th>
 									</tr>
