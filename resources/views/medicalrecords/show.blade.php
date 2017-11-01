@@ -65,7 +65,7 @@
         </div> -->
         <div class="profile-user-info profile-user-info-striped">
           <div class="profile-info-row">
-            <div class="profile-info-name"> Id Paciente</div>
+            <div class="profile-info-name"> Cód. Paciente:</div>
 
             <div class="profile-info-value">
               <span class="editable" id="username">{{ $medicalrecord->patient_id }}</span>
@@ -73,7 +73,7 @@
           </div>
 
           <div class="profile-info-row">
-            <div class="profile-info-name"> Paciente </div>
+            <div class="profile-info-name"> Paciente:</div>
 
             <div class="profile-info-value">
               <span class="editable" id="username">{{ $medicalrecord->patient->person->name .' '. $medicalrecord->patient->person->lastname }}</span>
@@ -81,7 +81,7 @@
           </div>
 
           <div class="profile-info-row">
-            <div class="profile-info-name"> CPF </div>
+            <div class="profile-info-name"> CPF:</div>
 
             <div class="profile-info-value">
               <span class="editable cpf" id="username">{{ $medicalrecord->patient->person->cpf }}</span>
@@ -89,7 +89,7 @@
           </div>
 
           <div class="profile-info-row">
-            <div class="profile-info-name"> RG </div>
+            <div class="profile-info-name"> RG:</div>
             <!-- $medicalrecord->date_mu->format('d/m/Y') -->
             <div class="profile-info-value">
               <span class="editable rg" id="username">{{ $medicalrecord->patient->person->rg }}</span>
@@ -98,7 +98,7 @@
 
 
           <div class="profile-info-row">
-            <div class="profile-info-name"> Data de cadastro </div>
+            <div class="profile-info-name"> Data de cadastro:</div>
 
             <div class="profile-info-value">
               <span class="editable" id="username">{{ $medicalrecord->patient->created_at }}</span>
@@ -211,7 +211,7 @@
             </div>
           </div>
           <div class="profile-info-row">
-            <div class="profile-info-name"> Realizado: </div>
+            <div class="profile-info-name"> Descrição: </div>
             <div class="profile-info-value">
               <span class="editable" id="login">{{ $session->description }}</span>
             </div>

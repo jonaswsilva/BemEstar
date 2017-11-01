@@ -16,7 +16,6 @@
         <div data-toggle="buttons" class="btn-group no-margin">
           <!-- <a class="btn btn-info pull-right" href="{{ URL::to('medicalappointments/'. $medicalappointment->id .'/pdf') }}"><i class="ace-icon fa fa-file bigger-110"></i>Gerar PDF</a> -->
 
-
         </div>
       </div>
     </div>
@@ -65,7 +64,7 @@
         </div> -->
         <div class="profile-user-info profile-user-info-striped">
           <div class="profile-info-row">
-            <div class="profile-info-name"> Id Paciente</div>
+            <div class="profile-info-name"> Cód. Paciente:</div>
 
             <div class="profile-info-value">
               <span class="editable" id="username">{{ $medicalappointment->patient_id }}</span>
@@ -73,7 +72,7 @@
           </div>
 
           <div class="profile-info-row">
-            <div class="profile-info-name"> Paciente </div>
+            <div class="profile-info-name"> Paciente:</div>
 
             <div class="profile-info-value">
               <span class="editable" id="username">{{ $medicalappointment->patient->person->name .' '. $medicalappointment->patient->person->lastname }}</span>
@@ -81,7 +80,7 @@
           </div>
 
           <div class="profile-info-row">
-            <div class="profile-info-name"> CPF </div>
+            <div class="profile-info-name"> CPF:</div>
 
             <div class="profile-info-value">
               <span class="editable cpf" id="username">{{ $medicalappointment->patient->person->cpf }}</span>
@@ -89,7 +88,7 @@
           </div>
 
           <div class="profile-info-row">
-            <div class="profile-info-name"> RG </div>
+            <div class="profile-info-name"> RG:</div>
             <!-- $medicalappointment->date_mu->format('d/m/Y') -->
             <div class="profile-info-value">
               <span class="editable rg" id="username">{{ $medicalappointment->patient->person->rg }}</span>
@@ -98,7 +97,7 @@
 
 
           <div class="profile-info-row">
-            <div class="profile-info-name"> Data de cadastro </div>
+            <div class="profile-info-name"> Data de cadastro:</div>
 
             <div class="profile-info-value">
               <span class="editable" id="username">{{ $medicalappointment->patient->created_at }}</span>

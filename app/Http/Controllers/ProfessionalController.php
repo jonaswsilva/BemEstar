@@ -18,6 +18,7 @@ use View;
 use Hash;
 use Validator;
 use App\Role;
+use DB;
 
 class ProfessionalController extends Controller
 {
@@ -127,11 +128,13 @@ class ProfessionalController extends Controller
     public function edit($id)
     {
       $professional = Professional::with('address.city.state','user')->findOrFail($id);
+      $user = User::find($id);
       $states = State::pluck('name','id');
-      //$users = User::all();
-
+      $roles = Role::lists('display_name','id');
+      $userRole = $user->roles->lists('id','id')->toArray();
+      
       $especialities = Especialitie::pluck('name','id');
-      return View::make('professionals.edit', compact('professional','states','especialities','user'),['route' => '/profissional/atualizar/', 'method' => 'post', 'button' => 'Atualizar']);
+      return View::make('professionals.edit', compact('professional','states','especialities','user','roles','userRole'),['route' => '/profissional/atualizar/', 'method' => 'post', 'button' => 'Atualizar']);
     }
 
 
@@ -153,8 +156,18 @@ class ProfessionalController extends Controller
         $filename = time().'.'.$photo->getClientOriginalExtension();
         Image::make($photo)->resize(175, 175)->save( public_path('assets/images/avatars/' . $filename ) );
         $professional->avatar = $filename;
-      }else{
-        $professional->avatar = "default.jpg";
+      }
+
+      $user = User::findOrFail($id);
+      $user->name = $request->input('name');
+      $user->email = $request->input('email');
+      $user->password = Hash::make($request->input('password'));
+      $user->update();
+
+      DB::table('role_user')->where('user_id',$id)->delete();
+
+      foreach ($request->input('roles') as $key => $value) {
+          $user->attachRole($value);
       }
 
       $professional->address->cep_mu = $request->input('cep');
@@ -165,17 +178,10 @@ class ProfessionalController extends Controller
       $professional->address->city->state_id = $request->input('state_id');
       $professional->especialitie_id = $request->input('especialitie_id');
       $professional->crm = $request->input('crm');
-      $professional->user->role = $request->input('role');
-      $professional->user->password = $request->input('password');
+      $professional->update();
 
-      $professional->push();
-
-      $states = State::pluck('name','id');
-      $cities = City::pluck('name','id');
-      $especialities = Especialitie::pluck('name','id');
-      Session::flash('message', 'Profissional Atualizado com sucesso!');
-      return View::make('professionals.edit', ['professional'=> $professional,
-      'route' => '/profissional/atualizar/', 'method' => 'post', 'button' => 'Atualizar'],compact('states','cities','especialities'));
+      flash('Profissional Atualizado com sucesso!')->info();
+      return $this->edit($id);
     }
 
 

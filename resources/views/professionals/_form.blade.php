@@ -158,7 +158,7 @@
 			<div class="form-group">
 				{!!  Form::label('form-field-1', 'CRM: ', ['class' => 'col-sm-3 control-label no-padding-right'])  !!}
 				<div class="col-sm-9">
-					{!! Form::text('crm', null, ['class' => 'col-xs-10 col-sm-5', 'placeholder' => 'CRM...']) !!}
+					{!! Form::text('crm', @$professional->crm, ['class' => 'col-xs-10 col-sm-5', 'placeholder' => 'CRM...']) !!}
 					@if($errors->any())
 					<div class="red darken-4">&nbsp &nbsp{!! $errors->first('crm') !!}</div>
 					@endif
@@ -170,7 +170,7 @@
 			<div class="form-group">
 				{!!  Form::label('form-field-1', 'Usuário: ', ['class' => 'col-sm-3 control-label no-padding-right'])  !!}
 				<div class="col-sm-9">
-					{!! Form::text('name', null, ['class' => 'col-xs-10 col-sm-5', 'placeholder' => 'Usuário...']) !!}
+					{!! Form::text('name', @$user->name, ['class' => 'col-xs-10 col-sm-5', 'placeholder' => 'Usuário...']) !!}
 					@if($errors->any())
 					<div class="red darken-4">&nbsp &nbsp{!! $errors->first('name') !!}</div>
 					@endif
@@ -180,17 +180,14 @@
 			<div class="form-group">
 				{!!  Form::label('form-field-1', 'Avatar: ', ['class' => 'col-sm-3 control-label no-padding-right'])  !!}
 				<div class="col-sm-4">
-					{!! Form::file('avatar', ['id' => 'id-input-file-2']) !!}
-					@if($errors->any())
-					<div class="red darken-4">&nbsp &nbsp{!! $errors->first('avatar') !!}</div>
-					@endif
+					{!! Form::file('avatar', ['id' => 'id-input-file-2']); !!}
 				</div>
 			</div>
 
 			<div class="form-group">
 				{!!  Form::label('form-field-1', 'E-mail: ', ['class' => 'col-sm-3 control-label no-padding-right'])  !!}
 				<div class="col-sm-9">
-					{!! Form::email('email', null, ['class' => 'col-xs-10 col-sm-5', 'placeholder' => 'E-mail...']) !!}
+					{!! Form::email('email', @$user->email, ['class' => 'col-xs-10 col-sm-5', 'placeholder' => 'E-mail...']) !!}
 					@if($errors->any())
 					<div class="red darken-4">&nbsp &nbsp{!! $errors->first('email') !!}</div>
 					@endif
@@ -200,7 +197,7 @@
 			<div class="form-group">
 				{!!  Form::label('form-field-1', 'Atribuição: ', ['class' => 'col-sm-3 control-label no-padding-right'])  !!}
 				<div class="col-sm-9">
-					{!! Form::select('roles[]', $roles,[], array('class' => 'col-xs-10 col-sm-5','multiple')) !!}
+					{!! Form::select('roles[]', $roles, @$userRole, array('class' => 'col-xs-10 col-sm-5','multiple')) !!}
 			    </div>
 			  </div>
 

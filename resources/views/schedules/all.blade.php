@@ -6,7 +6,7 @@
 
 				<div class="row">
 					<div class="col-xs-12">
-						<h3 class="header smaller lighter green">Consultas Marcadas</h3>
+						<h3 class="header smaller lighter green">Agendamento de Consultas</h3>
 
 						<div class="pull-left">
 							<a class="btn btn-default" href="{{ URL::to('schedules/create') }}"><i class="ace-icon fa fa-calendar-plus-o"></i> Nova Consulta</a>
@@ -194,6 +194,7 @@
             "lengthMenu": "Mostrar _MENU_ registros por página",
             "zeroRecords": "Nothing found - sorry",
             "info": "Mostrando pág. _PAGE_ de _PAGES_",
+						"emptyTable": "Não há agendamentos cadastrados",
             "infoEmpty": "Sem registros",
 						select: {
             	rows: "%d linhas selecionadas"
@@ -204,6 +205,7 @@
 						"previous":"Anterior"
 	        },
 			bAutoWidth: false,
+			info: false,
 		"aoColumns": [
 
 			null, null,null, null, null, null,

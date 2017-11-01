@@ -140,8 +140,6 @@ class PatientController extends Controller
         $filename = time().'.'.$photo->getClientOriginalExtension();
         Image::make($photo)->resize(175, 175)->save( public_path('assets/images/avatars/' . $filename ) );
         $patient->avatar = $filename;
-      }else{
-        $patient->avatar = "default.jpg";
       }
 
       $patient->father = $request->input('father');

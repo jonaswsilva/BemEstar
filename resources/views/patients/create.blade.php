@@ -27,25 +27,3 @@
 </div>
 
 @stop
-
-@push('page-script')
-<script type="text/javascript">
-$(function(){
-
-	$('#id-input-file-1 , #id-input-file-2').ace_file_input({
-		no_file:'Sem arquivo ...',
-		btn_choose:'Escolher',
-		btn_change:'Mudar',
-		droppable:false,
-		onchange:null,
-		thumbnail:false //| true | large
-		//whitelist:'gif|png|jpg|jpeg'
-		//blacklist:'exe|php'
-		//onchange:''
-		//
-	});
-
-});
-
-</script>
-@endpush

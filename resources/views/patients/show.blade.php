@@ -50,7 +50,7 @@
 
         <div class="profile-user-info profile-user-info-striped">
           <div class="profile-info-row">
-            <div class="profile-info-name"> Cod. </div>
+            <div class="profile-info-name"> Cod.: </div>
 
             <div class="profile-info-value">
               <span class="editable" id="username">{{ $patient->id }}</span>
@@ -58,7 +58,7 @@
           </div>
 
           <div class="profile-info-row">
-            <div class="profile-info-name"> Nome </div>
+            <div class="profile-info-name"> Nome:</div>
 
             <div class="profile-info-value">
               <span class="editable" id="username">{{ $patient->person->name }}</span>
@@ -66,7 +66,7 @@
           </div>
 
           <div class="profile-info-row">
-            <div class="profile-info-name"> Rg </div>
+            <div class="profile-info-name"> Rg:</div>
 
             <div class="profile-info-value">
               <span class="editable rg" id="username">{{ $patient->person->rg }}</span>
@@ -74,7 +74,7 @@
           </div>
 
           <div class="profile-info-row">
-            <div class="profile-info-name"> Cpf </div>
+            <div class="profile-info-name"> Cpf: </div>
 
             <div class="profile-info-value">
               <span class="editable cpf" id="username">{{ $patient->person->cpf }}</span>
@@ -82,7 +82,7 @@
           </div>
 
           <div class="profile-info-row">
-            <div class="profile-info-name"> Sexo </div>
+            <div class="profile-info-name"> Sexo: </div>
 
             <div class="profile-info-value">
               <span class="editable" id="username">@if($patient->person->sex == "M")
@@ -94,7 +94,7 @@
           </div>
 
           <div class="profile-info-row">
-            <div class="profile-info-name"> Data Nasc. </div>
+            <div class="profile-info-name"> Data Nasc.: </div>
 
             <div class="profile-info-value">
               <span class="editable" id="username">{{ $patient->birth_date_mu->format('d/m/Y') }}</span>
@@ -102,7 +102,7 @@
           </div>
 
           <div class="profile-info-row">
-            <div class="profile-info-name"> Pai </div>
+            <div class="profile-info-name"> Pai: </div>
 
             <div class="profile-info-value">
               <span class="editable" id="username">{{ $patient->father }}</span>
@@ -110,7 +110,7 @@
           </div>
 
           <div class="profile-info-row">
-            <div class="profile-info-name"> Mãe </div>
+            <div class="profile-info-name"> Mãe: </div>
 
             <div class="profile-info-value">
               <span class="editable" id="username">{{ $patient->mother }}</span>
@@ -118,7 +118,7 @@
           </div>
 
           <div class="profile-info-row">
-            <div class="profile-info-name"> Celular </div>
+            <div class="profile-info-name"> Celular: </div>
 
             <div class="profile-info-value">
               <span class="editable phone" id="username">{{ $patient->person->phone }}</span>
@@ -126,7 +126,7 @@
           </div>
 
           <div class="profile-info-row">
-            <div class="profile-info-name"> Telefone fixo </div>
+            <div class="profile-info-name"> Telefone fixo: </div>
 
             <div class="profile-info-value">
               <span class="editable phonefix" id="username">{{ $patient->landline }}</span>
@@ -134,7 +134,7 @@
           </div>
 
           <div class="profile-info-row">
-            <div class="profile-info-name"> E-mail </div>
+            <div class="profile-info-name"> E-mail: </div>
 
             <div class="profile-info-value">
               <span class="editable" id="username">{{ $patient->person->email }}</span>
@@ -142,7 +142,7 @@
           </div>
 
           <div class="profile-info-row">
-            <div class="profile-info-name"> Cep </div>
+            <div class="profile-info-name"> Cep: </div>
 
             <div class="profile-info-value">
               <i class="fa fa-map-marker light-orange bigger-110"></i>
@@ -151,7 +151,7 @@
           </div>
 
           <div class="profile-info-row">
-            <div class="profile-info-name"> Rua </div>
+            <div class="profile-info-name"> Rua: </div>
 
             <div class="profile-info-value">
               <span class="editable" id="login">{{ $patient->address->street }}</span>
@@ -159,7 +159,7 @@
           </div>
 
           <div class="profile-info-row">
-            <div class="profile-info-name"> Bairro </div>
+            <div class="profile-info-name"> Bairro: </div>
 
             <div class="profile-info-value">
               <span class="editable" id="login">{{ $patient->address->neighborhood }}</span>
@@ -167,7 +167,7 @@
           </div>
 
           <div class="profile-info-row">
-            <div class="profile-info-name"> Cidade </div>
+            <div class="profile-info-name"> Cidade: </div>
 
             <div class="profile-info-value">
               <span class="editable" id="login">{{ $patient->address->city->name }}</span>
@@ -175,7 +175,7 @@
           </div>
 
           <div class="profile-info-row">
-            <div class="profile-info-name"> Estado </div>
+            <div class="profile-info-name"> Estado: </div>
 
             <div class="profile-info-value">
               <span class="editable" id="login">{{ $patient->address->city->state->name }}</span>
@@ -186,20 +186,12 @@
 
         <div class="space-20"></div>
 
-
-
         <div class="hr hr2 hr-double"></div>
 
         <div class="space-6"></div>
-
-
       </div>
     </div>
   </div>
-
-
-
-
 </div>
 
 @endsection

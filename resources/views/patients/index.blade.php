@@ -40,8 +40,8 @@
 										<th>Cód.</th>
 										<th>Nome</th>
 										<th>Cpf</th>
-										<th><i class="ace-icon fa fa-mobile bigger-110 hidden-48" aria-hidden="true"></i>Celular</th>
-										<th><i class="fa fa-envelope" aria-hidden="true"></i>E-mail</th>
+										<th><i class="ace-icon fa fa-mobile bigger-110 hidden-48" aria-hidden="true"></i> Celular</th>
+										<th><i class="fa fa-envelope" aria-hidden="true"></i> E-mail</th>
 
 										<th></th>
 									</tr>
@@ -53,7 +53,7 @@
 
 										<td></td>
 										<td class="center">{{ $patient->id }}</td>
-										<td>{{ $patient->person->name }}</td>
+										<td>{{ $patient->person->name.' '.$patient->person->lastname }}</td>
 										<td class="cpf">{{ $patient->person->cpf }}</td>
 										<td class="phone">{{ $patient->person->phone }}</td>
 										<td>{{ $patient->person->email }}</td>
@@ -181,13 +181,14 @@ jQuery(function($) {
 	//.wrap("<div class='dataTables_borderWrap' />")   //if you are applying horizontal scrolling (sScrollX)
 	.DataTable( {
 		select: 'single',
+		info: false,
 		"language": {
 					"lengthMenu": "Mostrar _MENU_ registros por página",
 					"info": "Mostrando pág. _PAGE_ de _PAGES_ ",
 					"sInfoEmpty": "Sem registros",
 					"infoFiltered": "(filtrado do total de _MAX_ registros)",
 					"search": "Buscar: ",
-					"sZeroRecords": "Sem pacientes cadastrados",
+					"sZeroRecords": "Não há pacientes cadastrados",
 					"sSelectInfo" : "_MAX_ linha selecionada",
 					"select": {
 						"rows": " - %d linha selecionada"

@@ -169,13 +169,15 @@ jQuery(function($) {
 	//.wrap("<div class='dataTables_borderWrap' />")   //if you are applying horizontal scrolling (sScrollX)
 	.DataTable( {
 		select: 'single',
+    info: false,
 		"language": {
 					"lengthMenu": "Mostrar _MENU_ registros por página",
 					"info": "Mostrando pág. _PAGE_ de _PAGES_ ",
 					"sInfoEmpty": "Sem registros",
+          "emptyTable": "Não há procedimentos cadastrados",
 					"infoFiltered": "(filtrado do total de _MAX_ registros)",
 					"search": "Buscar: ",
-					"sZeroRecords": "Sem pacientes cadastrados",
+					"sZeroRecords": "Não há procedimentos cadastrados",
 					"sSelectInfo" : "_MAX_ linha selecionada",
 					"select": {
 						"rows": " - %d linha selecionada"

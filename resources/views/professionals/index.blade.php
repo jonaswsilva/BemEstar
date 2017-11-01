@@ -37,8 +37,8 @@
 									<th>Cód.</th>
 									<th>Nome</th>
 									<th>Cpf</th>
-									<th><i class="ace-icon fa fa-mobile bigger-110 hidden-48" aria-hidden="true"></i>Celular</th>
-									<th><i class="fa fa-envelope" aria-hidden="true"></i>E-mail</th>
+									<th><i class="ace-icon fa fa-mobile bigger-110 hidden-48" aria-hidden="true"></i> Celular</th>
+									<th><i class="fa fa-envelope" aria-hidden="true"></i> E-mail</th>
 
 									<th></th>
 								</tr>
@@ -50,7 +50,7 @@
 
 									<td></td>
 									<td class="center">{{ $professional->id }}</td>
-									<td>{{ $professional->person->name }}</td>
+									<td>{{ $professional->person->name.' '.$professional->person->lastname }}</td>
 									<td class="cpf">{{ $professional->person->cpf }}</td>
 									<td class="phone">{{ $professional->person->phone }}</td>
 									<td>{{ $professional->person->email }}</td>
@@ -181,12 +181,12 @@ jQuery(function($) {
 			"sInfoEmpty": "Sem registros",
 			"infoFiltered": "(filtrado do total de _MAX_ registros)",
 			"search": "Buscar: ",
-			"sZeroRecords": "Sem pacientes cadastrados",
+			"sZeroRecords": "Não há profissionais cadastrados",
 			"snext":"Próximo",
 			"previous":"Anterior"
 				},
 		bAutoWidth: false,
-
+		info: false,
 		"aoColumns": [
 			{ "orderable": false, "className":'details-control', "data": null, "defaultContent": '' },
 			null, null,null, null, null,

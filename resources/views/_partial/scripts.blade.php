@@ -69,6 +69,22 @@ if('ontouchstart' in document.documentElement) document.write("<script src='asse
     // console.log(field.value);
 		//
     // });
+    $(function(){
+
+    	$('#id-input-file-1 , #id-input-file-2').ace_file_input({
+    		no_file:'Sem arquivo ...',
+    		btn_choose:'Escolher',
+    		btn_change:'Mudar',
+    		droppable:false,
+    		onchange:null,
+    		thumbnail:false //| true | large
+    		//whitelist:'gif|png|jpg|jpeg'
+    		//blacklist:'exe|php'
+    		//onchange:''
+    		//
+    	});
+
+    });
 
 
 		$(".delete").on("submit", function(){
