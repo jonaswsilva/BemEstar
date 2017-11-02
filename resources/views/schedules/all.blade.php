@@ -190,6 +190,7 @@
 		$('#dynamic-table')
 		//.wrap("<div class='dataTables_borderWrap' />")   //if you are applying horizontal scrolling (sScrollX)
 		.DataTable( {
+			select: 'single',
 			"language": {
             "lengthMenu": "Mostrar _MENU_ registros por página",
             "zeroRecords": "Nothing found - sorry",
@@ -200,6 +201,7 @@
             	rows: "%d linhas selecionadas"
         		},
             "infoFiltered": "(filtrado do total de _MAX_ registros)",
+						"sZeroRecords": "Não há agendamentos realizados",
 						"search": "Buscar: ",
 						"snext":"Próximo",
 						"previous":"Anterior"

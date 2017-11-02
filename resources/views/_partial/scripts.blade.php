@@ -92,7 +92,7 @@ if('ontouchstart' in document.documentElement) document.write("<script src='asse
 
 
 		$(".delete").on("submit", function(){
-        return confirm("Deseja realmente excluir este item ?");
+        return confirm("Deseja realmente excluir este item ? Isso irá remover todos os registros relacionados!");
     });
 
 		$('div.alert').not('.alert-important').delay(7000).fadeOut(350);

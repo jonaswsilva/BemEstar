@@ -137,36 +137,6 @@
 
 jQuery(function($) {
 
-
-
-					 $('.btn-delete').click(function(e){
-							 e.preventDefault();
-							 // confirmo que quiere borrar el cliente!
-							 var deleteClient = confirm('Deseja mesmo excluir este paciente?');
-							 if (deleteClient === true) {
-									 var row = $(this).closest('tr');
-									 //var id = row.attr('data-id');
-									 // non funka!: var row = $(this).parents('tr');
-									 var id = row.data('id');
-									 var form = $('#form-delete');
-									 var url = form.attr('action').replace(':USER_ID', id);
-									 var data = form.serialize();
-									 // enfoque optimista (antes de borrar oculto la fila
-									 row.fadeOut(function () {
-											 $.post(url, data, function (result) {
-													 alert(result);
-											 }).fail(function () {
-													 alert('Paciente excluído!');
-													//  row.show();
-											 });
-									 });
-							 }
-							 else {
-									 return false;
-							 }
-					 })
-
-
 	/***************/
 	$('.show-details-btn').on('click', function(e) {
 		e.preventDefault();

@@ -63,7 +63,7 @@
 											<a class="btn btn-xs btn-success" href="{{ URL::to('professionals/'.$professional->id) }}">
 												<i class="ace-icon fa fa-check bigger-120"></i>
 											</a>
-											
+
 											<a class="btn btn-xs btn-info" href="{{ URL::to('professionals/'. $professional->id .'/edit') }}">
 												<i class="ace-icon fa fa-pencil bigger-120"></i>
 											</a>
