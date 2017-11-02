@@ -45,13 +45,12 @@
 
 			<div class="clearfix form-actions">
 				<div class="col-md-offset-3 col-md-9">
-					<button class="btn btn-info" type="submit">
+					<a class="btn btn-warning" href="{{ URL::to('medicalrecords') }}"><i class="ace-icon fa fa-undo bigger-110"></i>Voltar</a>
+					&nbsp; &nbsp; &nbsp;
+					<button class="btn btn-primary" type="submit">
 						<i class="ace-icon fa fa-check bigger-110"></i>
 						{{ $button }}
 					</button>
-
-					&nbsp; &nbsp; &nbsp;
-					<a class="btn btn-primary" href="{{ URL::previous() }}"><i class="ace-icon fa fa-undo bigger-110"></i>Voltar</a>
 					<div class="widget-title purple pull-right">
 			      <h4>Profissional: {!! Auth::user()->name !!}</h4>
 			    </div>

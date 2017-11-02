@@ -44,7 +44,7 @@
 <div class="clearfix form-actions">
   <div class="col-md-offset-3 col-md-9">
 
-		<a class="btn btn-primary" href="{{ URL::previous() }}"><i class="ace-icon fa fa-undo bigger-110"></i>Voltar</a>
+		<a class="btn btn-primary" href="{{ URL::to('medicalappointments') }}"><i class="ace-icon fa fa-undo bigger-110"></i>Voltar</a>
       &nbsp; &nbsp; &nbsp;
     <button class="btn btn-success" type="submit">
       <i class="ace-icon fa fa-check bigger-110"></i>

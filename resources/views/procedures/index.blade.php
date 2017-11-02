@@ -195,32 +195,32 @@ jQuery(function($) {
 
 	new $.fn.dataTable.Buttons( myTable, {
 		buttons: [
-			{
+      {
 			"extend": "colvis",
 			"text": "<i class='fa fa-search bigger-110 blue'></i> <span class='hidden'>Mostrar/ocultar colunas</span>",
 			"className": "btn btn-white btn-primary btn-bold",
 			columns: ':not(:first):not(:last)'
 			},
-			{
-			"extend": "copy",
-			"text": "<i class='fa fa-copy bigger-110 pink'></i> <span class='hidden'>Copiar</span>",
-			"className": "btn btn-white btn-primary btn-bold"
-			},
+			// {
+			// "extend": "copy",
+			// "text": "<i class='fa fa-copy bigger-110 pink'></i> <span class='hidden'>Copiar</span>",
+			// "className": "btn btn-white btn-primary btn-bold"
+			// },
 			{
 			"extend": "csv",
-			"text": "<i class='fa fa-database bigger-110 orange'></i> <span class='hidden'>Exportar para CSV</span>",
+			"text": "<i class='fa fa fa-file-excel-o bigger-110 green'></i> <span class='hidden'>Exportar para Excel</span>",
 			"className": "btn btn-white btn-primary btn-bold"
 			},
-			{
-			"extend": "excel",
-			"text": "<i class='fa fa-file-excel-o bigger-110 green'></i> <span class='hidden'>Exportar para Excel</span>",
-			"className": "btn btn-white btn-primary btn-bold"
-			},
-			{
-			"extend": "pdf",
-			"text": "<i class='fa fa-file-pdf-o bigger-110 red'></i> <span class='hidden'>Exportar para PDF</span>",
-			"className": "btn btn-white btn-primary btn-bold"
-			},
+			// {
+			// "extend": "excel",
+			// "text": "<i class='fa fa-file-excel-o bigger-110 green'></i> <span class='hidden'>Exportar para Excel</span>",
+			// "className": "btn btn-white btn-primary btn-bold"
+			// },
+			// {
+			// "extend": "pdf",
+			// "text": "<i class='fa fa-file-pdf-o bigger-110 red'></i> <span class='hidden'>Exportar para PDF</span>",
+			// "className": "btn btn-white btn-primary btn-bold"
+			// },
 			{
 			"extend": "print",
 			"text": "<i class='fa fa-print bigger-110 grey'></i> <span class='hidden'>Imprimir</span>",

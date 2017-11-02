@@ -47,8 +47,8 @@
           <i class="ace-icon fa fa-file-o"></i>
         </div>
         <div class="infobox-data">
-          <span class="infobox-data-number">{{ @$countsessions }}</span>
-          <div class="infobox-content">Sessões de Hoje</div>
+          <span class="infobox-data-number">{{ @$countmedicalrecords }}</span>
+          <div class="infobox-content">Sessões Marcadas</div>
         </div>
       </div>
 
@@ -77,8 +77,8 @@
           <i class="ace-icon fa fa-file"></i>
         </div>
         <div class="infobox-data">
-          <span class="infobox-data-number">51</span>
-          <div class="infobox-content">Consultas no mês</div>
+          <span class="infobox-data-number">{{ $countsessions }}</span>
+          <div class="infobox-content">Sessões Realizadas</div>
         </div>
       </div>
 
@@ -105,7 +105,7 @@
           </div>
           <div class="infobox-data">
             <div class="infobox-content">Avaliações</div>
-            <div class="infobox-content">Posturais</div>
+            <div class="infobox-content">Neurológicas</div>
           </div>
         </div>
 

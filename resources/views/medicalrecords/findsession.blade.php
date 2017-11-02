@@ -31,7 +31,7 @@
     <div class="clearfix form-actions">
       <div class="col-md-offset-3 col-md-9">
 
-    		<a class="btn btn-warning" href="{{ URL::previous() }}"><i class="ace-icon fa fa-undo bigger-110"></i>Voltar</a>
+    		<a class="btn btn-warning" href="{{ URL::to('medicalrecords') }}"><i class="ace-icon fa fa-undo bigger-110"></i>Voltar</a>
           &nbsp; &nbsp; &nbsp;
         <button class="btn btn-primary" type="submit">
           <i class="ace-icon fa fa-search bigger-110"></i>

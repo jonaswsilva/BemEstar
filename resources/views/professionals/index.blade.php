@@ -133,35 +133,6 @@
 jQuery(function($) {
 
 
-
-					 $('.btn-delete').click(function(e){
-							 e.preventDefault();
-							 // confirmo que quiere borrar el cliente!
-							 var deleteClient = confirm('Deseja mesmo excluir este paciente?');
-							 if (deleteClient === true) {
-									 var row = $(this).closest('tr');
-									 //var id = row.attr('data-id');
-									 // non funka!: var row = $(this).parents('tr');
-									 var id = row.data('id');
-									 var form = $('#form-delete');
-									 var url = form.attr('action').replace(':USER_ID', id);
-									 var data = form.serialize();
-									 // enfoque optimista (antes de borrar oculto la fila
-									 row.fadeOut(function () {
-											 $.post(url, data, function (result) {
-													 //alert(result);
-											 }).fail(function () {
-													 alert('Il Cliente non è stato cancellato!');
-													 //row.show();
-											 });
-									 });
-							 }
-							 else {
-									 return false;
-							 }
-					 })
-
-
 	/***************/
 	$('.show-details-btn').on('click', function(e) {
 		e.preventDefault();
@@ -328,26 +299,26 @@ jQuery(function($) {
 			"className": "btn btn-white btn-primary btn-bold",
 			columns: ':not(:first):not(:last)'
 			},
-			{
-			"extend": "copy",
-			"text": "<i class='fa fa-copy bigger-110 pink'></i> <span class='hidden'>Copiar</span>",
-			"className": "btn btn-white btn-primary btn-bold"
-			},
+			// {
+			// "extend": "copy",
+			// "text": "<i class='fa fa-copy bigger-110 pink'></i> <span class='hidden'>Copiar</span>",
+			// "className": "btn btn-white btn-primary btn-bold"
+			// },
 			{
 			"extend": "csv",
-			"text": "<i class='fa fa-database bigger-110 orange'></i> <span class='hidden'>Exportar para CSV</span>",
+			"text": "<i class='fa fa fa-file-excel-o bigger-110 green'></i> <span class='hidden'>Exportar para Excel</span>",
 			"className": "btn btn-white btn-primary btn-bold"
 			},
-			{
-			"extend": "excel",
-			"text": "<i class='fa fa-file-excel-o bigger-110 green'></i> <span class='hidden'>Exportar para Excel</span>",
-			"className": "btn btn-white btn-primary btn-bold"
-			},
-			{
-			"extend": "pdf",
-			"text": "<i class='fa fa-file-pdf-o bigger-110 red'></i> <span class='hidden'>Exportar para PDF</span>",
-			"className": "btn btn-white btn-primary btn-bold"
-			},
+			// {
+			// "extend": "excel",
+			// "text": "<i class='fa fa-file-excel-o bigger-110 green'></i> <span class='hidden'>Exportar para Excel</span>",
+			// "className": "btn btn-white btn-primary btn-bold"
+			// },
+			// {
+			// "extend": "pdf",
+			// "text": "<i class='fa fa-file-pdf-o bigger-110 red'></i> <span class='hidden'>Exportar para PDF</span>",
+			// "className": "btn btn-white btn-primary btn-bold"
+			// },
 			{
 			"extend": "print",
 			"text": "<i class='fa fa-print bigger-110 grey'></i> <span class='hidden'>Imprimir</span>",

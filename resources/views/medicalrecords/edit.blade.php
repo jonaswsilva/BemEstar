@@ -34,3 +34,20 @@
     </div>
   </div>
   @endsection
+
+  @push('page-script')
+  <script src="{{ asset('assets/js/jquery.mask.min.js') }}"></script>
+  <script src="{{ asset('assets/js/spinbox.min.js') }}"></script>
+  <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js" ></script>
+  <script type="text/javascript">
+  $(function(){
+
+  	$('#spinner1').ace_spinner({value:1,min:1,max:200,step:1, btn_up_class:'btn-info' , btn_down_class:'btn-info'})
+  	.closest('.ace-spinner')
+  	.on('changed.fu.spinbox', function(){
+  		//console.log($('#spinner1').val())
+  	});
+  });
+
+  </script>
+  @endpush

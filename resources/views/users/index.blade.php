@@ -6,12 +6,12 @@
 <div class="row">
   <div class="col-xs-12">
     <h3 class="header smaller lighter blue">Usuários</h3>
-
+    @permission('role-list')
     <div class="pull-left">
       <a class="btn btn-default" href="{{ URL::to('professionals/create') }}"><i class="ace-icon fa fa-user-plus"></i>Novo Usuário</a>
       <a class="btn btn-info" href="{{ URL::to('roles') }}"><i class="ace-icon fa fa-key"></i>Regras</a>
     </div>
-
+    @endpermission
     <div class="clearfix">
       <div class="pull-right tableTools-container"></div>
     </div>

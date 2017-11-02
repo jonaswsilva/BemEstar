@@ -2,7 +2,6 @@
 
 @section('content')
 
-@can('admin-access')
 <div class="col-xs-12 col-sm-6 widget-container-col" id="widget-container-col-2">
   <div class="widget-box widget-color-purple" id="widget-box-2">
     <div class="widget-header">
@@ -116,107 +115,105 @@
     </div>
   </div>
 </div>
+@permission('role-create')
+<div class="col-sm-7 infobox-container">
+  <div class="infobox infobox-green">
+    <div class="infobox-icon">
+      <i class="ace-icon fa fa-list"></i>
+    </div>
+    <div class="infobox-data">
+      <span class="infobox-data-number">{{ @$countschedules }}</span>
+      <div class="infobox-content">Consultas Marcadas</div>
+    </div>
+  </div>
 
-@endcan
-@can('admin-access')
-<!-- <div class="col-sm-7 infobox-container">
-<div class="infobox infobox-green">
-<div class="infobox-icon">
-<i class="ace-icon fa fa-list"></i>
-</div>
-<div class="infobox-data">
-<span class="infobox-data-number">{{ @$countschedules }}</span>
-<div class="infobox-content">Consultas Marcadas</div>
-</div>
-</div>
+  <div class="infobox infobox-blue">
+    <div class="infobox-icon">
+      <i class="ace-icon fa fa-check-square-o"></i>
+    </div>
+    <div class="infobox-data">
+      <span class="infobox-data-number">{{ @$countschedulestoday }}</span>
+      <div class="infobox-content">Consultas Hoje</div>
+    </div>
+  </div>
 
-<div class="infobox infobox-blue">
-<div class="infobox-icon">
-<i class="ace-icon fa fa-check-square-o"></i>
-</div>
-<div class="infobox-data">
-<span class="infobox-data-number">{{ @$countschedulestoday }}</span>
-<div class="infobox-content">Consultas Hoje</div>
-</div>
-</div>
+  <div class="infobox infobox-pink">
+    <div class="infobox-icon">
+      <i class="ace-icon fa fa-file-o"></i>
+    </div>
+    <div class="infobox-data">
+      <span class="infobox-data-number">{{ @$countmedicalrecords }}</span>
+      <div class="infobox-content">Sessões Marcadas</div>
+    </div>
+  </div>
 
-<div class="infobox infobox-pink">
-<div class="infobox-icon">
-<i class="ace-icon fa fa-file-o"></i>
-</div>
-<div class="infobox-data">
-<span class="infobox-data-number">{{ @$countsessions }}</span>
-<div class="infobox-content">Sessões de Hoje</div>
-</div>
-</div>
+  <div class="infobox infobox-red">
+    <div class="infobox-icon">
+      <i class="ace-icon fa fa-user"></i>
+    </div>
+    <div class="infobox-data">
+      <span class="infobox-data-number">{{ @$countspatients }}</span>
+      <div class="infobox-content">Pacientes</div>
+    </div>
+  </div>
 
-<div class="infobox infobox-red">
-<div class="infobox-icon">
-<i class="ace-icon fa fa-user"></i>
-</div>
-<div class="infobox-data">
-<span class="infobox-data-number">{{ @$countspatients }}</span>
-<div class="infobox-content">Pacientes</div>
-</div>
-</div>
+  <div class="infobox infobox-blue2">
+    <div class="infobox-icon">
+      <i class="ace-icon fa fa-file-o"></i>
+    </div>
+    <div class="infobox-data">
+      <span class="infobox-data-number">{{ @$medicalappointmentsmounth }}</span>
+      <div class="infobox-content">Realizadas Mês</div>
+    </div>
+  </div>
 
-<div class="infobox infobox-blue2">
-<div class="infobox-progress">
-<div class="easy-pie-chart percentage" data-percent="42" data-size="46">
-<span class="percent">42</span>
-</div>
-</div>
-<div class="infobox-data">
-<span class="infobox-text">42</span>
-<div class="infobox-content">Consultas realizadas</div>
-</div>
-</div>
+  <div class="infobox infobox-orange2">
+    <div class="infobox-icon">
+      <i class="ace-icon fa fa-file"></i>
+    </div>
+    <div class="infobox-data">
+      <span class="infobox-data-number">{{ $countsessions }}</span>
+      <div class="infobox-content">Sessões Realizadas</div>
+    </div>
+  </div>
 
-<div class="infobox infobox-orange2">
-<div class="infobox-chart">
-<span class="sparkline" data-values="196,128,202,177,154,94,100,170,224"></span>
-</div>
-<div class="infobox-data">
-<span class="infobox-data-number">6,251</span>
-<div class="infobox-content">Consultas no mês</div>
-</div>
-</div>
+  <div class="space-6"></div>
 
-<div class="space-6"></div>
+  <div class="infobox infobox-green infobox-small infobox-dark">
+    <div class="infobox-progress">
+      <div class="easy-pie-chart percentage" data-percent="61" data-size="39">
+        <span><h1>{{ @$countposturals }}</h1></span>
+      </div>
+    </div>
+    <div class="infobox-data">
+      <div class="infobox-content">Avaliações</div>
+      <div class="infobox-content">Posturais</div>
+    </div>
+  </div>
 
-<div class="infobox infobox-green infobox-small infobox-dark">
-<div class="infobox-progress">
-<div class="easy-pie-chart percentage" data-percent="61" data-size="39">
-<span class="percent">61</span>%
-</div>
-</div>
-<div class="infobox-data">
-<div class="infobox-content">Task</div>
-<div class="infobox-content">Completion</div>
-</div>
-</div>
+  <div class="infobox infobox-blue infobox-small infobox-dark">
+    <div class="infobox-progress">
+      <div class="infobox-data-number">
+        <p>
+          <h1>{{ @$countneurologicals }}</h1></p>
+        </div>
+      </div>
+      <div class="infobox-data">
+        <div class="infobox-content">Avaliações</div>
+        <div class="infobox-content">Neurológicas</div>
+      </div>
+    </div>
 
-<div class="infobox infobox-blue infobox-small infobox-dark">
-<div class="infobox-chart">
-<span class="sparkline" data-values="3,4,2,3,4,4,2,2"></span>
-</div>
-<div class="infobox-data">
-<div class="infobox-content">Earnings</div>
-<div class="infobox-content">$32,000</div>
-</div>
-</div>
-
-<div class="infobox infobox-grey infobox-small infobox-dark">
-<div class="infobox-icon">
-<i class="ace-icon fa fa-download"></i>
-</div>
-<div class="infobox-data">
-<div class="infobox-content">Downloads</div>
-<div class="infobox-content">1,205</div>
-</div>
-</div>
-</div> -->
-
+    <div class="infobox infobox-grey infobox-small infobox-dark">
+      <div class="infobox-icon">
+        <h1>{{ @$countsprofessionals }}</h1></p>
+      </div>
+      <div class="infobox-data">
+        <div class="infobox-content">Profissionais</div>
+      </div>
+    </div>
+  </div>
+@endpermission
 <!-- <div class="col-sm-5">
 <div class="widget-box">
 <div class="widget-header widget-header-flat widget-header-small">
@@ -291,9 +288,8 @@ Last Month
 </div>
 </div>
 </div>
-</div> -->
 </div>
-@endcan
+</div>-->
 @stop
 
 @push('page-script')

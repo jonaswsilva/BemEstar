@@ -248,26 +248,26 @@
 			"className": "btn btn-white btn-primary btn-bold",
 			columns: ':not(:first):not(:last)'
 			},
-			{
-			"extend": "copy",
-			"text": "<i class='fa fa-copy bigger-110 pink'></i> <span class='hidden'>Copiar</span>",
-			"className": "btn btn-white btn-primary btn-bold"
-			},
+			// {
+			// "extend": "copy",
+			// "text": "<i class='fa fa-copy bigger-110 pink'></i> <span class='hidden'>Copiar</span>",
+			// "className": "btn btn-white btn-primary btn-bold"
+			// },
 			{
 			"extend": "csv",
-			"text": "<i class='fa fa-database bigger-110 orange'></i> <span class='hidden'>Exportar para CSV</span>",
+			"text": "<i class='fa fa fa-file-excel-o bigger-110 green'></i> <span class='hidden'>Exportar para Excel</span>",
 			"className": "btn btn-white btn-primary btn-bold"
 			},
-			{
-			"extend": "excel",
-			"text": "<i class='fa fa-file-excel-o bigger-110 green'></i> <span class='hidden'>Exportar para Excel</span>",
-			"className": "btn btn-white btn-primary btn-bold"
-			},
-			{
-			"extend": "pdf",
-			"text": "<i class='fa fa-file-pdf-o bigger-110 red'></i> <span class='hidden'>Exportar para PDF</span>",
-			"className": "btn btn-white btn-primary btn-bold"
-			},
+			// {
+			// "extend": "excel",
+			// "text": "<i class='fa fa-file-excel-o bigger-110 green'></i> <span class='hidden'>Exportar para Excel</span>",
+			// "className": "btn btn-white btn-primary btn-bold"
+			// },
+			// {
+			// "extend": "pdf",
+			// "text": "<i class='fa fa-file-pdf-o bigger-110 red'></i> <span class='hidden'>Exportar para PDF</span>",
+			// "className": "btn btn-white btn-primary btn-bold"
+			// },
 			{
 			"extend": "print",
 			"text": "<i class='fa fa-print bigger-110 grey'></i> <span class='hidden'>Imprimir</span>",
@@ -359,20 +359,6 @@
 		e.preventDefault();
 	});
 
-
-
-	//And for the first simple table, which doesn't have TableTools or dataTables
-	//select/deselect all rows according to table header checkbox
-	var active_class = 'active';
-	$('#simple-table > thead > tr > th input[type=checkbox]').eq(0).on('click', function(){
-		var th_checked = this.checked;//checkbox inside "TH" table header
-
-		$(this).closest('table').find('tbody > tr').each(function(){
-			var row = this;
-			if(th_checked) $(row).addClass(active_class).find('input[type=checkbox]').eq(0).prop('checked', true);
-			else $(row).removeClass(active_class).find('input[type=checkbox]').eq(0).prop('checked', false);
-		});
-	});
 
 	//select/deselect a row when the checkbox is checked/unchecked
 	$('#simple-table').on('click', 'td input[type=checkbox]' , function(){

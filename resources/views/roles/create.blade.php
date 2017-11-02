@@ -7,7 +7,7 @@
 	            <h2>Criar Nova Regra de Acesso</h2>
 	        </div>
 	        <div class="pull-right">
-	            <a class="btn btn-primary" href="{{ URL::previous() }}"> Voltar</a>
+	            <a class="btn btn-primary" href="{{ URL::to('roles') }}"> Voltar</a>
 	        </div>
 	    </div>
 	</div>

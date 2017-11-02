@@ -25,7 +25,7 @@
 		<div class="form-group">
       {!!  Form::label('form-field-1', 'Sessão: ', ['class' => 'col-sm-3 control-label no-padding-right'])  !!}
       <div class="col-sm-9 align-bottom">
-        <span class="badge"><h6>{!! $medicalrecord->actual_session +1 !!} de {!! $medicalrecord->number_of_sessions !!}</h6></span>
+        <span class="badge badge-info"><h6>{!! $medicalrecord->actual_session +1 !!} de {!! $medicalrecord->number_of_sessions !!}</h6></span>
       </div>
     </div>
 
@@ -64,9 +64,9 @@
     <div class="clearfix form-actions">
       <div class="col-md-offset-3 col-md-9">
 
-    		<a class="btn btn-primary" href="{{ URL::previous() }}"><i class="ace-icon fa fa-undo bigger-110"></i>Voltar</a>
+    		<a class="btn btn-warning" href="{{ URL::to('medicalrecords/session/find') }}"><i class="ace-icon fa fa-undo bigger-110"></i>Voltar</a>
           &nbsp; &nbsp; &nbsp;
-        <button class="btn btn-success" type="submit">
+        <button class="btn btn-primary" type="submit">
           <i class="ace-icon fa fa-check bigger-110"></i>
           Salvar
         </button>

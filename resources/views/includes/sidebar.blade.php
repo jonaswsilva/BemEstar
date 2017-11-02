@@ -46,6 +46,7 @@
         </a>
         <b class="arrow"></b>
       </li> -->
+      @permission('secre-access')
       <li class="{{ $menu_open or '' }}">
         <a href="#" class="dropdown-toggle">
           <i class="menu-icon fa fa-users"></i>
@@ -81,6 +82,7 @@
         </a>
         <b class="arrow"></b>
       </li>
+      @endpermission
       <li class="{{ $menuc_open or '' }}">
         <a href="#" class="dropdown-toggle">
           <i class="menu-icon fa fa-pencil-square-o"></i>
@@ -89,6 +91,7 @@
         </a>
         <b class="arrow"></b>
         <ul class="submenu">
+          @permission('fisio-access')
           <li class="{{ $nav_con or '' }}">
             <a href="{{ URL::to('medicalappointments') }}">
               <i class="menu-icon fa fa-caret-right"></i>
@@ -96,6 +99,7 @@
             </a>
             <b class="arrow"></b>
           </li>
+          @endpermission
           <li class="{{ $nav_proc or '' }}">
             <a href="{{ URL::to('procedures') }}">
               <i class="menu-icon fa fa-caret-right"></i>
@@ -112,6 +116,7 @@
         </a>
         <b class="arrow"></b>
       </li>
+      @permission('secre-access')
       <li class="{{ $nav_contr or '' }}">
         <a href="{{ URL::to('contract') }}">
           <i class="menu-icon fa fa-list-alt"></i>
@@ -119,6 +124,8 @@
         </a>
         <b class="arrow"></b>
       </li>
+      @endpermission
+      @permission('admin-access')
       <li class="{{ $nav_report or '' }}">
         <a href="{{ URL::to('reports') }}">
           <i class="menu-icon fa fa-list"></i>
@@ -126,6 +133,7 @@
         </a>
         <b class="arrow"></b>
       </li>
+      @endpermission
       <!-- <li class="">
         <a href="#" class="dropdown-toggle">
           <i class="menu-icon fa fa-list"></i>

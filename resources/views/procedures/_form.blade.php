@@ -87,7 +87,7 @@
 					</button>
 
 					&nbsp; &nbsp; &nbsp;
-					<a class="btn btn-primary" href="{{ URL::to('procedures') }}"><i class="ace-icon fa fa-undo bigger-110"></i>Voltar</a>
+					<a class="btn btn-warning" href="{{ URL::to('procedures') }}"><i class="ace-icon fa fa-undo bigger-110"></i>Voltar</a>
 					<div class="widget-title purple pull-right">
 			      <h4>Profissional: {!! Auth::user()->name !!}</h4>
 			    </div>

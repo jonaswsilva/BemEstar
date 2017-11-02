@@ -19,6 +19,10 @@ if('ontouchstart' in document.documentElement) document.write("<script src='asse
 <script src="{{ asset('assets/js/jquery.flot.resize.min.js') }}"></script>
 <script src="{{ asset('assets/js/jquery.mask.min.js') }}"></script>
 <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js" ></script>
+<script src="{{ asset('assets/js/dataTables.fixedHeader.min.js') }}"></script>
+<script src="{{ asset('assets/js/dataTables.responsive.min.js') }}"></script>
+<script src="{{ asset('assets/js/responsive.bootstrap.min.js') }}"></script>
+
 
 <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script> -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>

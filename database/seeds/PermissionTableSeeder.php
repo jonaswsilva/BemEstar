@@ -14,6 +14,26 @@ class PermissionTableSeeder extends Seeder
     {
       $permission = [
         [
+          'name' => 'admin-access',
+          'display_name' => 'Acesso Administrador',
+          'description' => 'See only Listing Of Role'
+        ],
+        [
+          'name' => 'secre-access',
+          'display_name' => 'Acesso da Secretária',
+          'description' => 'See only Listing Of Role'
+        ],
+        [
+          'name' => 'fisio-access',
+          'display_name' => 'Acesso Fisíoterapeuta',
+          'description' => 'See only Listing Of Role'
+        ],
+        [
+          'name' => 'admin-access',
+          'display_name' => 'Acesso admin',
+          'description' => 'See only Listing Of Role'
+        ],
+        [
           'name' => 'role-list',
           'display_name' => 'Ver regras',
           'description' => 'See only Listing Of Role'
