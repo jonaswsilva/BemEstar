@@ -28,7 +28,6 @@ class SessionRequest extends Request
             'date'=> 'required',
             'hour'=> 'required',
             'description' => 'required',
-
         ];
     }
 }

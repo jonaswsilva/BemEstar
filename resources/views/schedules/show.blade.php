@@ -117,7 +117,7 @@
             </div>
 
             <div class="infobox-data">
-              <div class="infobox-content"><a class="btn btn-warning" href="{{ URL::to('schedules/all') }}">Voltar</a></div>
+              <div class="infobox-content"><a class="btn btn-warning" href="{{ URL::previous() }}">Voltar</a></div>
 
             </div>
           </div>

@@ -36,11 +36,19 @@
 <script type="text/javascript">
 $(function(){
 
-	$('#spinner1').ace_spinner({value:0,min:0,max:200,step:1, btn_up_class:'btn-info' , btn_down_class:'btn-info'})
+	$('#spinner1').ace_spinner({value:1,min:1,max:200,step:1, btn_up_class:'btn-info' , btn_down_class:'btn-info'})
 	.closest('.ace-spinner')
 	.on('changed.fu.spinbox', function(){
 		//console.log($('#spinner1').val())
 	});
+
+	$(document).ready(function(){
+    var now = new Date();
+    var day = ("0" + now.getDate()).slice(-2);
+    var month = ("0" + (now.getMonth() + 1)).slice(-2);
+    var today = now.getFullYear()+"-"+(month)+"-"+(day) ;
+    $('#datePicker').val(today);
+  })
 
 });
 

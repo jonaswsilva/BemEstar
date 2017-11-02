@@ -73,7 +73,7 @@ class MedicalAppointmentController extends Controller
                   ->with(['button' => 'Atualizar']);
   }
 
-  public function update(Request $request, $id)
+  public function update(MedicalAppointmentRequest $request, $id)
   {
     $medicalappointment = MedicalAppointment::findOrFail($id);
     $medicalappointment->patient_id      = $request->input('patient_id');

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Procedures;
+use App\Http\Requests\ProcedureRequest;
 use App\TypeProcedures;
 use DB;
 use View;
@@ -30,13 +31,15 @@ class ProceduresController extends Controller
       ->pluck('person.name','patients.id');
       $typeprocedures = TypeProcedures::pluck('name','id');
       $typeprocedurestable = TypeProcedures::all();
+      $typesp = ['Dinheiro' => 'Dinheiro','Cheque' => 'Cheque','Cartão' => 'Cartão','A prazo' => 'A prazo'];
+      $plots = ['À Vista' => 'À Vista','2' => '2x','3' => '3x','4' => '4x','5' => '5x','6' => '6x','7' => '7x','8' => '8x','9' => '9x','10' => '10x','11' => '11x','12' => '12x'];
       return View::make('procedures.create')
-                      ->with(compact('typeprocedures','typeprocedurestable','patients'))
+                      ->with(compact('typeprocedures','typeprocedurestable','patients','plots','typesp'))
                         ->with(['button'=>'Salvar']);
     }
 
 
-    public function store(Request $request)
+    public function store(ProcedureRequest $request)
     {
         $procedure = new Procedures();
         $procedure->patient_id = $request->input('patient_id');
@@ -71,25 +74,27 @@ class ProceduresController extends Controller
       ->join('person', 'patients.person_id', '=', 'person.id')
       ->pluck('person.name','patients.id');
       $typeprocedures = TypeProcedures::pluck('name','id');
+      $typesp = ['Dinheiro' => 'Dinheiro','Cheque' => 'Cheque','Cartão' => 'Cartão','A prazo' => 'A prazo'];
+      $plots = ['À Vista' => 'À Vista','2' => '2x','3' => '3x','4' => '4x','5' => '5x','6' => '6x','7' => '7x','8' => '8x','9' => '9x','10' => '10x','11' => '11x','12' => '12x'];
       $typeprocedurestable = TypeProcedures::all();
       return view('procedures.edit')
-                  ->with(compact('procedure','patients','typeprocedures','typeprocedurestable'))
+                  ->with(compact('procedure','patients','typeprocedures','typeprocedurestable','typesp','plots'))
                   ->with(['button'=>'Atualizar']);
     }
 
 
-    public function update(Request $request, $id)
+    public function update(ProcedureRequest $request, $id)
     {
       $procedure = Procedures::findOrFail($id);
       $procedure->patient_id = $request->input('patient_id');
       $procedure->professional_id = $request->input('professional_id');
       $procedure->date = $request->input('date');
-      $procedure->plots = $request->input('plots');
-      $procedure->type_payment = $request->input('type_payment');
-      $procedure->type_procedures_id = $request->input('type_procedures_id');
-      $procedure->observation = $request->input('observation');
       $procedure->price = $request->input('price');
-      $procedure->push();
+      $procedure->type_payment = $request->input('type_payment');
+      $procedure->plots = $request->input('plots');
+      $procedure->observation = $request->input('observation');
+      $procedure->type_procedures_id = $request->input('type_procedures_id');
+      $procedure->update();
 
       flash('Procedimento atualizado com sucesso!')->info();
       return $this->edit($id);

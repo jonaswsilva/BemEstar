@@ -45,14 +45,16 @@
           <tr>
 
             <td class="center">{{ $procedure->id }}</td>
-            <td>{{ $procedure->patient->person->name }}</td>
+            <td>{{ $procedure->patient->person->name.' '.$procedure->patient->person->lastname }}</td>
             <td>{{ $procedure->professional->person->name }}</td>
             <td>{{ $procedure->date_mu->format('d/m/Y') }}</td>
             <td>{{ $procedure->type_procedures->name }}</td>
 
             <td>
               <div class="hidden-sm hidden-xs btn-group">
-
+                {!! Form::open(['url'=>'procedures/'.$procedure->id,'method'=>'post','class'=>'delete']) !!}
+                  {{ csrf_field() }}
+                  {{ method_field('DELETE') }}
                 <a class="btn btn-xs btn-success" href="{{ URL::to('procedures/'.$procedure->id) }}">
                   <i class="ace-icon fa fa-check bigger-120"></i>
                 </a>
@@ -62,10 +64,8 @@
                 </a>
 
 
-                <a class="btn btn-xs btn-danger btn-delete" href="#">
-                  <i class="ace-icon fa fa-trash-o bigger-120"></i>
-                </a>
-
+                <button type="submit" class="btn btn-xs btn-danger" data-toggle="tooltip" data-placement="bottom" title="Excluir Consulta" ><i class="ace-icon fa fa-trash-o bigger-120"></i></button>
+              {!! Form::close() !!}
               </div>
 
 
@@ -108,11 +108,6 @@
           @endforeach
         </tbody>
       </table>
-      {{ Form::open(array('url' => 'procedures/' . @$procedure->id, 'id' => 'form-delete')) }}
-        {{ Form::hidden('_method', 'DELETE') }}
-
-      {{ Form::close() }}
-    {{ $procedures->render() }}
     </div>
   </div>
 </div>
@@ -124,35 +119,6 @@
 <script type="text/javascript">
 
 jQuery(function($) {
-
-
-
-					 $('.btn-delete').click(function(e){
-							 e.preventDefault();
-							 // confirmo que quiere borrar el cliente!
-							 var deleteClient = confirm('Deseja mesmo excluir este paciente?');
-							 if (deleteClient === true) {
-									 var row = $(this).closest('tr');
-									 //var id = row.attr('data-id');
-									 // non funka!: var row = $(this).parents('tr');
-									 var id = row.data('id');
-									 var form = $('#form-delete');
-									 var url = form.attr('action').replace(':USER_ID', id);
-									 var data = form.serialize();
-									 // enfoque optimista (antes de borrar oculto la fila
-									 row.fadeOut(function () {
-											 $.post(url, data, function (result) {
-													 alert(result);
-											 }).fail(function () {
-													 alert('Paciente excluído!');
-													//  row.show();
-											 });
-									 });
-							 }
-							 else {
-									 return false;
-							 }
-					 })
 
 
 	/***************/

@@ -3,6 +3,9 @@
   {!!  Form::label('form-field-1', 'Paciente: ', ['class' => 'col-sm-3 control-label no-padding-right'])  !!}
   <div class="col-sm-9">
     {!! Form::select('patient_id', $patients, @$medicalappointment->patient_id, ["class"=>"col-xs-10 col-sm-5", "id"=>"nameid","placeholder"=>"Selecione um paciente"]) !!}
+    @if($errors->any())
+    <div class="red darken-4">&nbsp &nbsp{!! $errors->first('patient_id') !!}</div>
+    @endif
   </div>
 </div>
 
@@ -41,7 +44,7 @@
 <div class="clearfix form-actions">
   <div class="col-md-offset-3 col-md-9">
 
-		<a class="btn btn-primary" href="{{ URL::to('medicalappointments') }}"><i class="ace-icon fa fa-undo bigger-110"></i>Voltar</a>
+		<a class="btn btn-primary" href="{{ URL::previous() }}"><i class="ace-icon fa fa-undo bigger-110"></i>Voltar</a>
       &nbsp; &nbsp; &nbsp;
     <button class="btn btn-success" type="submit">
       <i class="ace-icon fa fa-check bigger-110"></i>

@@ -1,4 +1,4 @@
-<?php $menuc_open = 'active open'; $nav_proc = 'active'; ?>
+<?php $nav_proc = 'active'; $menuc_open = 'active open';?>
 @extends('layout/layout')
 
 @section('content')
@@ -32,16 +32,12 @@
 <script src="{{ asset('assets/js/jquery.mask.min.js') }}"></script>
 <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js" ></script>
 <script type="text/javascript">
-$(function(){
-	
- $( "#autoComplete" ).autocomplete({
-	source: "{{ URL::to('schedules/autocomplete') }}",
-	minLength: 1,
-		select: function(event, ui) {
-			$('#autoComplete').val(ui.item.value);
-			$('#idPatient').val(ui.item.id);
-		}
-	});
-});
+$(document).ready(function(){
+	var now = new Date();
+	var day = ("0" + now.getDate()).slice(-2);
+	var month = ("0" + (now.getMonth() + 1)).slice(-2);
+	var today = now.getFullYear()+"-"+(month)+"-"+(day) ;
+	$('#datePicker').val(today);
+})
 </script>
 @endpush

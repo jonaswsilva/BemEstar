@@ -198,7 +198,7 @@
 										</div><!-- /.widget-main -->
 
 										<div class="toolbar center">
-											<a href="#" data-target="#login-box" class="back-to-login-link white">
+											<a href="{{ URL::previous() }}" data-target="#login-box" class="back-to-login-link white">
 												Voltar para login
 												<i class="ace-icon fa fa-arrow-right"></i>
 											</a>

@@ -56,6 +56,14 @@ $(function(){
 		$(this).prev().focus();
 	});
 
+	$(document).ready(function(){
+		var now = new Date();
+		var day = ("0" + now.getDate()).slice(-2);
+		var month = ("0" + (now.getMonth() + 1)).slice(-2);
+		var today = now.getFullYear()+"-"+(month)+"-"+(day) ;
+		$('#datePicker').val(today);
+	})
+
 
 	$('#date-timepicker1').datetimepicker({
 	 format: 'LL LT',//use this option to display seconds

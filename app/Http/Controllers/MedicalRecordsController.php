@@ -71,7 +71,7 @@ class MedicalRecordsController extends Controller{
       return $this->show($id);
     }
 
-    public function store(Request $request){
+    public function store(MedicalRecordRequest $request){
         $medicalrecord = new MedicalRecords();
         $medicalrecord->patient_id         = $request->input('patient_id');
         $medicalrecord->professional_id    = $request->input('professional_id');

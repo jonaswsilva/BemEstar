@@ -46,7 +46,7 @@
           <tr>
 
             <td class="center">{{ $medicalrecord->id }}</td>
-            <td>{{ $medicalrecord->patient->person->name }}</td>
+            <td>{{ $medicalrecord->patient->person->name.' '.$medicalrecord->patient->person->lastname }}</td>
             <td>{{ $medicalrecord->professional->person->name }}</td>
             <td class="text-center">{{ $medicalrecord->number_of_sessions }}</td>
             <td class="text-center">{{ $medicalrecord->actual_session }}</td>

@@ -167,7 +167,7 @@ class PatientController extends Controller
 
       $patient = Patient::find($id);
       if ($patient != null) {
-        dd($patient);
+        //dd($patient);
         $patient->delete();
         flash('Paciente excluido com sucesso!')->success();
         return $this->index();

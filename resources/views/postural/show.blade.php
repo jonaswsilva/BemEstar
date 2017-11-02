@@ -43,7 +43,7 @@
 
       <div class="clearfix">
         <div class="grid2">
-          <a class="btn btn-warning" href="{{ URL::to('medicalappointments') }}"><i class="ace-icon fa fa-undo bigger-110"></i>Voltar</a>
+          <a class="btn btn-warning" href="{{ URL::previous() }}"><i class="ace-icon fa fa-undo bigger-110"></i>Voltar</a>
         </div>
 
         <div class="grid2">

@@ -5,7 +5,10 @@
 			  {!!  Form::label('form-field-1', 'Paciente: ', ['class' => 'col-sm-3 control-label no-padding-right'])  !!}
 				<div class="col-sm-9">
 					{!! Form::select('patient_id', $patients, @$procedure->patient_id, ["class"=>"col-xs-10 col-sm-5" ,"id"=>"nameid","placeholder"=>"Selecione um paciente"]) !!}
-			  </div>
+					@if($errors->any())
+					<div class="red darken-4">&nbsp &nbsp{!! $errors->first('patient_id') !!}</div>
+					@endif
+				</div>
 			</div>
 
 			{!! Form::hidden('professional_id', Auth::user()->id ) !!}
@@ -49,7 +52,7 @@
       <div class="form-group">
 				{!!  Form::label('form-field-1', 'Tipo de pagamento: ', ['class' => 'col-sm-3 control-label no-padding-right'])  !!}
 				<div class="col-sm-9">
-					{!! Form::select('type_payment', ['Dinheiro' => 'Dinheiro','Cheque' => 'Cheque','Cartão' => 'Cartão','A prazo' => 'A prazo'], ['class' => 'col-xs-10 col-sm-5 type_payment', 'placeholder' => 'Valor...']) !!}
+					{!! Form::select('type_payment', $typesp, @$procedure->type_payment,['class' => 'col-xs-10 col-sm-5 type_payment']) !!}
 					@if($errors->any())
 					<div class="red darken-4">&nbsp &nbsp{!! $errors->first('type_payment') !!}</div>
 					@endif
@@ -59,7 +62,7 @@
       <div class="form-group">
 				{!!  Form::label('form-field-1', 'Parcelas: ', ['class' => 'col-sm-3 control-label no-padding-right'])  !!}
 				<div class="col-sm-9">
-					{!! Form::select('plots', ['2' => '2x','4' => '4x','6' => '6x','8' => '8x','10' => '10x','12' => '12x'], ['class' => 'col-xs-10 col-sm-5 plots', 'placeholder' => 'Parcelas...']) !!}
+					{!! Form::select('plots', $plots, @$procedure->plots, ['class' => 'col-xs-10 col-sm-5 plots']) !!}
 					@if($errors->any())
 					<div class="red darken-4">&nbsp &nbsp{!! $errors->first('plots') !!}</div>
 					@endif

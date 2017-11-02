@@ -72,15 +72,6 @@ class ProfessionalController extends Controller
 
       $city->state_id = $request->input('state_id');
 
-      if($request->hasFile('avatar')){
-        $photo = $request->file('avatar');
-        $filename = time().'.'.$photo->getClientOriginalExtension();
-        Image::make($photo)->resize(175, 175)->save( public_path('assets/images/avatars/' . $filename ) );
-        $user->avatar = $filename;
-      }else{
-        $user->avatar = "default.jpg";
-      }
-
       $user->name = $request->input('name');
       $user->email = $request->input('email');
       $user->password = Hash::make($request->input('password'));
@@ -132,7 +123,7 @@ class ProfessionalController extends Controller
       $states = State::pluck('name','id');
       $roles = Role::lists('display_name','id');
       $userRole = $user->roles->lists('id','id')->toArray();
-      
+
       $especialities = Especialitie::pluck('name','id');
       return View::make('professionals.edit', compact('professional','states','especialities','user','roles','userRole'),['route' => '/profissional/atualizar/', 'method' => 'post', 'button' => 'Atualizar']);
     }
@@ -188,8 +179,10 @@ class ProfessionalController extends Controller
     public function destroy($id)
     {
       $professional = Professional::find($id);
+      $user = User::find($id);
       if ($professional != null) {
         $professional->delete();
+        $user->delete();
         flash('Profissional excluido com sucesso!')->success();
         return $this->index();
       }

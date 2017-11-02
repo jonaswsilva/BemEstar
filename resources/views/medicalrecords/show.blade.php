@@ -9,14 +9,11 @@
       <h3 class="header smaller lighter purple">Dados das Sessões</h3>
     </div>
 
-
     <div class="pull-right">
 
       <div class="btn-toolbar inline middle no-margin">
         <div data-toggle="buttons" class="btn-group no-margin">
           <!-- <a class="btn btn-info pull-right" href="{{ URL::to('medicalrecords/'. $medicalrecord->id .'/pdf') }}"><i class="ace-icon fa fa-file bigger-110"></i>Gerar PDF</a> -->
-
-
         </div>
       </div>
     </div>
@@ -180,11 +177,10 @@
         </div>
         <div class="space-20"></div>
         @include('flash::message')
-        <h3 class="header smaller lighter blue">Sessões Realizadas</h3>
+        <h3 class="header smaller lighter blue">Sessões Realizadas - {{ $medicalrecord->actual_session }}</h3>
+
         @foreach ($sessions as $session)
-
         <div class="space-20"></div>
-
         <div class="col-md-11 col-md-offset-1">
             {!! Form::open(['url'=>'medicalrecords/destroy/'.$session->id.'/medical/'.$medicalrecord->id , 'method'=>'post','class'=>'delete']) !!}
             {{ csrf_field() }}

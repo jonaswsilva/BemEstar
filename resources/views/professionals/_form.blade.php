@@ -229,6 +229,6 @@
 					</button>
 
 					&nbsp; &nbsp; &nbsp;
-					<a class="btn btn-primary" href="{{ URL::to('professionals') }}"><i class="ace-icon fa fa-undo bigger-110"></i>Voltar</a>
+					<a class="btn btn-primary" href="{{ URL::previous() }}"><i class="ace-icon fa fa-undo bigger-110"></i>Voltar</a>
 				</div>
 			</div>

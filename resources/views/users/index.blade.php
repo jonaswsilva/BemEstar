@@ -9,7 +9,7 @@
 
     <div class="pull-left">
       <a class="btn btn-default" href="{{ URL::to('professionals/create') }}"><i class="ace-icon fa fa-user-plus"></i>Novo Usuário</a>
-      <a class="btn btn-default" href="{{ URL::to('roles') }}"><i class="ace-icon fa fa-user-plus"></i>Regras</a>
+      <a class="btn btn-info" href="{{ URL::to('roles') }}"><i class="ace-icon fa fa-key"></i>Regras</a>
     </div>
 
     <div class="clearfix">

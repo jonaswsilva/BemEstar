@@ -44,7 +44,7 @@ class TypeProceduresController extends Controller
         $typeprocedure->name = $request->input('name');
         $typeprocedure->save();
 
-        return Redirect::to('procedures/create');
+        return redirect()->back();
     }
 
     /**
@@ -91,6 +91,6 @@ class TypeProceduresController extends Controller
     {
         $typeprocedure = TypeProcedures::find($id);
         $typeprocedure->delete();
-        return Redirect::to('procedures/create');
+        return redirect()->back();
     }
 }

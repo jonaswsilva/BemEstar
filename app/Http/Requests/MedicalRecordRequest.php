@@ -26,7 +26,6 @@ class MedicalRecordRequest extends Request
         return [
             'patient_id' => 'required',
             'date' => 'required',
-            'hour' => 'required',
             'description' => 'required',
         ];
     }
@@ -34,7 +33,7 @@ class MedicalRecordRequest extends Request
     public function messages()
     {
         return [
-            'term.required' => 'Campo obrigatório',
+            'patient_id.required' => 'Campo obrigatório',
             'date.required' => 'Campo obrigatório',
             'description.required' => 'Campo obrigatório',
         ];

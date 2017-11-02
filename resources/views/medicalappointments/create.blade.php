@@ -10,7 +10,7 @@
     <div class="widget-box">
       <div class="widget-header widget-header-flat">
         <h4 class="widget-title purple">Dados da consulta</h4>
-        
+
       </div>
 
       <div class="widget-body">
@@ -61,6 +61,13 @@ $(function(){
 		$(this).prev().focus();
 	});
 
+  $(document).ready(function(){
+    var now = new Date();
+    var day = ("0" + now.getDate()).slice(-2);
+    var month = ("0" + (now.getMonth() + 1)).slice(-2);
+    var today = now.getFullYear()+"-"+(month)+"-"+(day) ;
+    $('#datePicker').val(today);
+  })
 
 	$('#date-timepicker1').datetimepicker({
 	 format: 'L LT',//use this option to display seconds

@@ -5,7 +5,10 @@
 			  {!!  Form::label('form-field-1', 'Paciente: ', ['class' => 'col-sm-3 control-label no-padding-right'])  !!}
 			  <div class="col-sm-9">
 					{!! Form::select('patient_id', $patients, @$schedule->patient_id, ["class"=>"col-xs-10 col-sm-5" ,"id"=>"nameid","placeholder"=>"Selecione um paciente"]) !!}
-			  </div>
+					@if($errors->any())
+					<div class="red darken-4">&nbsp &nbsp{!! $errors->first('patient_id') !!}</div>
+					@endif
+				</div>
 			</div>
 
 			<div class="form-group">
@@ -68,6 +71,6 @@
 					</button>
 
 					&nbsp; &nbsp; &nbsp;
-					<a class="btn btn-primary" href="{{ URL::to('schedules/all') }}"><i class="ace-icon fa fa-undo bigger-110"></i>Voltar</a>
+					<a class="btn btn-primary" href="{{ URL::previous() }}"><i class="ace-icon fa fa-undo bigger-110"></i>Voltar</a>
 				</div>
 			</div>

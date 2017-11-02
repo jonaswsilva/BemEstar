@@ -7,7 +7,7 @@
 	            <h2> Detalhes da Regra</h2>
 	        </div>
 	        <div class="pull-right">
-	            <a class="btn btn-primary" href="{{ route('roles.index') }}"> Voltar</a>
+	            <a class="btn btn-primary" href="{{ URL::previous() }}"> Voltar</a>
 	        </div>
 	    </div>
 	</div>

@@ -5,7 +5,10 @@
 			  {!!  Form::label('form-field-1', 'Paciente: ', ['class' => 'col-sm-3 control-label no-padding-right'])  !!}
 			  <div class="col-sm-9">
 					{!! Form::select('patient_id', $patients, @$medicalrecord->patient_id, ["class"=>"col-xs-10 col-sm-5" ,"id"=>"nameid","placeholder"=>"Selecione um paciente"]) !!}
-			  </div>
+					@if($errors->any())
+				  <div class="red darken-4">&nbsp &nbsp{!! $errors->first('patient_id') !!}</div>
+				  @endif
+				</div>
 			</div>
 
 			{!! Form::hidden('professional_id', Auth::user()->id ) !!}
@@ -48,7 +51,7 @@
 					</button>
 
 					&nbsp; &nbsp; &nbsp;
-					<a class="btn btn-primary" href="{{ URL::to('medicalrecords') }}"><i class="ace-icon fa fa-undo bigger-110"></i>Voltar</a>
+					<a class="btn btn-primary" href="{{ URL::previous() }}"><i class="ace-icon fa fa-undo bigger-110"></i>Voltar</a>
 					<div class="widget-title purple pull-right">
 			      <h4>Profissional: {!! Auth::user()->name !!}</h4>
 			    </div>

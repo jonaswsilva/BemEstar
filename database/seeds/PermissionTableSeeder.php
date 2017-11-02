@@ -247,6 +247,26 @@ class PermissionTableSeeder extends Seeder
           'name' => 'reports-list',
           'display_name' => 'Ver relatórios',
           'description' => 'See only Listing Of Item'
+        ],
+        [
+          'name' => 'typeprocedures-list',
+          'display_name' => 'Ver tipos de procedimentos',
+          'description' => 'See only Listing Of Item'
+        ],
+        [
+          'name' => 'typeprocedures-create',
+          'display_name' => 'Criar tipo de procedimento',
+          'description' => 'Create New Item'
+        ],
+        [
+          'name' => 'typeprocedures-edit',
+          'display_name' => 'Editar tipo de procedimento',
+          'description' => 'Edit Item'
+        ],
+        [
+          'name' => 'typeprocedures-delete',
+          'display_name' => 'Deletar tipo de procedimento',
+          'description' => 'Delete Item'
         ]
       ];
 

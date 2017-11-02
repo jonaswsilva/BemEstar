@@ -1,4 +1,4 @@
-<?php $nav_sch = 'active'; ?>
+<?php $nav_proc = 'active'; $menuc_open = 'active open';?>
 @extends('layout/layout')
 
 @section('content')

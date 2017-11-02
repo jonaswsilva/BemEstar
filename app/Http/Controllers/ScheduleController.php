@@ -55,7 +55,7 @@ class ScheduleController extends Controller
       return $this->all();
     }else{
       flash('Já existe uma consulta nessa date e horário!')->error();
-      return view('schedules/all')->withInput();
+      return redirect()->back()->withInput();
       //dd($schedule);
     }
     //$schedule->save();
@@ -83,7 +83,7 @@ public function edit($id)
                 ->with(['button'=>'Atualizar']);
   }
 
-public function update(Request $request, $id)
+public function update(ScheduleRequest $request, $id)
   {
       $schedule = Schedule::findOrFail($id);
       $schedule->patient_id = $request->input('patient_id');
