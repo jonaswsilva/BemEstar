@@ -46,7 +46,7 @@
           <tr>
 
             <td class="center">{{ $medicalappointment->id }}</td>
-            <td>{{ $medicalappointment->date_mu->format('d/m/Y') }} às {{ $medicalappointment->hour }}</td>
+            <td>{{ $medicalappointment->date_mu->format('d/m/Y') }} às <span class="hour">{{ $medicalappointment->hour }}</span></td>
             <td>{{ $medicalappointment->professional->person->name }}</td>
             <td>{{ $medicalappointment->patient->person->name.' '.$medicalappointment->patient->person->lastname }}</td>
             <td>{{ $medicalappointment->description }}</td>

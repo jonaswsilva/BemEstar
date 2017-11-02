@@ -72,7 +72,7 @@ class ProfessionalController extends Controller
 
       $city->state_id = $request->input('state_id');
 
-      $user->name = $request->input('name');
+      $user->name = $request->input('user_name');
       $user->email = $request->input('email');
       $user->password = Hash::make($request->input('password'));
       $user->save();
@@ -129,7 +129,7 @@ class ProfessionalController extends Controller
     }
 
 
-    public function update(Request $request, $id)
+    public function update(ProfessionalRequest $request, $id)
     {
 
       $professional = Professional::findOrFail($id);
@@ -150,7 +150,7 @@ class ProfessionalController extends Controller
       }
 
       $user = User::findOrFail($id);
-      $user->name = $request->input('name');
+      $user->name = $request->input('user_name');
       $user->email = $request->input('email');
       $user->password = Hash::make($request->input('password'));
       $user->update();
@@ -169,7 +169,7 @@ class ProfessionalController extends Controller
       $professional->address->city->state_id = $request->input('state_id');
       $professional->especialitie_id = $request->input('especialitie_id');
       $professional->crm = $request->input('crm');
-      $professional->update();
+      $professional->push();
 
       flash('Profissional Atualizado com sucesso!')->info();
       return $this->edit($id);

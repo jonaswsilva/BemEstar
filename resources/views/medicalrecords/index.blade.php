@@ -9,7 +9,9 @@
 
     <div class="pull-left">
       <a class="btn btn-info" href="{{ URL::to('medicalrecords/create') }}"><i class="ace-icon fa fa-file-o"></i>Marcar Sessão</a>
+      @permission('fisio-access')
       <a class="btn btn-primary" href="{{ URL::to('medicalrecords/session/find') }}"><i class="ace-icon fa fa-file-o bigger-120"></i> Realizar Sessão</a>
+      @endpermission
     </div>
 
     <div class="clearfix">

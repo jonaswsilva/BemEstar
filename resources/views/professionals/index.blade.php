@@ -63,13 +63,13 @@
 											<a class="btn btn-xs btn-success" href="{{ URL::to('professionals/'.$professional->id) }}">
 												<i class="ace-icon fa fa-check bigger-120"></i>
 											</a>
-
+											
 											<a class="btn btn-xs btn-info" href="{{ URL::to('professionals/'. $professional->id .'/edit') }}">
 												<i class="ace-icon fa fa-pencil bigger-120"></i>
 											</a>
 
-
 											<button type="submit" class="btn btn-xs btn-danger" data-toggle="tooltip" data-placement="bottom" title="Excluir Consulta" ><i class="ace-icon fa fa-trash-o bigger-120"></i></button>
+
 										{!! Form::close() !!}
 										</div>
 

@@ -8,7 +8,8 @@
 	        </div>
 	        <div class="pull-right">
 	        	@permission('role-create')
-	            <a class="btn btn-success" href="{{ route('roles.create') }}"> Criar Nova Regra</a>
+							<a class="btn btn-warning" href="{{ URL::to('users') }}"> Voltar</a>
+							<a class="btn btn-success" href="{{ route('roles.create') }}"> Criar Nova Regra</a>
 	            @endpermission
 	        </div>
 	    </div>

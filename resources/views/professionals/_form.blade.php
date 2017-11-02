@@ -170,9 +170,9 @@
 			<div class="form-group">
 				{!!  Form::label('form-field-1', 'Usuário: ', ['class' => 'col-sm-3 control-label no-padding-right'])  !!}
 				<div class="col-sm-9">
-					{!! Form::text('name', @$user->name, ['class' => 'col-xs-10 col-sm-5', 'placeholder' => 'Usuário...']) !!}
+					{!! Form::text('user_name', @$user->name, ['class' => 'col-xs-10 col-sm-5', 'placeholder' => 'Usuário...']) !!}
 					@if($errors->any())
-					<div class="red darken-4">&nbsp &nbsp{!! $errors->first('name') !!}</div>
+					<div class="red darken-4">&nbsp &nbsp{!! $errors->first('user_name') !!}</div>
 					@endif
 				</div>
 			</div>

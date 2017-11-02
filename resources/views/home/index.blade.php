@@ -181,7 +181,7 @@
 
   <div class="infobox infobox-green infobox-small infobox-dark">
     <div class="infobox-progress">
-      <div class="easy-pie-chart percentage" data-percent="61" data-size="39">
+      <div>
         <span><h1>{{ @$countposturals }}</h1></span>
       </div>
     </div>

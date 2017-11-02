@@ -25,6 +25,7 @@ class ProfessionalRequest extends Request
     {
         return [
             'name'          => 'required|min:3',
+            'user_name'     => 'required|min:3',
             'lastname'      => 'required',
             'rg'            => 'required',
             'cpf'           => 'required|cpf',
@@ -47,6 +48,8 @@ class ProfessionalRequest extends Request
         return [
             'name.required'         => 'O campo nome é obrigatório.',
             'name.min'              => 'O campo nome deve ter mais de 6 caracteres.',
+            'user_name.required'    => 'O campo usuário é obrigatório.',
+            'user_name.min'         => 'O campo usuário deve ter mais de 6 caracteres.',
             'lastname.required'     => 'O campo sobrenome é obrigatório.',
             'rg.required'           => 'O campo rg é obrigatório.',
             'cpf.required'          => 'O campo cpf é obrigatório.',
