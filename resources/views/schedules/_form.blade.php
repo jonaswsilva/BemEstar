@@ -5,6 +5,7 @@
 			  {!!  Form::label('form-field-1', 'Paciente: ', ['class' => 'col-sm-3 control-label no-padding-right'])  !!}
 			  <div class="col-sm-9">
 					{!! Form::select('patient_id', $patients, @$schedule->patient_id, ["class"=>"col-xs-10 col-sm-5" ,"id"=>"nameid","placeholder"=>"Selecione um paciente"]) !!}
+					<a class="btn btn-primary btn-xs" href="{{ URL::to('patients/create') }}"><i class="ace-icon fa fa-user"></i> Novo Paciente</a>
 					@if($errors->any())
 					<div class="red darken-4">&nbsp &nbsp{!! $errors->first('patient_id') !!}</div>
 					@endif
