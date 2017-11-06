@@ -181,7 +181,7 @@
 
   <div class="infobox infobox-green infobox-small infobox-dark">
     <div class="infobox-progress">
-      <div>
+      <div class="easy-pie-chart percentage">
         <span><h1>{{ @$countposturals }}</h1></span>
       </div>
     </div>
@@ -193,9 +193,8 @@
 
   <div class="infobox infobox-blue infobox-small infobox-dark">
     <div class="infobox-progress">
-      <div class="infobox-data-number">
-        <p>
-          <h1>{{ @$countneurologicals }}</h1></p>
+      <div class="easy-pie-chart percentage">
+         <h1>{{ @$countneurologicals }}</h1>
         </div>
       </div>
       <div class="infobox-data">
@@ -205,7 +204,7 @@
     </div>
 
     <div class="infobox infobox-grey infobox-small infobox-dark">
-      <div class="infobox-icon">
+      <div class="easy-pie-chart percentage">
         <h1>{{ @$countsprofessionals }}</h1></p>
       </div>
       <div class="infobox-data">
@@ -296,22 +295,7 @@ Last Month
 
 <script type="text/javascript">
 jQuery(function($) {
-  $('.easy-pie-chart.percentage').each(function(){
-    var $box = $(this).closest('.infobox');
-    var barColor = $(this).data('color') || (!$box.hasClass('infobox-dark') ? $box.css('color') : 'rgba(255,255,255,0.95)');
-    var trackColor = barColor == 'rgba(255,255,255,0.95)' ? 'rgba(255,255,255,0.25)' : '#E2E2E2';
-    var size = parseInt($(this).data('size')) || 50;
-    $(this).easyPieChart({
-      barColor: barColor,
-      trackColor: trackColor,
-      scaleColor: false,
-      lineCap: 'butt',
-      lineWidth: parseInt(size/10),
-      animate: ace.vars['old_ie'] ? false : 1000,
-      size: size
-    });
-  })
-
+  
   $('.sparkline').each(function(){
     var $box = $(this).closest('.infobox');
     var barColor = !$box.hasClass('infobox-dark') ? $box.css('color') : '#FFF';

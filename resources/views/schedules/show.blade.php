@@ -37,7 +37,7 @@
             <a href="#" class="user-title-label dropdown-toggle" data-toggle="dropdown">
               <i class="ace-icon fa fa-circle light-green"></i>
               &nbsp;
-              <span class="white">{{ $schedule->patient->person->name }}</span>
+              <span class="white">Paciente: {{ $schedule->patient->person->name }}</span>
             </a>
           </div>
         </div>

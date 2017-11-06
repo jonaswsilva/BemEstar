@@ -21,6 +21,13 @@
     /*background-color: #EFF3F8;*/
 }
 
+.infobox-small .percentage {
+    font-size: 13px;
+    font-weight: 400;
+    margin-top: -15px;
+    margin-left: 2px;
+}
+
 .navbar {
     margin: 0;
     padding-left: 0;

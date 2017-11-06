@@ -18,7 +18,7 @@
           </span>
           <div class="width-80 label label-info label-xlg arrowed-in arrowed-in-right">
             <div class="inline position-relative">
-                <span class="white">{{ $procedure->patient->person->name }}</span>
+                <span class="white">Paciente: {{ $procedure->patient->person->name }}</span>
               </a>
             </div>
           </div>

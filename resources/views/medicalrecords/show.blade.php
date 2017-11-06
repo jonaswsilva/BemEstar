@@ -31,7 +31,7 @@
           <div class="width-80 label label-info label-xlg arrowed-in arrowed-in-right">
             <div class="inline position-relative">
               <a href="#" class="user-title-label dropdown-toggle" data-toggle="dropdown">
-                <span class="white">{{ $medicalrecord->patient->person->name }}</span>
+                <span class="white">Paciente: {{ $medicalrecord->patient->person->name }}</span>
               </a>
             </div>
           </div>

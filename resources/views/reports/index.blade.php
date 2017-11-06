@@ -86,7 +86,7 @@
 
       <div class="infobox infobox-green infobox-small infobox-dark">
         <div class="infobox-progress">
-          <div class="easy-pie-chart percentage" data-percent="61" data-size="39">
+          <div class="easy-pie-chart percentage">
             <span><h1>{{ @$countposturals }}</h1></span>
           </div>
         </div>
@@ -98,9 +98,8 @@
 
       <div class="infobox infobox-blue infobox-small infobox-dark">
         <div class="infobox-progress">
-          <div class="infobox-data-number">
-            <p>
-              <h1>{{ @$countneurologicals }}</h1></p>
+          <div class="easy-pie-chart percentage">
+              <h1>{{ @$countneurologicals }}</h1>
             </div>
           </div>
           <div class="infobox-data">
@@ -110,7 +109,7 @@
         </div>
 
         <div class="infobox infobox-grey infobox-small infobox-dark">
-          <div class="infobox-icon">
+          <div class="easy-pie-chart percentage">
             <h1>{{ @$countsprofessionals }}</h1></p>
           </div>
           <div class="infobox-data">

@@ -22,7 +22,7 @@
         <div class="width-80 label label-info label-xlg arrowed-in arrowed-in-right">
           <div class="inline position-relative">
             <a href="#" class="user-title-label dropdown-toggle" data-toggle="dropdown">
-              <span class="white">{{ $neurological->medicalappointment->patient->person->name }}</span>
+              <span class="white">Paciente: {{ $neurological->medicalappointment->patient->person->name }}</span>
             </a>
           </div>
         </div>
@@ -32,7 +32,7 @@
 
       <div class="clearfix">
         <div class="grid2">
-          <a class="btn btn-warning" href="{{ URL::previous() }}"><i class="ace-icon fa fa-undo bigger-110"></i>Voltar</a>
+          <a class="btn btn-warning" href="{{ URL::to('medicalappointments') }}"><i class="ace-icon fa fa-undo bigger-110"></i>Voltar</a>
         </div>
 
         <div class="grid2">
