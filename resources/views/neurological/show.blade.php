@@ -51,7 +51,7 @@
           {{ method_field('DELETE') }}
           <button type="submit" class="btn btn-danger pull-right" >Excluir</button>
         {!! Form::close() !!}
-      <a class="btn btn-info pull-right" href="{{ URL::to('neurological/'. $neurological->medicalappointment->id .'/pdf') }}"><i class="ace-icon fa fa-file bigger-110"></i>Gerar PDF</a>
+      <a class="btn btn-info pull-right" target="_blank" href="{{ URL::to('neurological/'. $neurological->medicalappointment->id .'/pdf') }}"><i class="ace-icon fa fa-file bigger-110"></i>Gerar PDF</a>
       </div>
         <div class="space-12"></div>
 

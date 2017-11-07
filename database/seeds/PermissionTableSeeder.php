@@ -287,6 +287,11 @@ class PermissionTableSeeder extends Seeder
           'name' => 'typeprocedures-delete',
           'display_name' => 'Deletar tipo de procedimento',
           'description' => 'Delete Item'
+        ],
+        [
+          'name' => 'procedure-pdf',
+          'display_name' => 'Imprimir procedimento',
+          'description' => 'Imprime procedimento'
         ]
       ];
 

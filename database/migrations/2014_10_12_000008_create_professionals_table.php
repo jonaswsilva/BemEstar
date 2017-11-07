@@ -21,7 +21,7 @@ class CreateProfessionalsTable extends Migration
             $table->foreign('person_id')->references('id')->on('person')->onUpdate('cascade')->onDelete('cascade');
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
-            $table->bigInteger('crm');
+            $table->bigInteger('crm')->nullable();
             $table->integer('address_id')->unsigned();
             $table->foreign('address_id')->references('id')->on('addresses')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();

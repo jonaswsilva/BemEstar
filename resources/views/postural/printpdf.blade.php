@@ -29,7 +29,7 @@ tr:nth-child(even) {
       <th colspan="2">Dados da Consulta</th>
     </tr>
     <tr>
-      <td>Id</td>
+      <td>Cód.</td>
       <td>{{ $medicalappointment->id }}</td>
     </tr>
     <tr>
@@ -59,7 +59,7 @@ tr:nth-child(even) {
     <th colspan="2">Vista Posterior</th>
   </tr>
   <tr>
-    <td>Id</td>
+    <td>Cód</td>
     <td>{{ $postural->id }}</td>
   </tr>
   <tr>

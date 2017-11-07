@@ -43,8 +43,9 @@
 
 
         <div class="space-12"></div>
-
         <div class="profile-user-info profile-user-info-striped">
+          <a class="btn btn-info pull-right" target="_blank" href="{{ URL::to('procedures/'. $procedure->id .'/pdf') }}"><i class="ace-icon fa fa-file bigger-110"></i>Gerar PDF</a>
+
           <div class="profile-info-row">
             <div class="profile-info-name"> Cód.: </div>
 

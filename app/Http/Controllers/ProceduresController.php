@@ -11,6 +11,7 @@ use App\TypeProcedures;
 use DB;
 use View;
 use App\Patient;
+use PDF;
 
 class ProceduresController extends Controller
 {
@@ -64,6 +65,14 @@ class ProceduresController extends Controller
 
         return view('procedures.show')
                     ->with(compact('procedure'));
+    }
+
+    public function pdf($id){
+      // $procedure = DB::table('procedures')->where('id', $id)->get();
+      $procedure = Procedures::findOrFail($id);
+      //dd($procedure);
+      return $pdf = PDF::setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true])
+                            ->loadView('procedures.printpdf',compact('procedure'))->stream();
     }
 
 

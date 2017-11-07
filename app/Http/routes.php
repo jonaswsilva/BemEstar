@@ -63,6 +63,7 @@ Route::group(['middleware' => 'auth'], function(){
 
     Route::get('reports',['uses'=>'ReportsController@index','middleware' => ['permission:reports-list']]);
 
+    Route::get('procedures/{id}/pdf',['uses'=>'ProceduresController@pdf','middleware'=>['permission:procedure-pdf']]);
     //Route::resource('procedures',['uses'=>'ProceduresController','middleware' => ['permission:procedures']]);
     Route::get('procedures',['as'=>'procedures.index','uses'=>'ProceduresController@index','middleware' => ['permission:procedures-list|procedures-create|procedures-edit|procedures-delete']]);
   	Route::get('procedures/create',['as'=>'procedures.create','uses'=>'ProceduresController@create','middleware' => ['permission:procedures-create']]);
