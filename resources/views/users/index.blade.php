@@ -1,4 +1,4 @@
-
+<?php $nav_user = 'active'; ?>
 @extends('layout/layout')
 
 @section('content')
@@ -58,7 +58,9 @@
 
             <td>
               <div class="hidden-sm hidden-xs btn-group">
-
+                {!! Form::open(['url'=>'users/'.$user->id,'method'=>'post','class'=>'delete']) !!}
+                  {{ csrf_field() }}
+                  {{ method_field('DELETE') }}
                 <a class="btn btn-xs btn-success" href="{{ URL::to('users/'.$user->id) }}">
                   <i class="ace-icon fa fa-check bigger-120"></i>
                 </a>
@@ -67,11 +69,8 @@
                   <i class="ace-icon fa fa-pencil bigger-120"></i>
                 </a>
 
-
-                <a class="btn btn-xs btn-danger btn-delete" href="#">
-                  <i class="ace-icon fa fa-trash-o bigger-120"></i>
-                </a>
-
+                <button type="submit" class="btn btn-xs btn-danger" data-toggle="tooltip" data-placement="bottom" title="Excluir Consulta" ><i class="ace-icon fa fa-trash-o bigger-120"></i></button>
+              {!! Form::close() !!}
               </div>
 
 
@@ -116,10 +115,6 @@
           @endforeach
         </tbody>
       </table>
-      {{ Form::open(array('url' => 'users/' . @$user->id, 'id' => 'form-delete')) }}
-      {{ Form::hidden('_method', 'DELETE') }}
-
-      {{ Form::close() }}
     </div>
   </div>
 </div>
@@ -136,61 +131,29 @@
 jQuery(function($) {
 
 
-
-  $('.btn-delete').click(function(e){
-    e.preventDefault();
-    // confirmo que quiere borrar el cliente!
-    var deleteClient = confirm('Deseja mesmo excluir este usuário?');
-    if (deleteClient === true) {
-      var row = $(this).closest('tr');
-      //var id = row.attr('data-id');
-      // non funka!: var row = $(this).parents('tr');
-      var id = row.data('id');
-      var form = $('#form-delete');
-      var url = form.attr('action').replace(':USER_ID', id);
-      var data = form.serialize();
-      // enfoque optimista (antes de borrar oculto la fila
-      row.fadeOut(function () {
-        $.post(url, data, function (result) {
-          alert(result);
-        }).fail(function () {
-          //alert('Il Cliente non è stato cancellato!');
-          //row.show();
-        });
-      });
-    }
-    else {
-      return false;
-    }
-  })
-
-
-  /***************/
-  $('.show-details-btn').on('click', function(e) {
-    e.preventDefault();
-    $(this).closest('tr').next().toggleClass('open');
-    $(this).find(ace.vars['.icon']).toggleClass('fa-angle-double-down').toggleClass('fa-angle-double-up');
-  });
-  /***************/
-
   //initiate dataTables plugin
   var myTable =
   $('#dynamic-table')
   //.wrap("<div class='dataTables_borderWrap' />")   //if you are applying horizontal scrolling (sScrollX)
   .DataTable( {
-    "language": {
-      "lengthMenu": "Mostrar _MENU_ registros por página",
-      "zeroRecords": "Nothing found - sorry",
-      "info": "Mostrando pág. _PAGE_ de _PAGES_",
-      "infoEmpty": "Sem registros",
-      "infoFiltered": "(filtrado do total de _MAX_ registros)",
-      "search": "Buscar: ",
-
-      "snext":"Próximo",
-      "previous":"Anterior"
-    },
-    bAutoWidth: false,
-
+    select: 'single',
+		info: false,
+		"language": {
+					"lengthMenu": "Mostrar _MENU_ registros por página",
+					"info": "Mostrando pág. _PAGE_ de _PAGES_ ",
+					"sInfoEmpty": "Sem registros",
+					"infoFiltered": "(filtrado do total de _MAX_ registros)",
+					"search": "Buscar: ",
+					"sZeroRecords": "Não há pacientes cadastrados",
+					"sSelectInfo" : "_MAX_ linha selecionada",
+					"select": {
+						"rows": " - %d linha selecionada"
+					},
+					"snext":"Próximo",
+					"previous":"Anterior"
+				},
+		bAutoWidth: false,
+		responsive: true,
     "aoColumns": [
       null, null, null, null,
       { "bSortable": false }

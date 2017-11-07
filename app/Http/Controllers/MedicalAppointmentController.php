@@ -14,13 +14,14 @@ use View;
 use DB;
 use Carbon;
 use PDF;
+use Auth;
 
 class MedicalAppointmentController extends Controller
 {
 
   public function index(){
 
-    $medicalappointments = MedicalAppointment::all();
+    $medicalappointments = MedicalAppointment::where('professional_id', '=', Auth::user()->id)->get();;
     return view('medicalappointments.index')
     ->with(compact('medicalappointments'));
   }

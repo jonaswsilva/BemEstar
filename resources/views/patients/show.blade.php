@@ -129,7 +129,7 @@
             <div class="profile-info-name"> Telefone fixo: </div>
 
             <div class="profile-info-value">
-              <span class="editable phonefix" id="username">{{ $patient->landline }}</span>
+              <span class="editable phonefix" id="username">{{ $patient->person->landline }}</span>
             </div>
           </div>
 

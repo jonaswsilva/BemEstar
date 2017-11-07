@@ -156,9 +156,9 @@
 			</div>
 
 			<div class="form-group">
-				{!!  Form::label('form-field-1', 'CRM: ', ['class' => 'col-sm-3 control-label no-padding-right'])  !!}
+				{!!  Form::label('form-field-1', 'Nº de Registro: ', ['class' => 'col-sm-3 control-label no-padding-right'])  !!}
 				<div class="col-sm-9">
-					{!! Form::text('crm', @$professional->crm, ['class' => 'col-xs-10 col-sm-5', 'placeholder' => 'CRM...']) !!}
+					{!! Form::text('crm', @$professional->crm, ['class' => 'col-xs-10 col-sm-5']) !!}
 					@if($errors->any())
 					<div class="red darken-4">&nbsp &nbsp{!! $errors->first('crm') !!}</div>
 					@endif

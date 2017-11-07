@@ -164,38 +164,3 @@
 </div>
 
 @endsection
-
-@push('page-script')
-<script type="text/javascript">
-jQuery(function($) {
-
-  $('.btn-delete').click(function(e){
-    e.preventDefault();
-    // confirmo que quiere borrar el cliente!
-    var deleteClient = confirm('Deseja mesmo excluir esta consulta?');
-    if (deleteClient === true) {
-      var row = $(this).closest('tr');
-      //var id = row.attr('data-id');
-      // non funka!: var row = $(this).parents('tr');
-      var id = row.data('id');
-      var form = $('#form-delete');
-      var url = form.attr('action').replace(':USER_ID', id);
-      var data = form.serialize();
-
-      row.fadeOut(function () {
-        $.post(url, data, function (result) {
-          alert(result);
-        }).fail(function () {
-          alert('Il Cliente non è stato cancellato!');
-          row.show();
-        });
-      });
-    } else {
-      return false;
-    }
-  })
-
-})
-
-</script>
-@endpush

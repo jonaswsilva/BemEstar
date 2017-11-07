@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\State;
 
 class StatesTableSeeder extends Seeder
 {
@@ -11,8 +12,12 @@ class StatesTableSeeder extends Seeder
      */
     public function run()
     {
-      DB::table('states')->insert([
-          'name' => 'Paraná',
-          ]);
+      $states = [
+          ['name' => 'Paraná'],
+          ['name' => 'Santa Catarina'],
+          ];
+          foreach ($states as $key => $value) {
+            State::create($value);
+          }
     }
 }

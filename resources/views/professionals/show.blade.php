@@ -102,7 +102,7 @@
             <div class="profile-info-name"> Telefone fixo: </div>
 
             <div class="profile-info-value">
-              <span class="editable phonefix" id="username">{{ $professional->landline }}</span>
+              <span class="editable phonefix" id="username">{{ $professional->person->landline }}</span>
             </div>
           </div>
 

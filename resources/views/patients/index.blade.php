@@ -118,10 +118,6 @@
 									@endforeach
 								</tbody>
 							</table>
-							{{ Form::open(array('url' => 'patients/' . @$patient->id, 'id' => 'form-delete')) }}
-								{{ Form::hidden('_method', 'DELETE') }}
-
-							{{ Form::close() }}
 						</div>
 					</div>
 				</div>

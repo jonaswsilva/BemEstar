@@ -84,6 +84,7 @@
       </li>
       @endpermission
       <li class="{{ $menuc_open or '' }}">
+        @permission('secre-access')
         <a href="#" class="dropdown-toggle">
           <i class="menu-icon fa fa-pencil-square-o"></i>
           <span class="menu-text"> Consulta </span>
@@ -109,6 +110,8 @@
           </li>
         </ul>
       </li>
+      @endpermission
+      @permission('secre-access')
       <li class="{{ $nav_session or '' }}">
         <a href="{{ URL::to('medicalrecords') }}">
           <i class="menu-icon fa fa-file-o"></i>
@@ -116,7 +119,6 @@
         </a>
         <b class="arrow"></b>
       </li>
-      @permission('secre-access')
       <li class="{{ $nav_contr or '' }}">
         <a href="{{ URL::to('contract') }}">
           <i class="menu-icon fa fa-list-alt"></i>
@@ -126,6 +128,20 @@
       </li>
       @endpermission
       @permission('admin-access')
+      <li class="{{ $nav_user or '' }}">
+        <a href="{{ URL::to('users') }}">
+          <i class="menu-icon fa fa-user"></i>
+          <span class="menu-text"> Usuários </span>
+        </a>
+        <b class="arrow"></b>
+      </li>
+      <li class="{{ $nav_role or '' }}">
+        <a href="{{ URL::to('roles') }}">
+          <i class="menu-icon fa fa-key"></i>
+          <span class="menu-text"> Regras </span>
+        </a>
+        <b class="arrow"></b>
+      </li>
       <li class="{{ $nav_report or '' }}">
         <a href="{{ URL::to('reports') }}">
           <i class="menu-icon fa fa-list"></i>

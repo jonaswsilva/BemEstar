@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Especialitie;
 
 class EspecialitiesTableSeeder extends Seeder
 {
@@ -11,8 +12,15 @@ class EspecialitiesTableSeeder extends Seeder
      */
     public function run()
     {
-      DB::table('especialities')->insert([
-          'name' => 'Nutrição',
-      ]);
+      $especialities = [
+          ['name' => ' '],
+          ['name' => 'Fisioterapia'],
+          ['name' => 'Estética'],
+          ['name' => 'Psicologia'],
+          ['name' => 'Nutrição'],
+      ];
+      foreach ($especialities as $key => $value) {
+        Especialitie::create($value);
+      }
     }
 }

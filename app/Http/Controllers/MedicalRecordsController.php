@@ -11,11 +11,12 @@ use View;
 use App\Patient;
 use App\Session;
 use Redirect;
+use Auth;
 
 class MedicalRecordsController extends Controller{
 
     public function index(){
-        $medicalrecords = MedicalRecords::all();
+        $medicalrecords = MedicalRecords::where('professional_id', '=', Auth::user()->id)->get();
         $professionals = DB::table('professionals')
         ->join('person', 'professionals.person_id', '=', 'person.id')
         ->pluck('person.name','person.id');
@@ -147,7 +148,7 @@ class MedicalRecordsController extends Controller{
         return $this->show($medicalid);
       }
       flash('Código da sessão não encontrado!')->info();
-      return $this->index();
+      return redirect()->back();
     }
 
     public function autoComplete(Request $request){

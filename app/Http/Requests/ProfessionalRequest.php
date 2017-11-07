@@ -36,7 +36,6 @@ class ProfessionalRequest extends Request
             'street'        => 'required',
             'number'        => 'required',
             'neighborhood'  => 'required',
-            'crm'           => 'required',
             'password'      => 'required|min:5|confirmed',
 
 
@@ -60,7 +59,6 @@ class ProfessionalRequest extends Request
             'street.required'       => 'O campo rua é obrigatório.',
             'number.required'       => 'O campo N° é obrigatório.',
             'neighborhood.required' => 'O campo bairro é obrigatório.',
-            'crm.required'          => 'O campo crm é obrigatório.',
 
         ];
     }

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\TypeProcedures;
 
 class TypeProceduresTableSeeder extends Seeder
 {
@@ -11,8 +12,12 @@ class TypeProceduresTableSeeder extends Seeder
      */
     public function run()
     {
-      DB::table('type_procedures')->insert([
-          'name' => 'Massagem',
-          ]);
+      $type_procedure = [
+          ['name' => 'Massagem'],
+          ['name' => 'Depilação'],
+          ];
+          foreach ($type_procedure as $key => $value) {
+            TypeProcedures::create($value);
+          }
     }
 }
