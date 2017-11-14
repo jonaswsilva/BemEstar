@@ -166,8 +166,9 @@ class PatientController extends Controller
     {
 
       $patient = Patient::find($id);
+      $person = Person::where('id','=',$patient->person_id)->first();
       if ($patient != null) {
-        //dd($patient);
+        $person->delete();
         $patient->delete();
         flash('Paciente excluido com sucesso!')->success();
         return $this->index();
@@ -178,9 +179,6 @@ class PatientController extends Controller
 
     public function cities($id)
     {
-       //$id = 1;
-
-        // Return of cities for a selected state
         return City::whereStateId($id)->get();
 
     }

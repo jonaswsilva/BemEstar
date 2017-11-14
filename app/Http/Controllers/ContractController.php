@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Patient;
+use PDF;
+use DB;
 
 class ContractController extends Controller
 {
@@ -15,7 +18,10 @@ class ContractController extends Controller
      */
     public function index()
     {
-        return view('contract.index');
+      $patients = DB::table('patients')
+                    ->join('person', 'patients.person_id', '=', 'person.id')
+                    ->pluck('person.name','patients.id');
+        return view('contract.index')->with(compact('patients'));
     }
 
     /**
@@ -28,6 +34,15 @@ class ContractController extends Controller
         //
     }
 
+    public function find(Request $request){
+      return $this->pdf($request->input('patient_id'));
+    }
+
+    public function pdf($id){
+      $patient = Patient::find($id);
+      return $pdf = PDF::setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true])
+                            ->loadView('contract.printpdf',compact('patient'))->stream();
+    }
     /**
      * Store a newly created resource in storage.
      *

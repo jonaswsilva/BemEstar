@@ -49,12 +49,15 @@
         <div class="space-12"></div>
 
         <div class="profile-user-info profile-user-info-striped">
+          <a class="btn btn-success pull-right" target="_blank" href="{{ URL::to('contract/'. $patient->id .'/pdf') }}"><i class="ace-icon fa fa-file bigger-110"></i>Contrato</a>
+
           <div class="profile-info-row">
             <div class="profile-info-name"> Cod.: </div>
 
             <div class="profile-info-value">
               <span class="editable" id="username">{{ $patient->id }}</span>
             </div>
+
           </div>
 
           <div class="profile-info-row">

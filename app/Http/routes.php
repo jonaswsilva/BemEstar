@@ -30,6 +30,8 @@ Route::group(['middleware' => 'auth'], function(){
     return view('layout.layout');
   });
   Route::get('cities/{id}', 'PatientController@cities');
+  Route::get('contract/{id}/pdf',['uses'=>'ContractController@pdf','middleware'=>['permission:contract-pdf']]);
+  Route::post('contract/find',['uses'=>'ContractController@find','middleware'=>['permission:contract-find']]);
   //Route::resource('patients','PatientController');
   Route::get('patients',['as'=>'patients.index','uses'=>'PatientController@index','middleware' => ['permission:patients-list|patients-create|patients-edit|patients-delete']]);
   Route::get('patients/create',['as'=>'patients.create','uses'=>'PatientController@create','middleware' => ['permission:patients-create']]);

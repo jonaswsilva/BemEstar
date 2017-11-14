@@ -54,7 +54,7 @@ class ScheduleController extends Controller
       flash('Agendamento realizado com sucesso!')->success();
       return $this->all();
     }else{
-      flash('Já existe uma consulta nessa date e horário!')->error();
+      flash('Já existe uma consulta nessa data e horário!')->error();
       return redirect()->back()->withInput();
       //dd($schedule);
     }

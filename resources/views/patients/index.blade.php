@@ -187,8 +187,7 @@ jQuery(function($) {
 											'<br />'+
 											'<div class="width-80 label label-info label-xlg arrowed-in arrowed-in-right">'+
 												'<div class="inline position-relative">'+
-													'<a class="user-title-label" href="#">'+
-														'<i class="ace-icon fa fa-circle light-green"></i>'+
+													'<a class="user-title-label" href="{{ URL::to("patients/".@$patient->id) }}">'+
 														'&nbsp;'+
 														'<span class="white">{{ @$patient->person->name }}</span>'+
 													'</a>'+

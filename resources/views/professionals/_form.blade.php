@@ -146,7 +146,7 @@
 			</div>
 
 			<div class="form-group">
-				{!! Form::label('form-field-5', 'Especialidates:', ['class'=> 'col-sm-3 control-label no-padding-right']) !!}
+				{!! Form::label('form-field-5', 'Especialidades:', ['class'=> 'col-sm-3 control-label no-padding-right']) !!}
 				<div class="col-sm-9">
 						{!! Form::select('especialitie_id', $especialities, @$professional->especialities->especialitie_id ) !!}
 					@if($errors->any())

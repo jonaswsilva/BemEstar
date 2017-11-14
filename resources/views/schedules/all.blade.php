@@ -18,7 +18,7 @@
 						</div>
 						@include('flash::message')
 						<div class="table-header">
-							Resultado para Consultas
+							Resultado para Agendamentos
 						</div>
 
 						<!-- div.table-responsive -->

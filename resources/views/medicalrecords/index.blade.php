@@ -5,12 +5,12 @@
 
 <div class="row">
   <div class="col-xs-12">
-    <h2 class="header smaller lighter green">Sessões</h2>
+    <h2 class="header smaller lighter green">Sessões/Evoluçao</h2>
 
     <div class="pull-left">
-      <a class="btn btn-info" href="{{ URL::to('medicalrecords/create') }}"><i class="ace-icon fa fa-file-o"></i>Marcar Sessão</a>
+      <a class="btn btn-info" href="{{ URL::to('medicalrecords/create') }}"><i class="ace-icon fa fa-check"></i>Marcar Sessão</a>
       @permission('fisio-access')
-      <a class="btn btn-primary" href="{{ URL::to('medicalrecords/session/find') }}"><i class="ace-icon fa fa-file-o bigger-120"></i> Realizar Sessão</a>
+      <a class="btn btn-primary" href="{{ URL::to('medicalrecords/session/find') }}"><i class="ace-icon fa fa-file bigger-120"></i> Realizar Sessão</a>
       @endpermission
     </div>
 
@@ -23,7 +23,7 @@
     @endif
 
     <div class="table-header">
-      Resultado para Procedimentos
+      Resultado para Sessões
     </div>
 
     <!-- div.table-responsive -->

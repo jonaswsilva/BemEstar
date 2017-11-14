@@ -180,9 +180,13 @@ class ProfessionalController extends Controller
     {
       $professional = Professional::find($id);
       $user = User::find($id);
+      $person = Person::where('id','=',$professional->person_id)->first();
+      //dd($person);
       if ($professional != null) {
+        $person->delete();
         $professional->delete();
         $user->delete();
+
         flash('Profissional excluido com sucesso!')->success();
         return $this->index();
       }
